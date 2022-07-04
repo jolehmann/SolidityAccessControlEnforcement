@@ -40,7 +40,7 @@ To employ the metamodel and the generator, you can use the included Eclipse proj
 	3. Xtend & Xtend IDE
     4. SDQ Commons
 	
-	If a security warning is shown, just click "Install anyway". For completeness, you can view a list of all installed software packages as well as their version for a running eclipse configuration here ![Needed projects](/NeededInstalls.png).
+	If a security warning is shown, just click "Install anyway". For completeness, you can view a list of all installed software packages as well as their version for a running eclipse configuration here: ![Needed projects](/NeededInstalls.png)
 5. Restart Eclipse (you will be prompted to do so)
 6. If you close the welcoming screen, the "Model Explorer" View should be open. If not, you can open it under "Window" > "Show View" > "Model Explorer".
 7. Import the Projects from the "AccessControlGenerator" and "Metamodel" folder as follows: 
