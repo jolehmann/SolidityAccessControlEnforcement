@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated AccessControlMetamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.presentation.AccessControlSystemModelWizardID"
+            name="%_UI_AccessControlSystemModelWizard_label"
+            class="edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.presentation.AccessControlSystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AccessControlSystemModelFile.gif">
+         <description>%_UI_AccessControlSystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated AccessControlMetamodel -->
+      <editor
+            id="edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.presentation.AccessControlSystemEditorID"
+            name="%_UI_AccessControlSystemEditor_label"
+            icon="icons/full/obj16/AccessControlSystemModelFile.gif"
+            extensions="accesscontrolsystem"
+            class="edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.presentation.AccessControlSystemEditor"
+            contributorClass="edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.presentation.AccessControlSystemActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated AccessControlMetamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.presentation.SmartContractModelModelWizardID"
+            name="%_UI_SmartContractModelModelWizard_label"
+            class="edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.presentation.SmartContractModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SmartContractModelModelFile.gif">
+         <description>%_UI_SmartContractModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated AccessControlMetamodel -->
+      <editor
+            id="edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.presentation.SmartContractModelEditorID"
+            name="%_UI_SmartContractModelEditor_label"
+            icon="icons/full/obj16/SmartContractModelModelFile.gif"
+            extensions="smartcontractmodel"
+            class="edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.presentation.SmartContractModelEditor"
+            contributorClass="edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.presentation.SmartContractModelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

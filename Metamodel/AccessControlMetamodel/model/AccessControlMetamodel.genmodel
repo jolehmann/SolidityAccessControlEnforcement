@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/AccessControlMetamodel/src-gen" creationIcons="false"
+    editDirectory="/AccessControlMetamodel.edit/src-gen" editorDirectory="/AccessControlMetamodel.editor/src-gen"
+    modelPluginID="AccessControlMetamodel" modelName="AccessControlMetamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0"
+    copyrightFields="false" usedGenPackages="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier ../../edu.kit.kastel.sdq.soliditymetamodel/model/SolidityMetaModel.genmodel#//SolidityMetaModel"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>AccessControlMetamodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="AccessControlMetamodel" basePackage="edu.kit.kastel.sdq" disposableProviderFactory="true"
+      ecorePackage="AccessControlMetamodel.ecore#/">
+    <nestedGenPackages prefix="AccessControlSystem" disposableProviderFactory="true"
+        ecorePackage="AccessControlMetamodel.ecore#//AccessControlSystem">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits">
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/second"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/minute"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/hour"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/day"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/week"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//AccessControlSystem/TimeUnits/year"/>
+      </genEnums>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToFunctionRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToFunctionRelation/caller"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToFunctionRelation/callee"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/roleToVariableTuples"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/roles"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/roleToFunctionTuples"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/roleExclusions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/functionToVariableTuples"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/functionToFunctionTuples"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/AccessControlSystem/variableToVariableTuples"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/VariableToVariableRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/VariableToVariableRelation/influencer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/VariableToVariableRelation/influenced"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToVariableRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToVariableRelation/function"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToVariableRelation/conditions"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/RoleToFunctionRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/RoleToFunctionRelation/function"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/RoleToFunctionRelation/role"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/RoleToFunctionRelation/conditions"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/Role"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/Role/description"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/Role/cardinality"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/Role/prerequisite"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/Role/superior"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/RoleToVariableRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/RoleToVariableRelation/variable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/RoleToVariableRelation/role"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/RoleToVariableRelation/modifies"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/MutualRoleExclusion"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/MutualRoleExclusion/roles"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/Context"/>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/TimeContext">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/TimeContext/isUpperBound"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/TimeContext/timeValue"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/TimeContext/timeUnit"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/BooleanVariableContext">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/BooleanVariableContext/variable"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/BooleanVariableContext/valueToCheck"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToCsmRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToCsmRelation/accessWholeMapping"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToCsmRelation/csm"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToStateVariableRelation"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//AccessControlSystem/FunctionToStateVariableRelation/variable"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="SmartContractModel" disposableProviderFactory="true"
+        ecorePackage="AccessControlMetamodel.ecore#//SmartContractModel">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="AccessControlMetamodel.ecore#//SmartContractModel/BalanceModificationType">
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//SmartContractModel/BalanceModificationType/modifiesBothWays"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//SmartContractModel/BalanceModificationType/onlyIncrease"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//SmartContractModel/BalanceModificationType/onlyDecrease"/>
+        <genEnumLiterals ecoreEnumLiteral="AccessControlMetamodel.ecore#//SmartContractModel/BalanceModificationType/doesNotModify"/>
+      </genEnums>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//SmartContractModel/FunctionBalanceModification"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//SmartContractModel/FunctionBalanceModification/function"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//SmartContractModel/FunctionBalanceModification/modifiesMsgSenderBalance"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AccessControlMetamodel.ecore#//SmartContractModel/FunctionBalanceModification/modifiesThisContractsBalance"/>
+      </genClasses>
+      <genClasses ecoreClass="AccessControlMetamodel.ecore#//SmartContractModel/AccessControlContract"
+          labelFeature="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier/NamedElement/entityName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//SmartContractModel/AccessControlContract/functions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AccessControlMetamodel.ecore#//SmartContractModel/AccessControlContract/balanceModifications"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
