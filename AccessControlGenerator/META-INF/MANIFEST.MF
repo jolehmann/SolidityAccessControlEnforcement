@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AccessControlGenerator
+Bundle-SymbolicName: edu.kit.kastel.sdq.accesscontrolgenerator;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ edu.kit.ipd.sdq.mdsd.ecore2txt,
+ edu.kit.kastel.sdq.soliditymetamodel,
+ org.eclipse.core.runtime,
+ AccessControlMetamodel;bundle-version="0.1.0"
+Automatic-Module-Name: edu.kit.kastel.sdq.accesscontrolgenerator
+Bundle-RequiredExecutionEnvironment: JavaSE-15

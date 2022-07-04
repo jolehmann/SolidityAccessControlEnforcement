@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.kastel.sdq.accesscontrolgenerator.handlers.AccessControlGeneratorHandler"
+            id="edu.kit.kastel.sdq.accesscontrolgenerator.commands.generateCodeWithAccessControl"
+            name="Generate Smart Contract with Access Control">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <separator
+               name="edu.kit.kastel.sdq.accesscontrolgenerator.beforeseparator"
+               visible="true">
+         </separator>
+         <menu
+               id="edu.kit.kastel.sdq.accesscontrolgenerator.menus.acGenerator"
+               label="Access Control Generator"
+               mnemonic="M">
+            <command
+                  commandId="edu.kit.kastel.sdq.accesscontrolgenerator.commands.generateCodeWithAccessControl"
+                  icon="icons/generate.png"
+                  id="edu.kit.kastel.sdq.accesscontrolgenerator.menus.acGenerator"
+                  mnemonic="S"
+                  tooltip="Creates Solidity Code and its Access Control annotations from models ">
+               <visibleWhen
+                     checkEnabled="false">
+                  <with
+                        variable="activeMenuSelection">
+                     <iterate>
+                        <adapt
+                              type="org.eclipse.core.resources.IResource">
+                           <or>
+                              <test
+                                    property="org.eclipse.core.resources.name"
+                                    value="*.accesscontrolsystem">
+                              </test>
+                              <test
+                                    property="org.eclipse.core.resources.name"
+                                    value="*.smartcontractmodel">
+                              </test>
+                           </or>
+                        </adapt>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+         </menu>
+         <separator
+               name="edu.kit.kastel.sdq.accesscontrolgenerator.afterseparator"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+
+</plugin>
