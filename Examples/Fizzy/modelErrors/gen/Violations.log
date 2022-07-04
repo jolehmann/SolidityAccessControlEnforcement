@@ -1,0 +1,31 @@
+There are violations in the selected AccessControlSystem 'Fizzy' and SmartContracts 'Insurance' 'InsuranceManagement':
+1) Role 'Insurance Company' - Violation for OCL constraint 'CardinalityIsValid':
+The role cardinality needs to be -1 or bigger than 0
+2) Role 'Insurance Company' - Violation for OCL constraint 'NoRoleCanBePrerequisiteForItself':
+The prerequisites need to be different from the role itself
+3) Role 'Insurance Company' - Violation for OCL constraint 'NoRoleCanBeSuperiorToItself':
+The superior roles need to be different from the role itself
+4) Role 'Insurance Company' - Violation for OCL constraint 'NoRoleInPrerequisiteAndSuperiorSet':
+One role cannot be a prerequisite and a superior role
+5) MutualRoleExclusion 'Exclusion of Insurant and Company' - Violation for OCL constraint 'RolesCannotBeInHierarchyOrPrerequisite':
+The two mutually exclusive roles cannot be superiors or prerequisites to each other
+6) FunctionToStateVariableRelation 'Change the insured account' - Violation for OCL constraint 'VariableTypeNeedsToBeBoolean':
+The referenced variable needs to be a boolean variable
+7) FunctionToStateVariableRelation 'Checking for a delay indirectly closes the insurance' - Violation for OCL constraint 'ForbidTimeContextConditions':
+FunctionToVariable relations are not allowed to have time-based constraints
+8) Violation for OCL constraint 'BalanceModificationsReferenceDifferentFunctions':
+All balance modifications need to reference different functions
+9) Violation for OCL constraint 'BalanceModificationsRegardingThisContractNeedPayableFunction':
+A function that is allowed to increase the balance of this contract needs to be marked as 'payable'
+10) Violation for OCL constraint 'NoFunctionOverrides':
+The generator does not support the usage of function overrides
+11) Violation for OCL constraint 'NoMoreBalanceModificationsThanFunctions':
+There are more function balance modifications than functions
+12) OverrideFunction 'edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.OverrideFunctionImpl@33c3dc97' - Violation for OCL constraint 'BaseFunctionMustBeIncludedInBaseContract':
+No Message found.
+13) OverrideFunction 'edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.OverrideFunctionImpl@33c3dc97' - Violation for OCL constraint 'BaseAndOverridingFunctionMustHaveSameName':
+No Message found.
+14) OverrideFunction 'edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.impl.OverrideFunctionImpl@33c3dc97' - Violation for OCL constraint 'BaseAndOverridingFunctionMustHaveSameParameterNameAndTypes':
+No Message found.
+15) Violation for OCL constraint 'NoAdditionalLocalFunctions':
+Local functions defined not as 'Function' are not covered by the generator

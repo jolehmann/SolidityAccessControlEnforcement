@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_ZoFh4DvZEeyhY5Kw6xFs3g">
+  <roleToVariableTuples id="_rk9-MDvZEeyhY5Kw6xFs3g" entityName="First to One" role="_mf3soTvZEeyhY5Kw6xFs3g">
+    <variable href="BasicRA.smartcontractmodel#_jICOIzvZEeyhY5Kw6xFs3g"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_xiFc4DvZEeyhY5Kw6xFs3g" entityName="Second to Two" role="_qoCb4TvZEeyhY5Kw6xFs3g">
+    <variable href="BasicRA.smartcontractmodel#_lNamQzvZEeyhY5Kw6xFs3g"/>
+  </roleToVariableTuples>
+  <roles id="_mf3soTvZEeyhY5Kw6xFs3g" entityName="First Role"/>
+  <roles id="_qoCb4TvZEeyhY5Kw6xFs3g" entityName="Second Role"/>
+  <roleToFunctionTuples id="_5eG4QjvZEeyhY5Kw6xFs3g" entityName="First to A" role="_mf3soTvZEeyhY5Kw6xFs3g">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BasicRA.smartcontractmodel#_dop0UTvZEeyhY5Kw6xFs3g"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_713Z0jvZEeyhY5Kw6xFs3g" entityName="Second to B" role="_qoCb4TvZEeyhY5Kw6xFs3g">
+    <function xsi:type="soliditycontracts:LocalFunction" href="BasicRA.smartcontractmodel#_g2jTsDvZEeyhY5Kw6xFs3g"/>
+  </roleToFunctionTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_0CEGVTvZEeyhY5Kw6xFs3g" entityName="A to One">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BasicRA.smartcontractmodel#_dop0UTvZEeyhY5Kw6xFs3g"/>
+    <variable href="BasicRA.smartcontractmodel#_jICOIzvZEeyhY5Kw6xFs3g"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_2OoEhTvZEeyhY5Kw6xFs3g" entityName="B to Two">
+    <function xsi:type="soliditycontracts:LocalFunction" href="BasicRA.smartcontractmodel#_g2jTsDvZEeyhY5Kw6xFs3g"/>
+    <variable href="BasicRA.smartcontractmodel#_lNamQzvZEeyhY5Kw6xFs3g"/>
+  </functionToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

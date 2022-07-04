@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="IdentityManagement">
+  <variables id="_bWOvQFZzEey6UuOB5HDE_A" entityName="Root Owner Address" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+  <variables id="_JZpGgFZ2Eey6UuOB5HDE_A" entityName="Manages Developers" type="_KttbB1HXEey3ALCsnHxvxw"/>
+  <variables id="_broKI1HWEey3ALCsnHxvxw" entityName="Identities Array" type="_ZYV45FHWEey3ALCsnHxvxw"/>
+  <variables id="_3a1cI1HWEey3ALCsnHxvxw" entityName="Identities Map" visibility="private" type="_4YiahlHWEey3ALCsnHxvxw"/>
+  <constructor>
+    <parameters name="Manages Devs" type="_KttbB1HXEey3ALCsnHxvxw"/>
+  </constructor>
+  <events entityName="Owner Address Change">
+    <parameters type="_Yfp9Z1HWEey3ALCsnHxvxw" name="Old Owner Address"/>
+    <parameters type="_Yfp9Z1HWEey3ALCsnHxvxw" name="New Owner Address"/>
+  </events>
+  <events entityName="Contract Recovery Event">
+    <parameters type="_Yfp9Z1HWEey3ALCsnHxvxw" name="Root Owner Address"/>
+  </events>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_Yfp9Z1HWEey3ALCsnHxvxw" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_td5R51HWEey3ALCsnHxvxw" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_KttbB1HXEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:CustomArray" id="_ZYV45FHWEey3ALCsnHxvxw" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_xKOZuVHWEey3ALCsnHxvxw" type="string"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_82rZyVHWEey3ALCsnHxvxw" type="string" dataLocation="memory"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_4YiahlHWEey3ALCsnHxvxw" keyType="_Yfp9Z1HWEey3ALCsnHxvxw" valueType="_qXgvyFHWEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:Struct" id="_qXgvyFHWEey3ALCsnHxvxw" entityName="Developer Main Identity">
+    <members entityName="Array Index" type="_td5R51HWEey3ALCsnHxvxw"/>
+    <members entityName="Certificate Storage Id" type="_xKOZuVHWEey3ALCsnHxvxw"/>
+  </localTypes>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_-y514VHWEey3ALCsnHxvxw" entityName="Change Root Owner">
+    <returnVariables type="_KttbB1HXEey3ALCsnHxvxw"/>
+    <parameters id="_C1eTcFHXEey3ALCsnHxvxw" name="New Address" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+    <parameters id="_EXh8EFHXEey3ALCsnHxvxw" name="New Certificate Storage Id" type="_82rZyVHWEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_O6eWYVHXEey3ALCsnHxvxw" entityName="Reset Identity Set">
+    <returnVariables type="_KttbB1HXEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_SEdmIVHXEey3ALCsnHxvxw" entityName="Add Identity">
+    <returnVariables type="_KttbB1HXEey3ALCsnHxvxw"/>
+    <parameters id="_VDmQwFHXEey3ALCsnHxvxw" name="New Address" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_Ygq0klHXEey3ALCsnHxvxw" entityName="Remove Identity">
+    <returnVariables type="_KttbB1HXEey3ALCsnHxvxw"/>
+    <parameters id="_apPDkFHXEey3ALCsnHxvxw" name="Removed Address" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_hQOlslHXEey3ALCsnHxvxw" entityName="Change Certificate ID">
+    <returnVariables type="_KttbB1HXEey3ALCsnHxvxw"/>
+    <parameters id="_kOJvYFHXEey3ALCsnHxvxw" name="New Certificate Storage Id" type="_82rZyVHWEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_v30hMlHXEey3ALCsnHxvxw" entityName="Get Identity Certificate Id" mutability="view">
+    <returnVariables name="Idx" type="_td5R51HWEey3ALCsnHxvxw"/>
+    <returnVariables name="Certificate Id" type="_82rZyVHWEey3ALCsnHxvxw"/>
+    <parameters id="_yN7c8FHXEey3ALCsnHxvxw" name="To Check" type="_Yfp9Z1HWEey3ALCsnHxvxw"/>
+  </functions>
+</SmartContractModel:AccessControlContract>

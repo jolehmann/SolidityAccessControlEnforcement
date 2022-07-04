@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_3S2RQCsoEeyIWaEjE1vDpA" entityName="Voting">
+  <roleToVariableTuples id="_I49W4CsqEeyUdIM_ZRdITQ" entityName="ElectionWorkerToVotingClosed" role="_2RqEkSspEeyUdIM_ZRdITQ">
+    <variable href="Voting.smartcontractmodel#_9MNt0ysnEeySBeiv9xCjAw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_QcCGwCsqEeyUdIM_ZRdITQ" entityName="EligibleVoterToVotingResults" role="_yaeXoSspEeyUdIM_ZRdITQ">
+    <variable href="Voting.smartcontractmodel#_Pg_FsysoEeySBeiv9xCjAw"/>
+  </roleToVariableTuples>
+  <roles id="_yaeXoSspEeyUdIM_ZRdITQ" entityName="Eligible Voter"/>
+  <roles id="_0519ESspEeyUdIM_ZRdITQ" entityName="Voter" prerequisite="_yaeXoSspEeyUdIM_ZRdITQ"/>
+  <roles id="_2RqEkSspEeyUdIM_ZRdITQ" entityName="Election Worker" cardinality="5"/>
+  <roleToFunctionTuples id="_ScEr4isqEeyUdIM_ZRdITQ" entityName="EligibleVoterToCastVote" role="_yaeXoSspEeyUdIM_ZRdITQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Voting.smartcontractmodel#_bzNsUSsoEeySBeiv9xCjAw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_X_LIEisqEeyUdIM_ZRdITQ" entityName="ElectionWorkerToCloseVoting" role="_2RqEkSspEeyUdIM_ZRdITQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Voting.smartcontractmodel#_iqwy8SsoEeySBeiv9xCjAw"/>
+    <conditions xsi:type="AccessControlSystem:TimeContext" id="_povm0CsqEeyUdIM_ZRdITQ" isUpperBound="true" timeValue="7" timeUnit="day"/>
+  </roleToFunctionTuples>
+  <roleExclusions id="_4UjJYyspEeyUdIM_ZRdITQ" entityName="ElectionWorkerIsNoEligibleVoter" roles="_2RqEkSspEeyUdIM_ZRdITQ _yaeXoSspEeyUdIM_ZRdITQ"/>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_b7nIdSsqEeyUdIM_ZRdITQ" entityName="CastVoteToVotingResults">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Voting.smartcontractmodel#_bzNsUSsoEeySBeiv9xCjAw"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_hGcOkSsqEeyUdIM_ZRdITQ">
+      <variable href="Voting.smartcontractmodel#_9MNt0ysnEeySBeiv9xCjAw"/>
+    </conditions>
+    <variable href="Voting.smartcontractmodel#_Pg_FsysoEeySBeiv9xCjAw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_lMF1VSsqEeyUdIM_ZRdITQ" entityName="CloseVotingToVotingClosed">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Voting.smartcontractmodel#_iqwy8SsoEeySBeiv9xCjAw"/>
+    <variable href="Voting.smartcontractmodel#_9MNt0ysnEeySBeiv9xCjAw"/>
+  </functionToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

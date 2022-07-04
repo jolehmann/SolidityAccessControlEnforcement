@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="Banking">
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_wj-MMSstEey5PsVI5ec_dw" entityName="Deposit" mutability="payable" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_0csKMSstEey5PsVI5ec_dw" entityName="Withdraw" visibility="external">
+    <parameters id="_Rc_SUDshEey82eFHpWcjJQ" name="Amount" type="_swQzZ0hgEeyseLDF11o3gg"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_3l7zESstEey5PsVI5ec_dw" entityName="PayoutAll" visibility="external"/>
+  <balanceModifications id="_8BkQ4ystEey5PsVI5ec_dw" entityName="DepositBalanceModifications" function="_wj-MMSstEey5PsVI5ec_dw" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyIncrease"/>
+  <balanceModifications id="_B-DdcisuEey5PsVI5ec_dw" entityName="WithdrawBalanceModifications" function="_0csKMSstEey5PsVI5ec_dw" modifiesMsgSenderBalance="onlyIncrease" modifiesThisContractsBalance="onlyDecrease"/>
+  <balanceModifications id="_Fw6EAisuEey5PsVI5ec_dw" entityName="PayoutAllBalanceModifications" function="_3l7zESstEey5PsVI5ec_dw" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyDecrease"/>
+  <variables id="_rO2hoystEey5PsVI5ec_dw" entityName="Balances" visibility="private" type="_G1OTti8_Eey9UN33Oo8nKw"/>
+  <variables id="_f0jtkU-VEeyE_pDb-zytHQ" entityName="Is Open" visibility="private" type="_h_ZNd0-VEeyE_pDb-zytHQ"/>
+  <variables id="_nRuCs0-VEeyE_pDb-zytHQ" entityName="Account Counter" visibility="private" type="_swQzZ0hgEeyseLDF11o3gg"/>
+  <variables id="_uukOw0-VEeyE_pDb-zytHQ" entityName="Accounts" visibility="private" type="_wCswJk-VEeyE_pDb-zytHQ"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_ibVdmCstEey5PsVI5ec_dw" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_swQzZ0hgEeyseLDF11o3gg" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_h_ZNd0-VEeyE_pDb-zytHQ"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_xa1nx0-VEeyE_pDb-zytHQ" type="address_payable"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_G1OTti8_Eey9UN33Oo8nKw" keyType="_ibVdmCstEey5PsVI5ec_dw" valueType="_swQzZ0hgEeyseLDF11o3gg"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_wCswJk-VEeyE_pDb-zytHQ" keyType="_swQzZ0hgEeyseLDF11o3gg" valueType="_xa1nx0-VEeyE_pDb-zytHQ"/>
+</SmartContractModel:AccessControlContract>

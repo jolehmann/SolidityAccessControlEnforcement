@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_VcPfkDy1Eey3f7j5yoH_2g">
+  <roleToVariableTuples id="_LTxogDy6EeyZLZSs7jJ6FA" role="_2Qkb0Dy2EeyrUJz652bD5Q">
+    <variable href="TransClosure.smartcontractmodel#_aFMLMzy2Eeyxzog12lK3XQ"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_NavVADy6EeyZLZSs7jJ6FA" role="_2Qkb0Dy2EeyrUJz652bD5Q" modifies="false">
+    <variable href="TransClosure.smartcontractmodel#_eIyjgzy2Eeyxzog12lK3XQ"/>
+  </roleToVariableTuples>
+  <roles id="_2Qkb0Dy2EeyrUJz652bD5Q" entityName="Test"/>
+  <roleToFunctionTuples id="_73BuAjy2EeyrUJz652bD5Q" entityName="Test may access first function" role="_2Qkb0Dy2EeyrUJz652bD5Q">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="TransClosure.smartcontractmodel#_aeUSUTy1Eey3f7j5yoH_2g"/>
+  </roleToFunctionTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_3hWuRTy2EeyrUJz652bD5Q" entityName="Third Func to First Var">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="TransClosure.smartcontractmodel#_aeUSUTy1Eey3f7j5yoH_2g"/>
+    <variable href="TransClosure.smartcontractmodel#_aFMLMzy2Eeyxzog12lK3XQ"/>
+  </functionToVariableTuples>
+  <variableToVariableTuples id="_hAkB5zy2Eeyxzog12lK3XQ" entityName="First to Second">
+    <influencer href="TransClosure.smartcontractmodel#_aFMLMzy2Eeyxzog12lK3XQ"/>
+    <influenced href="TransClosure.smartcontractmodel#_eIyjgzy2Eeyxzog12lK3XQ"/>
+  </variableToVariableTuples>
+  <variableToVariableTuples id="_iurJhzy2Eeyxzog12lK3XQ" entityName="Second to Third">
+    <influencer href="TransClosure.smartcontractmodel#_eIyjgzy2Eeyxzog12lK3XQ"/>
+    <influenced href="TransClosure.smartcontractmodel#_fvCvozy2Eeyxzog12lK3XQ"/>
+  </variableToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

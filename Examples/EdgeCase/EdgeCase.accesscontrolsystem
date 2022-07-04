@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_Fy_w4Cs9EeyOxbte1tTmVQ" entityName="EdgeCase">
+  <roleToVariableTuples id="_IFbtkCs9EeyOxbte1tTmVQ" entityName="AToX" role="_KwQ8ISs9EeyOxbte1tTmVQ">
+    <variable href="EdgeCase.smartcontractmodel#_0XHv4ys8EeyOxbte1tTmVQ"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_OYC7ICs9EeyOxbte1tTmVQ" entityName="BToY" role="_L3V48Ss9EeyOxbte1tTmVQ">
+    <variable href="EdgeCase.smartcontractmodel#_5dvrcys8EeyOxbte1tTmVQ"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_Qd4mQCs9EeyOxbte1tTmVQ" entityName="BToZ" role="_L3V48Ss9EeyOxbte1tTmVQ">
+    <variable href="EdgeCase.smartcontractmodel#_8K5OMys8EeyOxbte1tTmVQ"/>
+  </roleToVariableTuples>
+  <roles id="_KwQ8ISs9EeyOxbte1tTmVQ" entityName="A"/>
+  <roles id="_L3V48Ss9EeyOxbte1tTmVQ" entityName="B"/>
+  <roleToFunctionTuples id="_sYLt8is9EeyOxbte1tTmVQ" entityName="AToF" role="_KwQ8ISs9EeyOxbte1tTmVQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_--61ASs8EeyOxbte1tTmVQ"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_xZbaQis9EeyOxbte1tTmVQ" entityName="BToG" role="_L3V48Ss9EeyOxbte1tTmVQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_BiLb8Ss9EeyOxbte1tTmVQ"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_0v9RMis9EeyOxbte1tTmVQ" entityName="BToH" role="_L3V48Ss9EeyOxbte1tTmVQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_CXJVESs9EeyOxbte1tTmVQ"/>
+  </roleToFunctionTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_WaHUJSs9EeyOxbte1tTmVQ" entityName="FToX">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_--61ASs8EeyOxbte1tTmVQ"/>
+    <variable href="EdgeCase.smartcontractmodel#_0XHv4ys8EeyOxbte1tTmVQ"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_YxQxtSs9EeyOxbte1tTmVQ" entityName="GToY">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_BiLb8Ss9EeyOxbte1tTmVQ"/>
+    <variable href="EdgeCase.smartcontractmodel#_5dvrcys8EeyOxbte1tTmVQ"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_cXbnJSs9EeyOxbte1tTmVQ" entityName="HToZ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="EdgeCase.smartcontractmodel#_CXJVESs9EeyOxbte1tTmVQ"/>
+    <variable href="EdgeCase.smartcontractmodel#_8K5OMys8EeyOxbte1tTmVQ"/>
+  </functionToVariableTuples>
+  <variableToVariableTuples id="_SD9MNys9EeyOxbte1tTmVQ" entityName="XInflY">
+    <influencer href="EdgeCase.smartcontractmodel#_0XHv4ys8EeyOxbte1tTmVQ"/>
+    <influenced href="EdgeCase.smartcontractmodel#_5dvrcys8EeyOxbte1tTmVQ"/>
+  </variableToVariableTuples>
+  <variableToVariableTuples id="_UASWBys9EeyOxbte1tTmVQ" entityName="XInflZ">
+    <influencer href="EdgeCase.smartcontractmodel#_0XHv4ys8EeyOxbte1tTmVQ"/>
+    <influenced href="EdgeCase.smartcontractmodel#_8K5OMys8EeyOxbte1tTmVQ"/>
+  </variableToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="BasicRoleAssignment">
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_dop0UTvZEeyhY5Kw6xFs3g" entityName="Function A" visibility="external"/>
+  <functions xsi:type="soliditycontracts:LocalFunction" id="_g2jTsDvZEeyhY5Kw6xFs3g" entityName="Function B" visibility="private"/>
+  <variables id="_jICOIzvZEeyhY5Kw6xFs3g" entityName="Variable One" type="_iGOy5zvZEeyhY5Kw6xFs3g"/>
+  <variables id="_lNamQzvZEeyhY5Kw6xFs3g" entityName="Variable Two" type="_iGOy5zvZEeyhY5Kw6xFs3g"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_iGOy5zvZEeyhY5Kw6xFs3g" type="int"/>
+</SmartContractModel:AccessControlContract>

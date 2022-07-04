@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_MdXQMFHWEey3ALCsnHxvxw" entityName="Palinodia">
+  <roleToVariableTuples id="_fPxMoFZzEey6UuOB5HDE_A" entityName="Only the root owner can change the root owner (Software)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_c3kmMFZzEey6UuOB5HDE_A"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_hB0AIFHgEey3VNuPoyS5IQ" entityName="Only a developer can change the name of the software" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_YUYaI1HZEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_LsEq4FZwEey6UuOB5HDE_A" entityName="Root owner can change the developer identity management" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_fvmgEFZvEey6UuOB5HDE_A"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_nnALcFHgEey3VNuPoyS5IQ" entityName="The platform can modify the platforms store" role="_wAq3AVHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_0NvSYFH0Eey80aSNnkCxuQ" entityName="Maintainer in BHS = Platform in Software" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_wgHhMFHgEey3VNuPoyS5IQ" entityName="Any developer can modify the platforms store" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_UB_M8FZwEey6UuOB5HDE_A" entityName="Any developer can add a new BHS" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <variable href="Software.smartcontractmodel#_pZ7QUFZvEey6UuOB5HDE_A"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_ovAuQFZzEey6UuOB5HDE_A" entityName="Only the root owner can change the root owner (IdentityManagement)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="IdentityManagement.smartcontractmodel#_bWOvQFZzEey6UuOB5HDE_A"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_0coHIFHtEeyEXbRzwT8a3A" entityName="Root owner can add new identites (array)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_q2fTUFHtEeyEXbRzwT8a3A" entityName="Registered identities can add new identites (array)" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_-0_CEFHtEeyEXbRzwT8a3A" entityName="Root owner can add new identites (mapping)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_BE7rcFHuEeyEXbRzwT8a3A" entityName="Registered identities can add new identites (mapping)" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <variable href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_lffeQFZzEey6UuOB5HDE_A" entityName="Only the root owner can change the root owner (BHS)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_WHD7sFZzEey6UuOB5HDE_A"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_9NEFMFHxEey80aSNnkCxuQ" entityName="Maintainer can modify the platform id" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_jrqJg1HbEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_Bbf0gFHyEey80aSNnkCxuQ" entityName="Maintainer can modify the publish counter" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_o6pW41HbEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_J0xMkFHyEey80aSNnkCxuQ" entityName="Maintainer can modify the hash store" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_rS0vM1HbEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_CPotAFZtEeyHM_sqmZVZ2Q" entityName="Root owner can change the maintainer identity management" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_8jEdsFZqEeyebuumrh1VZw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_ATCFsFH0Eey80aSNnkCxuQ" entityName="IinitializeStatus is PUBLIC (Registered Identity)" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <variable href="BinaryHashStorage.smartcontractmodel#_l_sos1HbEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_oWxmsFZuEey6UuOB5HDE_A" entityName="IinitializeStatus is PUBLIC (Root Owner)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_l_sos1HbEey3ALCsnHxvxw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_3zGAMFZtEeyHM_sqmZVZ2Q" entityName="SoftwareContract is PUBLIC (Registered Identity)" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <variable href="BinaryHashStorage.smartcontractmodel#_AIg6YFZrEeyebuumrh1VZw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_rzhaYFZuEey6UuOB5HDE_A" entityName="SoftwareContract is PUBLIC (Root Owner)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <variable href="BinaryHashStorage.smartcontractmodel#_AIg6YFZrEeyebuumrh1VZw"/>
+  </roleToVariableTuples>
+  <roles id="_TmWygFHeEey3VNuPoyS5IQ" entityName="Root Owner" description="Owner address of the contract. Used for contract recovery" cardinality="1"/>
+  <roles id="_Yj_W4VHuEeyEXbRzwT8a3A" entityName="Registered Identity" description="All entities handled by the IdentityManagement. Superclass for developer and maintainer"/>
+  <roles id="_ZY5_8VHeEey3VNuPoyS5IQ" entityName="Developer" description="Writes and updates the source code for a given software, establishes and manages the Root Software Identitity and is allowed to delegate the creation of binaries" superior="_Yj_W4VHuEeyEXbRzwT8a3A"/>
+  <roles id="_oNhq0VHeEey3VNuPoyS5IQ" entityName="Maintainer" description="Builds executable binaries from source code, computes their hashes, and distributes both via their respective pathways" superior="_Yj_W4VHuEeyEXbRzwT8a3A"/>
+  <roles id="_wAq3AVHeEey3VNuPoyS5IQ" entityName="Platform" description="SDP where the software is located"/>
+  <roleToFunctionTuples id="_zWX8olHgEey3VNuPoyS5IQ" entityName="Only the root owner can change the root owner (Software)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_ilYI0VHZEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_4ik7xFHgEey3VNuPoyS5IQ" entityName="Only the root owner can set the developer" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_o46jcVHZEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_-IYGpFHgEey3VNuPoyS5IQ" entityName="Only a developer can change the name of the software" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_v6XM8lHZEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_BscDRFHhEey3VNuPoyS5IQ" entityName="Only developers can register Binary Hash Storage Contracts" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_4zHWUlHZEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_E8h7BFHhEey3VNuPoyS5IQ" entityName="Only developers can delete Binary Hash Storage Contracts" role="_ZY5_8VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_-g4KYlHZEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_IwJ9pFHhEey3VNuPoyS5IQ" entityName="Only the plaform can change its name" role="_wAq3AVHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_DTvcclHaEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_IREiBFHuEeyEXbRzwT8a3A" entityName="Only the root owner can change the root owner (IdentityManagement)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_-y514VHWEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_PKLH1FHuEeyEXbRzwT8a3A" entityName="Only the root owner can reset the identity set" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_O6eWYVHXEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_VWmN1FHuEeyEXbRzwT8a3A" entityName="Only registered identities can add new identities" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_SEdmIVHXEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_nNFuRFHuEeyEXbRzwT8a3A" entityName="Only registered identities can remove registered identities" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_Ygq0klHXEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_qMuvNFHuEeyEXbRzwT8a3A" entityName="Any registered identity can change its certificate id" role="_Yj_W4VHuEeyEXbRzwT8a3A">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_hQOlslHXEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_OFvShFHyEey80aSNnkCxuQ" entityName="Only the root owner can change the root owner (BHS)" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_uLb7EVHbEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_rxsTIlH0Eey80aSNnkCxuQ" entityName="Maintainer in BHS = Platform in Software" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_DTvcclHaEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_TJv-9FHyEey80aSNnkCxuQ" entityName="Only the root owner can set the maintainer" role="_TmWygFHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_1ocfMlHbEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_W0OspFHyEey80aSNnkCxuQ" entityName="Only the maintainer can set the SDPs id" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_7liIsVHbEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_amA8NFHyEey80aSNnkCxuQ" entityName="Only the maintainer is allowed to publish a hash" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_Bsop0lHcEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_daVd9FHyEey80aSNnkCxuQ" entityName="Only the maintainer is allowed to revoke a published hash" role="_oNhq0VHeEey3VNuPoyS5IQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_IGZBMlHcEey3ALCsnHxvxw"/>
+  </roleToFunctionTuples>
+  <roleExclusions id="_rp_Ko1HeEey3VNuPoyS5IQ" entityName="Developer is no maintainer" roles="_ZY5_8VHeEey3VNuPoyS5IQ _oNhq0VHeEey3VNuPoyS5IQ"/>
+  <roleExclusions id="_Sywgc1HgEey3VNuPoyS5IQ" entityName="Root Owner is no developer" roles="_ZY5_8VHeEey3VNuPoyS5IQ _TmWygFHeEey3VNuPoyS5IQ"/>
+  <roleExclusions id="_VVBB01HgEey3VNuPoyS5IQ" entityName="Root Owner is no maintainer" roles="_oNhq0VHeEey3VNuPoyS5IQ _TmWygFHeEey3VNuPoyS5IQ"/>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_0F1cl1ZzEey6UuOB5HDE_A" entityName="Changing the root owner address (Software)">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_ilYI0VHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_c3kmMFZzEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_dmCWF1ZwEey6UuOB5HDE_A" entityName="Changing the developer identity management">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_o46jcVHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_fvmgEFZvEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_qVjl9VHsEeyEXbRzwT8a3A" entityName="Changing the software name">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_v6XM8lHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_YUYaI1HZEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_yreIB1HsEeyEXbRzwT8a3A" entityName="Registering a new BHS modifies the platform store">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_4zHWUlHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_lG8ix1ZwEey6UuOB5HDE_A" entityName="Registering a new BHS modifies the BHS array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_4zHWUlHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_pZ7QUFZvEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_A80Gt1HtEeyEXbRzwT8a3A" entityName="Deregistering a new BHS modifies the platform store">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_-g4KYlHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_pVu3Z1ZwEey6UuOB5HDE_A" entityName="Deregistering a new BHS modifies the BHS array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_-g4KYlHZEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_pZ7QUFZvEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_HB_8RVHtEeyEXbRzwT8a3A" entityName="Updating the SDP Id changes the platform store">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_DTvcclHaEey3ALCsnHxvxw"/>
+    <variable href="Software.smartcontractmodel#_cB4mo1HZEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_8ILiZ1ZzEey6UuOB5HDE_A" entityName="Changing the root owner address (IdentityManagement)">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_-y514VHWEey3ALCsnHxvxw"/>
+    <variable href="IdentityManagement.smartcontractmodel#_bWOvQFZzEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_SpUSx1HvEeyEXbRzwT8a3A" entityName="Set the root owner as first element of identities array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_-y514VHWEey3ALCsnHxvxw"/>
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_ABqltlHwEeyEXbRzwT8a3A" entityName="Add the root owner to identities mapping" accessWholeMapping="true">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_-y514VHWEey3ALCsnHxvxw"/>
+    <csm href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_aWwfl1HvEeyEXbRzwT8a3A" entityName="Reset identities array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_O6eWYVHXEey3ALCsnHxvxw"/>
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_fS8Ft1HvEeyEXbRzwT8a3A" entityName="Add a new identity (array)">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_SEdmIVHXEey3ALCsnHxvxw"/>
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_GYtARlHwEeyEXbRzwT8a3A" entityName="Add a new identity (mapping)" accessWholeMapping="true">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_SEdmIVHXEey3ALCsnHxvxw"/>
+    <csm href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_oNzH51HvEeyEXbRzwT8a3A" entityName="Remove an identity (array)">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_Ygq0klHXEey3ALCsnHxvxw"/>
+    <variable href="IdentityManagement.smartcontractmodel#_broKI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_JzHRplHwEeyEXbRzwT8a3A" entityName="Remove an identity (mapping)" accessWholeMapping="true">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_Ygq0klHXEey3ALCsnHxvxw"/>
+    <csm href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_NeFullHwEeyEXbRzwT8a3A" entityName="Change certificate Id in mapping">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="IdentityManagement.smartcontractmodel#_hQOlslHXEey3ALCsnHxvxw"/>
+    <csm href="IdentityManagement.smartcontractmodel#_3a1cI1HWEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_GEW3p1Z0Eey6UuOB5HDE_A" entityName="Changing the root owner address (BHS)">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_uLb7EVHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_WHD7sFZzEey6UuOB5HDE_A"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_KLlP51ZtEeyHM_sqmZVZ2Q" entityName="Setting the maintainer changes the identity management">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_1ocfMlHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_8jEdsFZqEeyebuumrh1VZw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_xXcFl1HyEey80aSNnkCxuQ" entityName="Initialization of software contract done">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_5Snq4lHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_l_sos1HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_RI3yJ1ZtEeyHM_sqmZVZ2Q" entityName="Initialize software contract">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_5Snq4lHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_AIg6YFZrEeyebuumrh1VZw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_NXJ4x1HzEey80aSNnkCxuQ" entityName="Storing the SDP ID in the contract' state">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_7liIsVHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_jrqJg1HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_P8sXp1HzEey80aSNnkCxuQ" entityName="Initialization with platformID">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_7liIsVHbEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_l_sos1HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_d-ISF1HzEey80aSNnkCxuQ" entityName="Publish hash adds new hash to store">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_Bsop0lHcEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_rS0vM1HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_wsBUl1HzEey80aSNnkCxuQ" entityName="Publishing a hash increases the counter">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_Bsop0lHcEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_o6pW41HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_kZADx1HzEey80aSNnkCxuQ" entityName="Revoke hash removes hash from store">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_IGZBMlHcEey3ALCsnHxvxw"/>
+    <variable href="BinaryHashStorage.smartcontractmodel#_rS0vM1HbEey3ALCsnHxvxw"/>
+  </functionToVariableTuples>
+  <functionToFunctionTuples id="_x68dRlHcEey3ALCsnHxvxw" entityName="Registering a new BHS sets the software contract">
+    <caller xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_4zHWUlHZEey3ALCsnHxvxw"/>
+    <callee xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_5Snq4lHbEey3ALCsnHxvxw"/>
+  </functionToFunctionTuples>
+  <functionToFunctionTuples id="_pdiMFlHcEey3ALCsnHxvxw" entityName="Call to change the registered platformID name in the software contract">
+    <caller xsi:type="soliditycontracts:GlobalFunction" href="BinaryHashStorage.smartcontractmodel#_7liIsVHbEey3ALCsnHxvxw"/>
+    <callee xsi:type="soliditycontracts:GlobalFunction" href="Software.smartcontractmodel#_DTvcclHaEey3ALCsnHxvxw"/>
+  </functionToFunctionTuples>
+</AccessControlSystem:AccessControlSystem>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="Insurance">
+  <variables id="_biqws00bEeyhYJKNTmsQ-g" entityName="Database Location" visibility="private" type="_mOYWN0z_Eey32bn0SdndAA"/>
+  <variables id="_kSsso0z_Eey32bn0SdndAA" entityName="Insurant" visibility="private" type="_mOYWN0z_Eey32bn0SdndAA"/>
+  <variables id="_MjPYQ00AEey32bn0SdndAA" entityName="Insured Flight" visibility="private" type="_KqLk6U0AEey32bn0SdndAA"/>
+  <variables id="_rw3HU0z_Eey32bn0SdndAA" entityName="Insurance Amount" visibility="private" type="_qiJ4h0z_Eey32bn0SdndAA"/>
+  <variables id="_oYak00z_Eey32bn0SdndAA" entityName="Insurance Closed" type="_p1KPp0z_Eey32bn0SdndAA"/>
+  <constructor>
+    <parameters name="To Insure" type="_mOYWN0z_Eey32bn0SdndAA"/>
+    <parameters name="Flight" type="_cGhi5lT2Eeys4N_ExRAEQw"/>
+    <parameters name="Amount" type="_qiJ4h0z_Eey32bn0SdndAA"/>
+  </constructor>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_mOYWN0z_Eey32bn0SdndAA" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_p1KPp0z_Eey32bn0SdndAA"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_qiJ4h0z_Eey32bn0SdndAA" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_KqLk6U0AEey32bn0SdndAA" type="string"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_cGhi5lT2Eeys4N_ExRAEQw" type="string" dataLocation="memory"/>
+  <overrideFunctions id="_QIzWoGMuEeyYyIYx-CcjwA" base="_eSPmEUz_Eey32bn0SdndAA" overriding="_hYF8sUz_Eey32bn0SdndAA" baseContracts="/"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_b4A_UUz_Eey32bn0SdndAA" entityName="Cancel Insurance" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_eSPmEUz_Eey32bn0SdndAA" entityName="Change Account" visibility="external">
+    <parameters id="_PtwsIE0DEey32bn0SdndAA" name="New Insurant" type="_mOYWN0z_Eey32bn0SdndAA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_hYF8sUz_Eey32bn0SdndAA" entityName="Check For Delay"/>
+  <functions xsi:type="soliditycontracts:LocalFunction" id="_Zlb4sEz_Eey32bn0SdndAA" entityName="Payout"/>
+  <balanceModifications id="_e3ytsk0AEey32bn0SdndAA" entityName="Payout sends money to insurant" function="_Zlb4sEz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyDecrease"/>
+  <balanceModifications id="_BYypjWMvEeyYyIYx-CcjwA" entityName="Payout receives money" function="_Zlb4sEz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyIncrease"/>
+  <balanceModifications id="_dU7kTWMvEeyYyIYx-CcjwA" entityName="Check Delay" function="_hYF8sUz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="doesNotModify"/>
+  <balanceModifications id="_MAWeHWMvEeyYyIYx-CcjwA" entityName="Change account" function="_eSPmEUz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="doesNotModify"/>
+  <balanceModifications id="_RMfy3WMvEeyYyIYx-CcjwA" entityName="Cancel insurance" function="_b4A_UUz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="doesNotModify"/>
+</SmartContractModel:AccessControlContract>

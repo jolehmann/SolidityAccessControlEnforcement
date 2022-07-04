@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="Casino">
+  <variables id="_2uJdoMSHEey4wOuHdp7mgA" entityName="Pot" type="_gMXSxMSHEey4wOuHdp7mgA"/>
+  <variables id="_32dJgMSHEey4wOuHdp7mgA" entityName="Hashed Number" type="_jisVZMSHEey4wOuHdp7mgA"/>
+  <variables id="_70Rp8MSHEey4wOuHdp7mgA" entityName="Guess" visibility="internal" type="_mtIREsSHEey4wOuHdp7mgA"/>
+  <variables id="_84qfIMSHEey4wOuHdp7mgA" entityName="Bet" visibility="internal" type="_gMXSxMSHEey4wOuHdp7mgA"/>
+  <variables id="_-CpmAMSHEey4wOuHdp7mgA" entityName="State" visibility="private" type="_qV-AAsSHEey4wOuHdp7mgA"/>
+  <constructor/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_gMXSxMSHEey4wOuHdp7mgA" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_iUfc5MSHEey4wOuHdp7mgA" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_jisVZMSHEey4wOuHdp7mgA" type="bytes32"/>
+  <localTypes xsi:type="soliditycontracts:Enum" id="_mtIREsSHEey4wOuHdp7mgA" entityName="Coin">
+    <members value="HEADS"/>
+    <members value="TAILS"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:Enum" id="_qV-AAsSHEey4wOuHdp7mgA" entityName="State">
+    <members value="IDLE"/>
+    <members value="GAME_AVAILABLE"/>
+    <members value="BET_PLACED"/>
+  </localTypes>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_D7oyrMSIEey4wOuHdp7mgA" entityName="Add To Pot" mutability="payable"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_HB8cTcSIEey4wOuHdp7mgA" entityName="Remove From Pot">
+    <parameters id="_KpvpYMSIEey4wOuHdp7mgA" name="Amount" type="_gMXSxMSHEey4wOuHdp7mgA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_Mmpa_cSIEey4wOuHdp7mgA" entityName="Create Game" content="">
+    <parameters id="_O0OFwMSIEey4wOuHdp7mgA" name="Hashed Number" type="_jisVZMSHEey4wOuHdp7mgA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_Q-Vz_cSIEey4wOuHdp7mgA" entityName="Place Bet" mutability="payable">
+    <parameters id="_Tc46AMSIEey4wOuHdp7mgA" name="Guess" type="_mtIREsSHEey4wOuHdp7mgA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_VTX6jcSIEey4wOuHdp7mgA" entityName="Decide Bet">
+    <parameters id="_WrEtQMSIEey4wOuHdp7mgA" name="Secret Number" type="_gMXSxMSHEey4wOuHdp7mgA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_11IOLMSLEey3NaqP9XbBVw" entityName="Claim Player Role"/>
+  <balanceModifications id="_F5slXcSJEey4wOuHdp7mgA" entityName="AddToPot changes this contract's balance" function="_D7oyrMSIEey4wOuHdp7mgA" modifiesMsgSenderBalance="onlyDecrease" modifiesThisContractsBalance="onlyIncrease"/>
+  <balanceModifications id="_MBr3TcSJEey4wOuHdp7mgA" entityName="RemoveFromPot changes this contract's balance" function="_HB8cTcSIEey4wOuHdp7mgA" modifiesMsgSenderBalance="onlyIncrease" modifiesThisContractsBalance="onlyDecrease"/>
+  <balanceModifications id="_UNnW7cSJEey4wOuHdp7mgA" entityName="PlaceBet changes this contract's balance" function="_Q-Vz_cSIEey4wOuHdp7mgA" modifiesMsgSenderBalance="onlyDecrease" modifiesThisContractsBalance="onlyIncrease"/>
+</SmartContractModel:AccessControlContract>

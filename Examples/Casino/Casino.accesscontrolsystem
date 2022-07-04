@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_VrIvsMSHEey4wOuHdp7mgA" entityName="Casino">
+  <roleToVariableTuples id="_G4YJMMSLEey3NaqP9XbBVw" entityName="Operator may change the pot" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_2uJdoMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_KBG0sMSLEey3NaqP9XbBVw" entityName="Operator sets the hashed number" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_32dJgMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_NkhREMSLEey3NaqP9XbBVw" entityName="Operator may change the state" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_-CpmAMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_QVIXgMSLEey3NaqP9XbBVw" entityName="Player may change the state" role="_bdWJccSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_-CpmAMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_UDanIMSLEey3NaqP9XbBVw" entityName="Player may change place a bet" role="_bdWJccSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_84qfIMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_Z7HaUMSLEey3NaqP9XbBVw" entityName="Player adds a guess" role="_bdWJccSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_70Rp8MSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_dqTo4MSLEey3NaqP9XbBVw" entityName="Operator resets the bet" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <variable href="Casino.smartcontractmodel#_84qfIMSHEey4wOuHdp7mgA"/>
+  </roleToVariableTuples>
+  <roles id="_bdWJccSIEey4wOuHdp7mgA" entityName="Player" cardinality="1"/>
+  <roles id="_c_gfwcSIEey4wOuHdp7mgA" entityName="Operator" cardinality="1"/>
+  <roleToFunctionTuples id="_3wziksSJEey4wOuHdp7mgA" entityName="Only Operator may add to the pot" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_D7oyrMSIEey4wOuHdp7mgA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_6bK3FMSJEey4wOuHdp7mgA" entityName="Only Operator may remove from the pot" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_HB8cTcSIEey4wOuHdp7mgA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_8d8AFMSJEey4wOuHdp7mgA" entityName="Only Operator may create a game" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Mmpa_cSIEey4wOuHdp7mgA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="__iEfdMSJEey4wOuHdp7mgA" entityName="Only Operator may decide the bet" role="_c_gfwcSIEey4wOuHdp7mgA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_VTX6jcSIEey4wOuHdp7mgA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_yygKosSLEey3NaqP9XbBVw" entityName="Only the player may place a bet" role="_bdWJccSIEey4wOuHdp7mgA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Q-Vz_cSIEey4wOuHdp7mgA"/>
+  </roleToFunctionTuples>
+  <roleExclusions id="_qYZMc8SIEey4wOuHdp7mgA" entityName="Operator cannot play" roles="_c_gfwcSIEey4wOuHdp7mgA _bdWJccSIEey4wOuHdp7mgA"/>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_xaadtcSIEey4wOuHdp7mgA" entityName="AddToPot changes the pot">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_D7oyrMSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_2uJdoMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_4oHahcSIEey4wOuHdp7mgA" entityName="RemoveFromPot changes the pot">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_HB8cTcSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_2uJdoMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_7eyFpcSIEey4wOuHdp7mgA" entityName="CreateGame sets the hashed number to the paramter">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Mmpa_cSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_32dJgMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_AQAY98SJEey4wOuHdp7mgA" entityName="CreateGame sets the current state to available">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Mmpa_cSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_-CpmAMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_jNTCRcSJEey4wOuHdp7mgA" entityName="PlaceBet changes state">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Q-Vz_cSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_-CpmAMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_mNYvJ8SJEey4wOuHdp7mgA" entityName="PlaceBet changes bet">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Q-Vz_cSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_84qfIMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_pCde1cSJEey4wOuHdp7mgA" entityName="PlaceBet changes guess">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_Q-Vz_cSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_70Rp8MSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_q3pe18SJEey4wOuHdp7mgA" entityName="DecideBet changes the pot">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_VTX6jcSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_2uJdoMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_wwC1l8SJEey4wOuHdp7mgA" entityName="DecideBet changes the bet">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_VTX6jcSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_84qfIMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_ykG0N8SJEey4wOuHdp7mgA" entityName="DecideBet changes the state">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Casino.smartcontractmodel#_VTX6jcSIEey4wOuHdp7mgA"/>
+    <variable href="Casino.smartcontractmodel#_-CpmAMSHEey4wOuHdp7mgA"/>
+  </functionToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

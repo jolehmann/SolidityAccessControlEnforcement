@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="SingleAuction">
+  <variables id="_SWsPcFeGEeysDr0u99eusg" entityName="Managing Contract" visibility="private" type="_KaLr5FeGEeysDr0u99eusg"/>
+  <variables id="_Uma2YFeGEeysDr0u99eusg" entityName="Seller Address" visibility="private" type="_KaLr5FeGEeysDr0u99eusg"/>
+  <variables id="_Xx2QkFeGEeysDr0u99eusg" entityName="Highest Bidder" visibility="private" type="_LlfodFeGEeysDr0u99eusg"/>
+  <variables id="_ag4CoFeGEeysDr0u99eusg" entityName="Auction Closed" type="_M8dbZFeGEeysDr0u99eusg"/>
+  <variables id="_be2t0FeGEeysDr0u99eusg" entityName="Money Collected" type="_M8dbZFeGEeysDr0u99eusg"/>
+  <variables id="_doCn4FeGEeysDr0u99eusg" entityName="Highest Bid" type="_NVVOZFeGEeysDr0u99eusg"/>
+  <variables id="_fhL60FeGEeysDr0u99eusg" entityName="Bidder Counter" type="_NVVOZFeGEeysDr0u99eusg"/>
+  <variables id="_kUCl0FeGEeysDr0u99eusg" entityName="Bidders" visibility="private" type="_OZdk41eGEeysDr0u99eusg"/>
+  <variables id="_n87_IFeGEeysDr0u99eusg" entityName="Current Bids" visibility="private" type="_P6jkM1eGEeysDr0u99eusg"/>
+  <constructor>
+    <parameters name="Seller" type="_LlfodFeGEeysDr0u99eusg"/>
+  </constructor>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_KaLr5FeGEeysDr0u99eusg" type="address_payable"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_LlfodFeGEeysDr0u99eusg" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_M8dbZFeGEeysDr0u99eusg"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_NVVOZFeGEeysDr0u99eusg" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_OZdk41eGEeysDr0u99eusg" keyType="_NVVOZFeGEeysDr0u99eusg" valueType="_KaLr5FeGEeysDr0u99eusg"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_P6jkM1eGEeysDr0u99eusg" keyType="_LlfodFeGEeysDr0u99eusg" valueType="_NVVOZFeGEeysDr0u99eusg"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_0HIEHFeGEeysDr0u99eusg" entityName="Collect Item" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_tKbXvFeGEeysDr0u99eusg" entityName="Bid" mutability="payable" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_vcruPFeGEeysDr0u99eusg" entityName="Close"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_yLKtvFeGEeysDr0u99eusg" entityName="Collect Money" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_2HfZXFeGEeysDr0u99eusg" entityName="Withdraw Money" visibility="external"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_4dzwfFeGEeysDr0u99eusg" entityName="Emergency Shutdown"/>
+  <balanceModifications id="_7GtFXVeGEeysDr0u99eusg" entityName="Withdraw transfers money from contract to sender" function="_2HfZXFeGEeysDr0u99eusg" modifiesMsgSenderBalance="onlyIncrease" modifiesThisContractsBalance="onlyDecrease"/>
+  <balanceModifications id="_BAva3VeHEeysDr0u99eusg" entityName="Collecting the money by transfering it to the seller" function="_yLKtvFeGEeysDr0u99eusg" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyDecrease"/>
+  <balanceModifications id="_RFa_bVeHEeysDr0u99eusg" entityName="Bidding the money by receiving money from the sender" function="_tKbXvFeGEeysDr0u99eusg" modifiesMsgSenderBalance="onlyDecrease" modifiesThisContractsBalance="onlyIncrease"/>
+</SmartContractModel:AccessControlContract>

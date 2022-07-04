@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="InsuranceManagement">
+  <variables id="_JQ7vc0z_Eey32bn0SdndAA" entityName="Insurance Counter" visibility="private" type="_LrgUd0z_Eey32bn0SdndAA"/>
+  <variables id="_j-e9oFT2Eeys4N_ExRAEQw" entityName="Insurances" visibility="private" type="_jLxuUVT2Eeys4N_ExRAEQw"/>
+  <variables id="_47s0I00DEey32bn0SdndAA" entityName="Air Traffic Database" type="_GMhjR0z_Eey32bn0SdndAA"/>
+  <constructor/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_GMhjR0z_Eey32bn0SdndAA" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_LrgUd0z_Eey32bn0SdndAA" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_UohdWU0AEey32bn0SdndAA" type="string" dataLocation="memory"/>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_hQVVWFT2Eeys4N_ExRAEQw">
+    <contract href="Insurance.smartcontractmodel#/"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:CustomArray" id="_jLxuUVT2Eeys4N_ExRAEQw" type="_hQVVWFT2Eeys4N_ExRAEQw"/>
+  <localFunctions id="_uaArWWMuEeyYyIYx-CcjwA" entityName="IllegalFunction"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_BrwGwUz_Eey32bn0SdndAA" entityName="Change Air Traffic Database" visibility="external">
+    <parameters id="_3vNdwE0BEey32bn0SdndAA" name="New Database" type="_GMhjR0z_Eey32bn0SdndAA"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_E2BDUUz_Eey32bn0SdndAA" entityName="Take Out Insurance">
+    <parameters id="_TEPAEE0AEey32bn0SdndAA" name="Flight" type="_UohdWU0AEey32bn0SdndAA"/>
+    <parameters id="_Qq1fwE0AEey32bn0SdndAA" name="Amount" type="_LrgUd0z_Eey32bn0SdndAA"/>
+  </functions>
+  <balanceModifications id="_lufEck0bEeyhYJKNTmsQ-g" entityName="Send money to new insurance" function="_E2BDUUz_Eey32bn0SdndAA" modifiesMsgSenderBalance="doesNotModify" modifiesThisContractsBalance="onlyDecrease"/>
+</SmartContractModel:AccessControlContract>

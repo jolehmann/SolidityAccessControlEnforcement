@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_uon0EEz-Eey32bn0SdndAA" entityName="Fizzy">
+  <roleToVariableTuples id="_DNB20E0AEey32bn0SdndAA" entityName="Insurance company can change the database" role="_z2_WYUz-Eey32bn0SdndAA">
+    <variable href="InsuranceManagement.smartcontractmodel#_47s0I00DEey32bn0SdndAA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_Gm25YE0AEey32bn0SdndAA" entityName="Insurant can change the account where money is transferred" role="_6GciQEz-Eey32bn0SdndAA">
+    <variable href="Insurance.smartcontractmodel#_kSsso0z_Eey32bn0SdndAA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_tuY-cE0UEeyhYJKNTmsQ-g" entityName="Insurant can cancel the insurance" role="_6GciQEz-Eey32bn0SdndAA">
+    <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_GxczQE0VEeyhYJKNTmsQ-g" entityName="The insurance comapny can close the insurance" role="_z2_WYUz-Eey32bn0SdndAA">
+    <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+  </roleToVariableTuples>
+  <roles id="_z2_WYUz-Eey32bn0SdndAA" entityName="Insurance Company" description="The company responsible for paying out the insured amount" cardinality="1"/>
+  <roles id="_6GciQEz-Eey32bn0SdndAA" entityName="Insurant" description="The Account that has taken out an insurance" cardinality="1"/>
+  <roleToFunctionTuples id="_sZpwMk0AEey32bn0SdndAA" entityName="Insurance Company can change the database" role="_z2_WYUz-Eey32bn0SdndAA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="InsuranceManagement.smartcontractmodel#_BrwGwUz_Eey32bn0SdndAA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_wexLck0AEey32bn0SdndAA" entityName="Insurant can change the insured account" role="_6GciQEz-Eey32bn0SdndAA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_eSPmEUz_Eey32bn0SdndAA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_gfDPVE0UEeyhYJKNTmsQ-g" entityName="The insurant can cancel their insurance" role="_6GciQEz-Eey32bn0SdndAA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_b4A_UUz_Eey32bn0SdndAA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_lBPoJE0UEeyhYJKNTmsQ-g" entityName="The company can start to check for a delay" role="_z2_WYUz-Eey32bn0SdndAA">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_hYF8sUz_Eey32bn0SdndAA"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_BpgpFE0VEeyhYJKNTmsQ-g" entityName="The company can (indirectly) start the payout" role="_z2_WYUz-Eey32bn0SdndAA">
+    <function xsi:type="soliditycontracts:LocalFunction" href="Insurance.smartcontractmodel#_Zlb4sEz_Eey32bn0SdndAA"/>
+  </roleToFunctionTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_0OJANU0AEey32bn0SdndAA" entityName="Change air traffic database">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="InsuranceManagement.smartcontractmodel#_BrwGwUz_Eey32bn0SdndAA"/>
+    <variable href="InsuranceManagement.smartcontractmodel#_47s0I00DEey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_MyzzZU0CEey32bn0SdndAA" entityName="Taking out an insurance increases the insurance counter">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="InsuranceManagement.smartcontractmodel#_E2BDUUz_Eey32bn0SdndAA"/>
+    <variable href="InsuranceManagement.smartcontractmodel#_JQ7vc0z_Eey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_r6fx91T2Eeys4N_ExRAEQw" entityName="Taking out an insurance changes the insurance array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="InsuranceManagement.smartcontractmodel#_E2BDUUz_Eey32bn0SdndAA"/>
+    <variable href="InsuranceManagement.smartcontractmodel#_j-e9oFT2Eeys4N_ExRAEQw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_S4EcR00UEeyhYJKNTmsQ-g" entityName="Payout closes the insurance">
+    <function xsi:type="soliditycontracts:LocalFunction" href="Insurance.smartcontractmodel#_Zlb4sEz_Eey32bn0SdndAA"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_YTe8EU0UEeyhYJKNTmsQ-g">
+      <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+    </conditions>
+    <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_3sJYJU0AEey32bn0SdndAA" entityName="Change the insured account">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_eSPmEUz_Eey32bn0SdndAA"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_QLI78U0UEeyhYJKNTmsQ-g">
+      <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+    </conditions>
+    <variable href="Insurance.smartcontractmodel#_kSsso0z_Eey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_bsZYp00UEeyhYJKNTmsQ-g" entityName="Canceling the insurance closes it">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_b4A_UUz_Eey32bn0SdndAA"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_eQcpwU0UEeyhYJKNTmsQ-g">
+      <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+    </conditions>
+    <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_rKxuAE0bEeyhYJKNTmsQ-g" entityName="Checking for a delay indirectly closes the insurance">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_hYF8sUz_Eey32bn0SdndAA"/>
+    <variable href="Insurance.smartcontractmodel#_oYak00z_Eey32bn0SdndAA"/>
+  </functionToVariableTuples>
+  <functionToFunctionTuples id="_wKM5lk0UEeyhYJKNTmsQ-g" entityName="If a delay is found, the payout is started">
+    <caller xsi:type="soliditycontracts:GlobalFunction" href="Insurance.smartcontractmodel#_hYF8sUz_Eey32bn0SdndAA"/>
+    <callee xsi:type="soliditycontracts:LocalFunction" href="Insurance.smartcontractmodel#_Zlb4sEz_Eey32bn0SdndAA"/>
+  </functionToFunctionTuples>
+</AccessControlSystem:AccessControlSystem>

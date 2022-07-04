@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="EdgeCase">
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_--61ASs8EeyOxbte1tTmVQ" entityName="F"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_BiLb8Ss9EeyOxbte1tTmVQ" entityName="G"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_CXJVESs9EeyOxbte1tTmVQ" entityName="H"/>
+  <variables id="_0XHv4ys8EeyOxbte1tTmVQ" entityName="X" visibility="private" type="_4aooqCs8EeyOxbte1tTmVQ"/>
+  <variables id="_5dvrcys8EeyOxbte1tTmVQ" entityName="Y" visibility="private" type="_4aooqCs8EeyOxbte1tTmVQ"/>
+  <variables id="_8K5OMys8EeyOxbte1tTmVQ" entityName="Z" visibility="private" type="_4aooqCs8EeyOxbte1tTmVQ"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_4aooqCs8EeyOxbte1tTmVQ" type="int"/>
+</SmartContractModel:AccessControlContract>

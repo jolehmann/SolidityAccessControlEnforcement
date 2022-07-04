@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="AuctionManagement">
+  <variables id="_yNkW4FeFEeysDr0u99eusg" entityName="Auctions" visibility="private" type="_waWFwVeFEeysDr0u99eusg"/>
+  <variables id="_0O25MFeFEeysDr0u99eusg" entityName="Auction Counter" visibility="private" type="_1fs2BFeFEeysDr0u99eusg"/>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_voqxOFeFEeysDr0u99eusg">
+    <contract href="SingleAuction.smartcontractmodel#/"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:CustomArray" id="_waWFwVeFEeysDr0u99eusg" type="_voqxOFeFEeysDr0u99eusg"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_1fs2BFeFEeysDr0u99eusg" type="uint"/>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_4G46vFeFEeysDr0u99eusg" entityName="Create New Auction"/>
+</SmartContractModel:AccessControlContract>

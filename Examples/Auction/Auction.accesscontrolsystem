@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_ZT9ZAFeFEeysDr0u99eusg" entityName="Auction">
+  <roleToVariableTuples id="_gfHaUFeUEeysDr0u99eusg" entityName="Seller can close the auction" role="_xn0IAVeREeysDr0u99eusg">
+    <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_mZ-PMFeUEeysDr0u99eusg" entityName="Manager can close the auction" role="_7EnZoVeREeysDr0u99eusg">
+    <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_pMahoFeUEeysDr0u99eusg" entityName="Bidder can change the current bids" role="_0FbZ8VeREeysDr0u99eusg">
+    <variable href="SingleAuction.smartcontractmodel#_n87_IFeGEeysDr0u99eusg"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_sA9s4FeUEeysDr0u99eusg" entityName="Seller can collect the money" role="_xn0IAVeREeysDr0u99eusg">
+    <variable href="SingleAuction.smartcontractmodel#_be2t0FeGEeysDr0u99eusg"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_uPh2MFeUEeysDr0u99eusg" entityName="Manager can change the current bids" role="_7EnZoVeREeysDr0u99eusg">
+    <variable href="SingleAuction.smartcontractmodel#_n87_IFeGEeysDr0u99eusg"/>
+  </roleToVariableTuples>
+  <roles id="_xn0IAVeREeysDr0u99eusg" entityName="Seller" cardinality="1"/>
+  <roles id="_0FbZ8VeREeysDr0u99eusg" entityName="Bidder"/>
+  <roles id="_2wIssVeREeysDr0u99eusg" entityName="Highest Bidder" cardinality="1" prerequisite="_0FbZ8VeREeysDr0u99eusg"/>
+  <roles id="_7EnZoVeREeysDr0u99eusg" entityName="Manager"/>
+  <roleToFunctionTuples id="_Ll9PkleTEeysDr0u99eusg" entityName="Only the seller can close the auction" role="_xn0IAVeREeysDr0u99eusg">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_vcruPFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:TimeContext" id="_jwGp8FeUEeysDr0u99eusg" timeValue="7" timeUnit="day"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_N-gbUVeTEeysDr0u99eusg" entityName="Only the seller can collect the money" role="_xn0IAVeREeysDr0u99eusg">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_yLKtvFeGEeysDr0u99eusg"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_QsN-xFeTEeysDr0u99eusg" entityName="Only the highest bidder can collect the item" role="_2wIssVeREeysDr0u99eusg">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_0HIEHFeGEeysDr0u99eusg"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_TuCxBFeTEeysDr0u99eusg" entityName="Only the bidder can withdraw money" role="_0FbZ8VeREeysDr0u99eusg">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_2HfZXFeGEeysDr0u99eusg"/>
+  </roleToFunctionTuples>
+  <roleToFunctionTuples id="_YQGm9FeTEeysDr0u99eusg" entityName="Only the manager can start the emergency shutdown" role="_7EnZoVeREeysDr0u99eusg">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_4dzwfFeGEeysDr0u99eusg"/>
+  </roleToFunctionTuples>
+  <roleExclusions id="_8U1rY1eREeysDr0u99eusg" entityName="Bidder is no seller" roles="_0FbZ8VeREeysDr0u99eusg _xn0IAVeREeysDr0u99eusg"/>
+  <roleExclusions id="__YPK81eREeysDr0u99eusg" entityName="Seller is no manager" roles="_xn0IAVeREeysDr0u99eusg _7EnZoVeREeysDr0u99eusg"/>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_6-5ClVeFEeysDr0u99eusg" entityName="Creating a new auction increases the counter">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="AuctionManagement.smartcontractmodel#_4G46vFeFEeysDr0u99eusg"/>
+    <variable href="AuctionManagement.smartcontractmodel#_0O25MFeFEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="__WacdVeFEeysDr0u99eusg" entityName="Creating a new auction changes the array">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="AuctionManagement.smartcontractmodel#_4G46vFeFEeysDr0u99eusg"/>
+    <variable href="AuctionManagement.smartcontractmodel#_yNkW4FeFEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_hioiR1eTEeysDr0u99eusg" entityName="Bidding money changes the bidders mapping">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_tKbXvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_oB4doVeTEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_kUCl0FeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_YvusxleUEeysDr0u99eusg" entityName="Bidding money changes the current bids mapping">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_tKbXvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_cOSeUVeUEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <csm href="SingleAuction.smartcontractmodel#_n87_IFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_t-4Ah1eTEeysDr0u99eusg" entityName="Increase the bidder counter by bidding">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_tKbXvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_wsJfEVeTEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_fhL60FeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_x5GaZ1eTEeysDr0u99eusg" entityName="Bidding can change the highest bid">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_tKbXvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_2CLIkVeTEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_doCn4FeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_3VKad1eTEeysDr0u99eusg" entityName="Bidding can change the highest bidder">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_tKbXvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_5Spa0VeTEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_Xx2QkFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_7FiUx1eTEeysDr0u99eusg" entityName="Only the close function can close the auction">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_vcruPFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_-_1nIVeTEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_Ae4YBVeUEeysDr0u99eusg" entityName="Collecting the money changes the money collected flag">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_yLKtvFeGEeysDr0u99eusg"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_Fl8_gVeUEeysDr0u99eusg" valueToCheck="true">
+      <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+    </conditions>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_GZCpUVeUEeysDr0u99eusg">
+      <variable href="SingleAuction.smartcontractmodel#_be2t0FeGEeysDr0u99eusg"/>
+    </conditions>
+    <variable href="SingleAuction.smartcontractmodel#_be2t0FeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_V5gtlleUEeysDr0u99eusg" entityName="Withdrawing money changes the current bids">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_2HfZXFeGEeysDr0u99eusg"/>
+    <csm href="SingleAuction.smartcontractmodel#_n87_IFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_LP6Rp1eUEeysDr0u99eusg" entityName="Emergency shutdown closes the auction">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_4dzwfFeGEeysDr0u99eusg"/>
+    <variable href="SingleAuction.smartcontractmodel#_ag4CoFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_Sg3WxleUEeysDr0u99eusg" entityName="Emergency shutdown changes the current bids" accessWholeMapping="true">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="SingleAuction.smartcontractmodel#_4dzwfFeGEeysDr0u99eusg"/>
+    <csm href="SingleAuction.smartcontractmodel#_n87_IFeGEeysDr0u99eusg"/>
+  </functionToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

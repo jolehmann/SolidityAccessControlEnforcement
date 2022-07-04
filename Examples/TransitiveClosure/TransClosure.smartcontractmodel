@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="TransClosure">
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_aeUSUTy1Eey3f7j5yoH_2g" entityName="First"/>
+  <variables id="_aFMLMzy2Eeyxzog12lK3XQ" entityName="firstVar" type="_bsmN5zy2Eeyxzog12lK3XQ"/>
+  <variables id="_eIyjgzy2Eeyxzog12lK3XQ" entityName="secondVar" type="_bsmN5zy2Eeyxzog12lK3XQ"/>
+  <variables id="_fvCvozy2Eeyxzog12lK3XQ" entityName="thirdVar" type="_bsmN5zy2Eeyxzog12lK3XQ"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_bsmN5zy2Eeyxzog12lK3XQ" type="int"/>
+</SmartContractModel:AccessControlContract>

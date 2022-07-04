@@ -1,0 +1,5 @@
+There are violations in the selected AccessControlSystem 'EdgeCase' and SmartContracts 'EdgeCase':
+1) Role 'A' can illegally influence variable 'Y' by modifying variable 'X' 
+2) Role 'A' can illegally influence variable 'Z' by modifying variable 'X' 
+3) Role 'A' can illegally influence variable 'Y' through function 'F' 
+4) Role 'A' can illegally influence variable 'Z' through function 'F' 

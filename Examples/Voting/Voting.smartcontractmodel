@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="Voting">
+  <variables id="_9MNt0ysnEeySBeiv9xCjAw" entityName="VotingClosed" visibility="private" type="_KpsmqCsoEeySBeiv9xCjAw"/>
+  <variables id="_Pg_FsysoEeySBeiv9xCjAw" entityName="VotingResults" visibility="private" type="_SUrVVysoEeySBeiv9xCjAw"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_KpsmqCsoEeySBeiv9xCjAw"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_NIKNKCsoEeySBeiv9xCjAw" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_SUrVVysoEeySBeiv9xCjAw" keyType="_TZxVJisoEeySBeiv9xCjAw" valueType="_NIKNKCsoEeySBeiv9xCjAw"/>
+  <localTypes xsi:type="soliditycontracts:Enum" id="_TZxVJisoEeySBeiv9xCjAw" entityName="VotingChoices">
+    <members value="Choice1"/>
+    <members value="Choice2"/>
+    <members value="ChoiceN"/>
+  </localTypes>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_bzNsUSsoEeySBeiv9xCjAw" entityName="castVote">
+    <parameters id="_Kvv-QDshEey82eFHpWcjJQ" name="choice" type="_TZxVJisoEeySBeiv9xCjAw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_iqwy8SsoEeySBeiv9xCjAw" entityName="closeVoting"/>
+</SmartContractModel:AccessControlContract>

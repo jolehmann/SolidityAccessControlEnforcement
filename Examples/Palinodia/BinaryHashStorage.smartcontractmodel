@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="BinaryHashStorage">
+  <variables id="_WHD7sFZzEey6UuOB5HDE_A" entityName="Root Owner Address" type="_W-hvl1HbEey3ALCsnHxvxw"/>
+  <variables id="_jrqJg1HbEey3ALCsnHxvxw" entityName="Platform Id" type="_Y2wciVHbEey3ALCsnHxvxw"/>
+  <variables id="_l_sos1HbEey3ALCsnHxvxw" entityName="Initialize Status" type="_bgF2R1HbEey3ALCsnHxvxw"/>
+  <variables id="_o6pW41HbEey3ALCsnHxvxw" entityName="Publish Counter" type="_R65dp1HbEey3ALCsnHxvxw"/>
+  <variables id="_rS0vM1HbEey3ALCsnHxvxw" entityName="Hash Store" visibility="internal" type="_fLHWhlHbEey3ALCsnHxvxw"/>
+  <variables id="_8jEdsFZqEeyebuumrh1VZw" entityName="Maintainer Control" type="_5SVFsFZqEeyebuumrh1VZw"/>
+  <variables id="_AIg6YFZrEeyebuumrh1VZw" entityName="Software Contract" type="_BsIpSFZrEeyebuumrh1VZw"/>
+  <constructor>
+    <parameters name="Main Control" type="_W-hvl1HbEey3ALCsnHxvxw"/>
+  </constructor>
+  <events entityName="Maintainer Change Event">
+    <parameters type="_5SVFsFZqEeyebuumrh1VZw" name="Old Address"/>
+    <parameters type="_5SVFsFZqEeyebuumrh1VZw" name="New Address"/>
+  </events>
+  <events entityName="Owner Address Change">
+    <parameters type="_W-hvl1HbEey3ALCsnHxvxw" name="Old Owner Address"/>
+    <parameters type="_W-hvl1HbEey3ALCsnHxvxw" name="New Owner Address"/>
+  </events>
+  <events entityName="Publishing Event">
+    <parameters type="_R65dp1HbEey3ALCsnHxvxw" name="Pub Counter" indexed="true"/>
+    <parameters type="_Y2wciVHbEey3ALCsnHxvxw" name="Hash Id"/>
+    <parameters type="_R65dp1HbEey3ALCsnHxvxw" name="Hash"/>
+  </events>
+  <events entityName="Revocation Event">
+    <parameters type="_R65dp1HbEey3ALCsnHxvxw" name="Pub Counter" indexed="true"/>
+    <parameters type="_Y2wciVHbEey3ALCsnHxvxw" name="Hash Id"/>
+  </events>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_bgF2R1HbEey3ALCsnHxvxw" type="uint8"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_R65dp1HbEey3ALCsnHxvxw" type="uint256"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_W-hvl1HbEey3ALCsnHxvxw" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_xCH0V1HbEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_5SVFsFZqEeyebuumrh1VZw">
+    <contract href="IdentityManagement.smartcontractmodel#/"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_BsIpSFZrEeyebuumrh1VZw">
+    <contract href="Software.smartcontractmodel#/"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_Y2wciVHbEey3ALCsnHxvxw" type="string"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_Zz-5yVHbEey3ALCsnHxvxw" type="string" dataLocation="memory"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_fLHWhlHbEey3ALCsnHxvxw" keyType="_Y2wciVHbEey3ALCsnHxvxw" valueType="_QCvCKFHbEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:Struct" id="_QCvCKFHbEey3ALCsnHxvxw" entityName="Binary Statement">
+    <members entityName="Publish Number" type="_R65dp1HbEey3ALCsnHxvxw"/>
+    <members entityName="Binary Hash" type="_R65dp1HbEey3ALCsnHxvxw"/>
+  </localTypes>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_uLb7EVHbEey3ALCsnHxvxw" entityName="Change Root Owner">
+    <returnVariables type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_yyovsFHbEey3ALCsnHxvxw" name="New Address" type="_W-hvl1HbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_1ocfMlHbEey3ALCsnHxvxw" entityName="Set Maintainer">
+    <returnVariables type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_n19gAFZrEeyebuumrh1VZw" name="New Maintainer" type="_5SVFsFZqEeyebuumrh1VZw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_5Snq4lHbEey3ALCsnHxvxw" entityName="Set Software Contract">
+    <returnVariables type="_xCH0V1HbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_7liIsVHbEey3ALCsnHxvxw" entityName="Set SDP Id">
+    <returnVariables type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_-qo4cFHbEey3ALCsnHxvxw" name="New SDP Id" type="_Zz-5yVHbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_Bsop0lHcEey3ALCsnHxvxw" entityName="Publish Hash">
+    <returnVariables name="Success" type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_FKvvcFHcEey3ALCsnHxvxw" name="Hash Id" type="_Zz-5yVHbEey3ALCsnHxvxw"/>
+    <parameters id="_GfZOMFHcEey3ALCsnHxvxw" name="Hash" type="_R65dp1HbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_IGZBMlHcEey3ALCsnHxvxw" entityName="Revoke Hash">
+    <returnVariables name="Success" type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_K_UWIFHcEey3ALCsnHxvxw" name="Hash Id" type="_Zz-5yVHbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_N3AU8lHcEey3ALCsnHxvxw" entityName="Get Binary Statement" mutability="view">
+    <returnVariables name="Hash" type="_R65dp1HbEey3ALCsnHxvxw"/>
+    <returnVariables name="Publish Number" type="_R65dp1HbEey3ALCsnHxvxw"/>
+    <parameters id="_TpfQ8FHcEey3ALCsnHxvxw" name="Hash Id" type="_Zz-5yVHbEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_VlVSklHcEey3ALCsnHxvxw" entityName="Check Hash Revoked" mutability="view">
+    <returnVariables type="_xCH0V1HbEey3ALCsnHxvxw"/>
+    <parameters id="_XjiEoFHcEey3ALCsnHxvxw" name="Hash Id" type="_Zz-5yVHbEey3ALCsnHxvxw"/>
+  </functions>
+</SmartContractModel:AccessControlContract>

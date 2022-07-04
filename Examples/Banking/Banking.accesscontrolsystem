@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlSystem:AccessControlSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:AccessControlSystem="http://sdq.kastel.kit.edu/AccessControlMetamodel/AccessControlSystem" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" id="_bCqO8CtxEeyJ5_PBErbkIQ" entityName="Banking">
+  <roleToVariableTuples id="_iitgACtxEeyJ5_PBErbkIQ" entityName="BankManagerToBalances" role="_f3vHgStxEeyJ5_PBErbkIQ">
+    <variable href="Banking.smartcontractmodel#_rO2hoystEey5PsVI5ec_dw"/>
+  </roleToVariableTuples>
+  <roleToVariableTuples id="_JlLr4E-WEeyE_pDb-zytHQ" entityName="BankManagerToIsOpen" role="_f3vHgStxEeyJ5_PBErbkIQ">
+    <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+  </roleToVariableTuples>
+  <roles id="_f3vHgStxEeyJ5_PBErbkIQ" entityName="Bank Manager" cardinality="3"/>
+  <roleToFunctionTuples id="_keDLUitxEeyJ5_PBErbkIQ" entityName="BankManagerToPayoutAll" role="_f3vHgStxEeyJ5_PBErbkIQ">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_3l7zESstEey5PsVI5ec_dw"/>
+  </roleToFunctionTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_mm68VCtxEeyJ5_PBErbkIQ" entityName="DepositToBalances">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_wj-MMSstEey5PsVI5ec_dw"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_3FLUYU-VEeyE_pDb-zytHQ" valueToCheck="true">
+      <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+    </conditions>
+    <csm href="Banking.smartcontractmodel#_rO2hoystEey5PsVI5ec_dw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_57FxlU-VEeyE_pDb-zytHQ" entityName="DepositToAccounts">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_wj-MMSstEey5PsVI5ec_dw"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_9fgTgU-VEeyE_pDb-zytHQ" valueToCheck="true">
+      <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+    </conditions>
+    <variable href="Banking.smartcontractmodel#_uukOw0-VEeyE_pDb-zytHQ"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_-iZT50-VEeyE_pDb-zytHQ" entityName="DepositToAccountCounter">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_wj-MMSstEey5PsVI5ec_dw"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_BE-lYU-WEeyE_pDb-zytHQ" valueToCheck="true">
+      <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+    </conditions>
+    <variable href="Banking.smartcontractmodel#_nRuCs0-VEeyE_pDb-zytHQ"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_rclDtCtxEeyJ5_PBErbkIQ" entityName="WithdrawToBalances">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_0csKMSstEey5PsVI5ec_dw"/>
+    <conditions xsi:type="AccessControlSystem:BooleanVariableContext" id="_ErKo8U-WEeyE_pDb-zytHQ" valueToCheck="true">
+      <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+    </conditions>
+    <csm href="Banking.smartcontractmodel#_rO2hoystEey5PsVI5ec_dw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToCsmRelation" id="_vo225CtxEeyJ5_PBErbkIQ" entityName="PayoutAllToBalances" accessWholeMapping="true">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_3l7zESstEey5PsVI5ec_dw"/>
+    <csm href="Banking.smartcontractmodel#_rO2hoystEey5PsVI5ec_dw"/>
+  </functionToVariableTuples>
+  <functionToVariableTuples xsi:type="AccessControlSystem:FunctionToStateVariableRelation" id="_GmFdh0-WEeyE_pDb-zytHQ" entityName="PayoutAllToIsOpen">
+    <function xsi:type="soliditycontracts:GlobalFunction" href="Banking.smartcontractmodel#_3l7zESstEey5PsVI5ec_dw"/>
+    <variable href="Banking.smartcontractmodel#_f0jtkU-VEeyE_pDb-zytHQ"/>
+  </functionToVariableTuples>
+</AccessControlSystem:AccessControlSystem>

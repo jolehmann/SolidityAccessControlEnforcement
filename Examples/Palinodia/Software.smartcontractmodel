@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartContractModel:AccessControlContract xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SmartContractModel="http://sdq.kastel.kit.edu/AccessControlMetamodel/SmartContractModel" xmlns:soliditycontracts="http://sdq.kastel.kit.edu/SolidityMetaModel/soliditycontracts" entityName="Software">
+  <variables id="_c3kmMFZzEey6UuOB5HDE_A" entityName="Root Owner Address" type="_TlOjZ1HZEey3ALCsnHxvxw"/>
+  <variables id="_YUYaI1HZEey3ALCsnHxvxw" entityName="Software Name" type="_VpuxyVHZEey3ALCsnHxvxw"/>
+  <variables id="_cB4mo1HZEey3ALCsnHxvxw" entityName="Platforms Store" visibility="internal" type="_eZySJlHZEey3ALCsnHxvxw"/>
+  <variables id="_fvmgEFZvEey6UuOB5HDE_A" entityName="Developer Control" type="_ixQ6SFZvEey6UuOB5HDE_A"/>
+  <variables id="_pZ7QUFZvEey6UuOB5HDE_A" entityName="Storage Contracts" type="_l9Xp4VZvEey6UuOB5HDE_A"/>
+  <constructor>
+    <parameters name="Dev Control" type="_TlOjZ1HZEey3ALCsnHxvxw"/>
+  </constructor>
+  <events entityName="Developer Change Event">
+    <parameters type="_ixQ6SFZvEey6UuOB5HDE_A" name="Old Address"/>
+    <parameters type="_ixQ6SFZvEey6UuOB5HDE_A" name="New Address"/>
+  </events>
+  <events entityName="Owner Address Change">
+    <parameters type="_TlOjZ1HZEey3ALCsnHxvxw" name="Old Owner Address"/>
+    <parameters type="_TlOjZ1HZEey3ALCsnHxvxw" name="New Owner Address"/>
+  </events>
+  <localTypes xsi:type="soliditycontracts:CustomArray" id="_l9Xp4VZvEey6UuOB5HDE_A" type="_iJmdVVZvEey6UuOB5HDE_A"/>
+  <localTypes xsi:type="soliditycontracts:CustomArray" id="_xhEAcVZ4Eey6UuOB5HDE_A" type="_iJmdVVZvEey6UuOB5HDE_A" dataLocation="memory"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_VpuxyVHZEey3ALCsnHxvxw" type="string"/>
+  <localTypes xsi:type="soliditycontracts:DefaultArray" id="_xYafWVHZEey3ALCsnHxvxw" type="string" dataLocation="memory"/>
+  <localTypes xsi:type="soliditycontracts:Mapping" id="_eZySJlHZEey3ALCsnHxvxw" keyType="_VpuxyVHZEey3ALCsnHxvxw" valueType="_adJdd1HZEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_TlOjZ1HZEey3ALCsnHxvxw" type="address"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_adJdd1HZEey3ALCsnHxvxw" type="uint"/>
+  <localTypes xsi:type="soliditycontracts:PrimitiveType" id="_ln5ep1HZEey3ALCsnHxvxw"/>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_iJmdVVZvEey6UuOB5HDE_A">
+    <contract href="BinaryHashStorage.smartcontractmodel#/"/>
+  </localTypes>
+  <localTypes xsi:type="soliditycontracts:ContractType" id="_ixQ6SFZvEey6UuOB5HDE_A">
+    <contract href="IdentityManagement.smartcontractmodel#/"/>
+  </localTypes>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_ilYI0VHZEey3ALCsnHxvxw" entityName="Change Root Owner">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_sNG4EFHZEey3ALCsnHxvxw" name="New Address" type="_TlOjZ1HZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_o46jcVHZEey3ALCsnHxvxw" entityName="Set Developer">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_A4z8oFZwEey6UuOB5HDE_A" name="New Dev" type="_ixQ6SFZvEey6UuOB5HDE_A"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_v6XM8lHZEey3ALCsnHxvxw" entityName="Set Software Name">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_0qHgoFHZEey3ALCsnHxvxw" name="New Name" type="_xYafWVHZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_4zHWUlHZEey3ALCsnHxvxw" entityName="Register BinaryHashStorage Contract">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_7X_t4FHZEey3ALCsnHxvxw" name="BinaryHashStore" type="_TlOjZ1HZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_-g4KYlHZEey3ALCsnHxvxw" entityName="Deregister BinaryHashStorage Contract">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_A_9b8FHaEey3ALCsnHxvxw" name="Platform Id" type="_xYafWVHZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_DTvcclHaEey3ALCsnHxvxw" entityName="Update Id of SDP">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_GmHMIFHaEey3ALCsnHxvxw" name="Current Platform Id" type="_xYafWVHZEey3ALCsnHxvxw"/>
+    <parameters id="_JCcEoFHaEey3ALCsnHxvxw" name="New Platform Id" type="_xYafWVHZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_LfWzAVHaEey3ALCsnHxvxw" entityName="Is Verified SDP" mutability="view">
+    <returnVariables type="_ln5ep1HZEey3ALCsnHxvxw"/>
+    <parameters id="_OPVAQFHaEey3ALCsnHxvxw" name="Platform Id" type="_xYafWVHZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_QqtdklHaEey3ALCsnHxvxw" entityName="Get BinaryHashStorage Contract" mutability="view">
+    <returnVariables type="_TlOjZ1HZEey3ALCsnHxvxw"/>
+    <parameters id="_U52-kFHaEey3ALCsnHxvxw" name="Platform Id" type="_xYafWVHZEey3ALCsnHxvxw"/>
+  </functions>
+  <functions xsi:type="soliditycontracts:GlobalFunction" id="_XY-FUlHaEey3ALCsnHxvxw" entityName="Get Platforms" mutability="view">
+    <returnVariables type="_xhEAcVZ4Eey6UuOB5HDE_A"/>
+  </functions>
+</SmartContractModel:AccessControlContract>
