@@ -8,6 +8,7 @@ import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.FunctionToC
 import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.FunctionToStateVariableRelation;
 import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.FunctionToVariableRelation;
 import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.Role;
+import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.RoleToFunctionRelation;
 import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.RoleToVariableRelation;
 import edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.AccessControlContract;
 import edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.BalanceModificationType;
@@ -99,6 +100,39 @@ public class AnnotationGenerator {
    * one for roles that are only allowed to influence it. If no role is allowed to access,
    * a fitting comment is generated & returned.
    */
+  public String generateRoleComments(final Function function) {
+    if ((this.acSystem == null)) {
+      return "";
+    }
+    final Function1<RoleToFunctionRelation, Boolean> _function = new Function1<RoleToFunctionRelation, Boolean>() {
+      public Boolean apply(final RoleToFunctionRelation rf) {
+        return Boolean.valueOf(rf.getFunction().equals(function));
+      }
+    };
+    final Function1<RoleToFunctionRelation, Role> _function_1 = new Function1<RoleToFunctionRelation, Role>() {
+      public Role apply(final RoleToFunctionRelation rf) {
+        return rf.getRole();
+      }
+    };
+    final Iterable<Role> roleWithDirectAccess = IterableExtensions.<RoleToFunctionRelation, Role>map(IterableExtensions.<RoleToFunctionRelation>filter(this.acSystem.getRoleToFunctionTuples(), _function), _function_1);
+    boolean _isEmpty = IterableExtensions.isEmpty(roleWithDirectAccess);
+    if (_isEmpty) {
+      return "// Roles: No Role can directly access";
+    }
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// Roles: Direct Access by {");
+    String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
+    _builder.append(_generateAccessCommentContentForRoles);
+    _builder.append("}");
+    return _builder.toString();
+  }
+
+  /**
+   * Generates comments explaining which roles are allowed to access the given state variable.
+   * There are two comments generated: One for roles that are allowed to modify the variable and
+   * one for roles that are only allowed to influence it. If no role is allowed to access,
+   * a fitting comment is generated & returned.
+   */
   public String generateRoleComments(final StateVariable variable) {
     if ((this.acSystem == null)) {
       return "";
@@ -126,16 +160,16 @@ public class AnnotationGenerator {
     };
     final Iterable<Role> rolesWithInfAccess = IterableExtensions.<RoleToVariableRelation, Role>map(IterableExtensions.<RoleToVariableRelation>filter(this.acSystem.getRoleToVariableTuples(), _function_2), _function_3);
     if ((IterableExtensions.isEmpty(rolesWithModAccess) && IterableExtensions.isEmpty(rolesWithInfAccess))) {
-      return "// no Role can modify or influence";
+      return "// Roles: No Role can modify or influence";
     }
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// Modification by: ");
+    _builder.append("// Roles: Modification by {");
     String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(rolesWithModAccess));
     _builder.append(_generateAccessCommentContentForRoles);
-    _builder.newLineIfNotEmpty();
-    _builder.append("// Influence by: ");
+    _builder.append("}, Influence by {");
     String _generateAccessCommentContentForRoles_1 = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(rolesWithInfAccess));
     _builder.append(_generateAccessCommentContentForRoles_1);
+    _builder.append("}");
     return _builder.toString();
   }
 

@@ -1,0 +1,18 @@
+Market::
+setReporter // Roles: Direct Access by {MARKET_CREATOR}
+setBonds // Roles: Direct Access by {MARKET_CREATOR}
+buyShares // Roles: No Role can directly access
+sellShares // Roles: Direct Access by {SHAREHOLDER}
+claimReporterRole // Roles: Direct Access by {SHAREHOLDER}
+designatedReport // Roles: Direct Access by {DESIGNATED_REPORTER}
+openReport // Roles: Direct Access by {OPEN_REPORTER}
+report // Roles: Direct Access by {DESIGNATED_REPORTER, OPEN_REPORTER}
+disputeOutcome // Roles: Direct Access by {SHAREHOLDER}
+closeTrading // Roles: Direct Access by {MANAGER}
+allowOpenReport // Roles: Direct Access by {MANAGER}
+closeDisputingWindow // Roles: Direct Access by {MANAGER}
+sentCreationBond // Roles: Direct Access by {MANAGER}
+
+MarketManagement::
+createNewMarket // Roles: No Role can directly access
+

@@ -61,6 +61,24 @@ class AnnotationGenerator {
 	 * one for roles that are only allowed to influence it. If no role is allowed to access,
 	 * a fitting comment is generated & returned.
 	 */
+	def String generateRoleComments(Function function) {
+		if(acSystem === null) {
+			return ""
+		}
+		val roleWithDirectAccess = acSystem.roleToFunctionTuples.filter[rf | rf.function.equals(function)].map[rf | rf.role]
+		
+		if(roleWithDirectAccess.isEmpty) {
+			return "// Roles: No Role can directly access"
+		}
+		return '''// Roles: Direct Access by {«generateAccessCommentContentForRoles(roleWithDirectAccess.toSet)»}'''
+	}
+	
+	/**
+	 * Generates comments explaining which roles are allowed to access the given state variable.
+	 * There are two comments generated: One for roles that are allowed to modify the variable and
+	 * one for roles that are only allowed to influence it. If no role is allowed to access,
+	 * a fitting comment is generated & returned.
+	 */
 	def String generateRoleComments(StateVariable variable) {
 		if(acSystem === null) {
 			return ""
@@ -72,11 +90,12 @@ class AnnotationGenerator {
 			&& !rv.modifies].map[rv | rv.role]
 		
 		if(rolesWithModAccess.isEmpty && rolesWithInfAccess.isEmpty) {
-			return "// no Role can modify or influence"
+			return "// Roles: No Role can modify or influence"
 		}
 		
-		return '''// Modification by: «generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»
-// Influence by: «generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»'''
+//		return '''// Modification by: «generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»
+//// Influence by: «generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»'''
+		return '''// Roles: Modification by {«generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»}, Influence by {«generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»}'''
 	}
 	
 	/**

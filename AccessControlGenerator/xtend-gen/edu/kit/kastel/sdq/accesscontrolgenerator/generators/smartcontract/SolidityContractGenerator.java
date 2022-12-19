@@ -61,6 +61,8 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
   @Accessors(AccessorType.PRIVATE_GETTER)
   private SolidityFunctionGenerator functionGenerator;
 
+  private String roleAnnotations;
+
   /**
    * Constructor creating the necessary sub-generators
    */
@@ -72,6 +74,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     SolidityFunctionGenerator _solidityFunctionGenerator = new SolidityFunctionGenerator(this.annotationGenerator, this.modifierGenerator);
     this.functionGenerator = _solidityFunctionGenerator;
     this.acSystem = acSystem;
+    this.roleAnnotations = "";
   }
 
   /**
@@ -334,8 +337,21 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
    * Executes the generation of a method for the given function using the FunctionGenerator
    */
   protected String executeMethodGeneration(final Function function) {
+    final String roles = this.annotationGenerator.generateRoleComments(function);
     this.functionGenerator.setCurrentTarget(function);
-    return this.functionGenerator.generate();
+    StringConcatenation _builder = new StringConcatenation();
+    String _replaceAll = StringExtensions.toFirstLower(function.getEntityName()).replaceAll(" ", "");
+    _builder.append(_replaceAll);
+    _builder.append(" ");
+    _builder.append(roles);
+    String _lineSeparator = System.lineSeparator();
+    _builder.append(_lineSeparator);
+    String _plus = (this.roleAnnotations + _builder);
+    this.roleAnnotations = _plus;
+    String _lineSeparator_1 = System.lineSeparator();
+    String _plus_1 = (roles + _lineSeparator_1);
+    String _generate = this.functionGenerator.generate();
+    return (_plus_1 + _generate);
   }
 
   /**
@@ -356,6 +372,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
       String _thisAddressKeyword = AccessControlConstants.getThisAddressKeyword();
       _builder.append(_thisAddressKeyword);
       _builder.append("); // Auto-generated Field");
+      _builder.newLineIfNotEmpty();
       return _builder.toString();
     } else {
       return "";
@@ -622,6 +639,13 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     final Iterable<Type> functionReturnTypes = _elvis_2;
     return Iterables.<Type>concat(Collections.<Iterable<Type>>unmodifiableList(CollectionLiterals.<Iterable<Type>>newArrayList(stateVariableTypes, functionParameterTypes, functionReturnTypes)));
+  }
+
+  /**
+   * Returns the collected RoleAnnotations
+   */
+  public String getRoleAnnotationsAfterGeneration() {
+    return this.roleAnnotations;
   }
 
   /**

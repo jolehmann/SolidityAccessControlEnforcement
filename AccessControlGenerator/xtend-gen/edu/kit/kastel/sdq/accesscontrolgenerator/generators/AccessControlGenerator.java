@@ -1,5 +1,6 @@
 package edu.kit.kastel.sdq.accesscontrolgenerator.generators;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import edu.kit.ipd.sdq.mdsd.ecore2txt.generator.AbstractEcore2TxtGenerator;
 import edu.kit.kastel.sdq.AccessControlMetamodel.AccessControlSystem.AccessControlSystem;
@@ -40,6 +41,8 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 
   private final String VIOLATION_FILE_NAME = "Violations.log";
 
+  private final String ROLE_ANNOTATIONS_FILE_NAME = "RoleAnnotations.txt";
+
   private AccessControlSystem acSystem;
 
   private AccessControlContractGenerator acGenerator;
@@ -51,6 +54,8 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
   private String targetUri;
 
   private String violations;
+
+  private String roleAnnotations = "";
 
   /**
    * Generates a Solidity contract from the given resource. If violations have been found during the pre processing,
@@ -170,6 +175,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     this.contractGenerator = _solidityContractGenerator;
     final Iterable<AccessControlContract> contracts = Iterables.<AccessControlContract>filter(resource.getContents(), AccessControlContract.class);
     String acContract = "";
+    String roleAnnotationFilenamePrefix = "";
     if ((this.acSystem != null)) {
       AccessControlContractGenerator _accessControlContractGenerator = new AccessControlContractGenerator(this.acSystem);
       this.acGenerator = _accessControlContractGenerator;
@@ -180,9 +186,18 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
       {
         final String content = this.removeEmptyLines(this.generateContent(contract));
         if (((content != null) && (!content.equals("")))) {
+          roleAnnotationFilenamePrefix = SolidityNaming.getTargetFileNameForContract(contract);
           contents.add(this.generateContentTriplet(content, SolidityNaming.getTargetFileNameForContract(contract), true));
         }
       }
+    }
+    final String newContent = this.contractGenerator.getRoleAnnotationsAfterGeneration();
+    if (((!Objects.equal(newContent, "null")) && (!Objects.equal(newContent, "")))) {
+      String _lineSeparator = System.lineSeparator();
+      String _plus = (((this.roleAnnotations + roleAnnotationFilenamePrefix) + "::") + _lineSeparator);
+      String _plus_1 = (_plus + newContent);
+      this.roleAnnotations = _plus_1;
+      contents.add(this.generateContentTriplet(this.roleAnnotations, this.ROLE_ANNOTATIONS_FILE_NAME, false));
     }
   }
 

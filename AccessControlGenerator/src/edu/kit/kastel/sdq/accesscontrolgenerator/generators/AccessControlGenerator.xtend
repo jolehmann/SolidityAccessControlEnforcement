@@ -32,6 +32,7 @@ class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 	val VALIDATION_SUCCESSFUL_HEADER = "Validation successful"
 	val VALIDATION_FAILED_HEADER = "Error while validating the models"
 	val VIOLATION_FILE_NAME = "Violations.log"
+	val ROLE_ANNOTATIONS_FILE_NAME = "RoleAnnotations.txt" // TODO changes
 	
 	AccessControlSystem acSystem
 	AccessControlContractGenerator acGenerator
@@ -39,6 +40,7 @@ class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 	SolidityContractGenerator contractGenerator
 	String targetUri
 	String violations
+	String roleAnnotations = "" // TODO changes
 	
 	/**
 	 * Generates a Solidity contract from the given resource. If violations have been found during the pre processing,
@@ -141,19 +143,28 @@ class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 		this.contractGenerator = new SolidityContractGenerator(acSystem)			
 		val contracts = resource.contents.filter(AccessControlContract)
 		var acContract = ""
+		var roleAnnotationFilenamePrefix = ""
 		
 		if(acSystem !== null) {
 			 this.acGenerator = new AccessControlContractGenerator(acSystem)
 			 acContract = generateAccessControlSystem(acSystem).removeEmptyLines
 			 contents.add(generateContentTriplet(acContract, getAccessControlContactName(), true))
-		}	
-		
+		}
+
 		for(contract : contracts) {
 			val content = generateContent(contract).removeEmptyLines
-					
+			
 			if (content !== null && !content.equals("")) {
+				roleAnnotationFilenamePrefix = getTargetFileNameForContract(contract)
 				contents.add(generateContentTriplet(content, getTargetFileNameForContract(contract), true))
 			}
+		}
+		
+		// TODO changes
+		val newContent = this.contractGenerator.roleAnnotationsAfterGeneration
+		if(newContent != "null" && newContent != "") {
+			this.roleAnnotations = this.roleAnnotations + roleAnnotationFilenamePrefix + "::" + System.lineSeparator + newContent
+			contents.add(generateContentTriplet(this.roleAnnotations, ROLE_ANNOTATIONS_FILE_NAME, false))
 		}
 	}
 	

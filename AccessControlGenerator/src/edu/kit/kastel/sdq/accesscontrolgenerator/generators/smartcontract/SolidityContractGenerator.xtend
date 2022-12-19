@@ -32,6 +32,8 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 	@Accessors(PRIVATE_GETTER) ModifierGenerator modifierGenerator
 	@Accessors(PRIVATE_GETTER) SolidityFunctionGenerator functionGenerator
 
+	String roleAnnotations
+
 	/**
 	 * Constructor creating the necessary sub-generators
 	 */
@@ -40,6 +42,7 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 		this.annotationGenerator = new AnnotationGenerator(acSystem)
 		this.functionGenerator = new SolidityFunctionGenerator(annotationGenerator, modifierGenerator)
 		this.acSystem = acSystem
+		this.roleAnnotations = ""
 	}
 
 	/**
@@ -143,8 +146,11 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 	 * Executes the generation of a method for the given function using the FunctionGenerator
 	 */
 	protected def String executeMethodGeneration(Function function) {
+		val roles = annotationGenerator.generateRoleComments(function)
 		functionGenerator.currentTarget = function
-		return functionGenerator.generate
+		this.roleAnnotations = this.roleAnnotations + '''«function.entityName.toFirstLower.replaceAll(" ", "")» «roles»«System.lineSeparator»'''
+		//System.out.println('''«function.entityName.toFirstLower.replaceAll(" ", "")» «roles»«System.lineSeparator»''')
+		return roles + System.lineSeparator + functionGenerator.generate
 	}
 	
 	/**
@@ -152,7 +158,8 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 	 */
 	private def String generateFieldForAccessControl() {
 		if (currentTargetNeedsAc) {
-			return '''«getAccessControlContactName» private «getAccessControlVariableName» = new «getAccessControlContactName»(«getThisAddressKeyword»); // Auto-generated Field'''
+			return '''«getAccessControlContactName» private «getAccessControlVariableName» = new «getAccessControlContactName»(«getThisAddressKeyword»); // Auto-generated Field
+'''
 		} else {
 			return ""
 		}
@@ -240,6 +247,13 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 		val functionReturnTypes = currentTarget.functions?.map[it.returnVariables].flatten.map[it.type] ?: #[]
 
 		return #[stateVariableTypes, functionParameterTypes, functionReturnTypes].flatten
+	}
+	
+	/**
+	 * Returns the collected RoleAnnotations
+	 */
+	def String getRoleAnnotationsAfterGeneration() {
+		return this.roleAnnotations
 	}
 	
 	/**
