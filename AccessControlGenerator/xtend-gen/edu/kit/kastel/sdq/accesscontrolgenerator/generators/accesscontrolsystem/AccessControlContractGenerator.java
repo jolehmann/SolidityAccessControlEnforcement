@@ -26,12 +26,12 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class AccessControlContractGenerator extends SolidityContractGenerationTemplate {
   @Accessors({ AccessorType.PUBLIC_SETTER, AccessorType.PRIVATE_GETTER })
   private AccessControlSystem target;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private boolean timingNeeded;
-  
+
   private final int DEFAULT_CARD = (-1);
-  
+
   private final String ADMIN_ROLE = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -39,7 +39,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String ONLY_ADMIN_MOD = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -47,7 +47,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String ASSIGNMENT_VAR = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -55,7 +55,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String TIME_VAR = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -63,7 +63,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String TIMESTAMP_KEYWORD = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -71,7 +71,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String COUNTER_SUFFIX = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -79,7 +79,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String ENTITY_PARAM = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -87,7 +87,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   private final String GIVE_ROLE_PARAM = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -95,7 +95,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return _builder.toString();
     }
   }.apply();
-  
+
   /**
    * Constructor setting the AccessControlSystem to generate the contracts content for and
    * checking, if the handling of time-based constraints is needed.
@@ -104,14 +104,14 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     this.target = acsystem;
     this.timingNeeded = this.checkIfTimingIsNeeded();
   }
-  
+
   /**
    * Generates the contracts import statement, which is not necessary for the AccessControl contract
    */
   protected String generateImports() {
     return "";
   }
-  
+
   /**
    * Generating the declaration of the access control contract
    */
@@ -122,7 +122,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append(_accessControlContactName);
     return _builder.toString();
   }
-  
+
   /**
    * Generates the enum for the roles from the AccessControlSystem
    */
@@ -148,14 +148,14 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append(" }");
     return _builder.toString();
   }
-  
+
   /**
    * Generates the structs for the access control contract, which is not necessary
    */
   protected String generateStructs() {
     return "";
   }
-  
+
   /**
    * Generates the state variables for the access control contract.
    * This includes:
@@ -206,14 +206,14 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates the contracts events, which is not necessary for the AccessControl contract
    */
   protected String generateEvents() {
     return "";
   }
-  
+
   /**
    * Generates the access control contracts constructor containing:
    * - the header with its parameter
@@ -251,7 +251,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Generates the methods for the access control contract, which includes:
    * - the function to check access
@@ -304,7 +304,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generating the onlyAdmin modifier at the end of the contract.
    */
@@ -338,7 +338,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Checks if handling time-based constraints is necessary in the AccessControlSystem.
    * This is the case if a single time-based condition exists inside the system.
@@ -355,7 +355,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return false;
   }
-  
+
   /**
    * Generates the checkAccess function, accessing the RoleAssignment nested mapping for the given role and address
    */
@@ -381,7 +381,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Generates the checkTiming function, allowing for checking time-based constraints during execution
    */
@@ -414,7 +414,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Checks if basic role assignment in a single function should be used.
    * That is the case, when no special role conditions are modelled.
@@ -452,7 +452,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return true;
   }
-  
+
   /**
    * Generates the basic role assignment function assessing the nested mapping for the given role and address
    */
@@ -484,7 +484,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Generating a role assignment function for the given role when the basic role assignment is NOT used.
    * This also handles the special role conditions like cardinality, mutual exclusion, role hierarchy and prerequisite.
@@ -558,7 +558,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Creates the keyword for the role assignment functions visibility. This is "public" if the role is a superior
    * to any other role. Otherwise it is "external"
@@ -581,7 +581,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
       return "external";
     }
   }
-  
+
   /**
    * Generates the annotations for the method to assign the given role.
    */
@@ -647,7 +647,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generate all possible conditions that can occur in relation to the given role.
    */
@@ -772,7 +772,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return _builder_1.toString();
   }
-  
+
   /**
    * This function returns a list with all roles the given role is mutually exclusive to.
    * If no mutual exclusions are modeled, an empty list is returned.
@@ -797,7 +797,7 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     }
     return roles;
   }
-  
+
   /**
    * Generating a role assignment function for the ADMIN role when the basic role assignment is NOT used.
    * There is no need to handle the special role conditions.
@@ -846,16 +846,16 @@ public class AccessControlContractGenerator extends SolidityContractGenerationTe
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   @Pure
   private AccessControlSystem getTarget() {
     return this.target;
   }
-  
+
   public void setTarget(final AccessControlSystem target) {
     this.target = target;
   }
-  
+
   @Pure
   private boolean isTimingNeeded() {
     return this.timingNeeded;

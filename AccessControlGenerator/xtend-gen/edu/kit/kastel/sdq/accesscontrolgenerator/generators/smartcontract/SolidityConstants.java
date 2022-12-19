@@ -11,13 +11,13 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 public class SolidityConstants {
   private SolidityConstants() {
   }
-  
+
   public static String getTargetFileExt() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append(".sol");
     return _builder.toString();
   }
-  
+
   public static String getTargetFolderPrefix() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("gen");
@@ -25,7 +25,7 @@ public class SolidityConstants {
     _builder.append(_separator);
     return _builder.toString();
   }
-  
+
   public static String getSeparatorAtEnd(final boolean pkg) {
     String _xifexpression = null;
     if (pkg) {
@@ -35,7 +35,7 @@ public class SolidityConstants {
     }
     return _xifexpression;
   }
-  
+
   public static String getSeparator(final boolean pkg) {
     String _xifexpression = null;
     if (pkg) {

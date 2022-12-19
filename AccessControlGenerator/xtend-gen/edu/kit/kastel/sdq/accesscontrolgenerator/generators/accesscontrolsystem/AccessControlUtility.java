@@ -16,7 +16,7 @@ import tools.mdsd.modelingfoundations.identifier.NamedElement;
 public class AccessControlUtility {
   private AccessControlUtility() {
   }
-  
+
   /**
    * Checks for the given smart contract and given access control system if the contract needs to import and
    * use the resulting access control contract. This is the case when any role can access a function from the contract.
@@ -38,7 +38,7 @@ public class AccessControlUtility {
     }
     return true;
   }
-  
+
   /**
    * Takes the given class, which is a generated implementation class from the EMF and
    * removes the 'Impl' ending, resulting in the element name from the AccessControlMetamodel
@@ -46,7 +46,7 @@ public class AccessControlUtility {
   public static String removeImplClassEnding(final Class<?> cls) {
     return cls.getSimpleName().replace("Impl", "");
   }
-  
+
   /**
    * Tries to cast the given EObject to a NamedElement from the Metamodel-Modeling-Foundation:
    * https://github.com/MDSD-Tools/Metamodel-Modeling-Foundations

@@ -16,7 +16,7 @@ public abstract class SolidityContractGenerationTemplate implements M2TGenerator
       return _builder.toString();
     }
   }.apply();
-  
+
   public String generate() {
     StringConcatenation _builder = new StringConcatenation();
     String _generatePragma = this.generatePragma();
@@ -74,7 +74,7 @@ public abstract class SolidityContractGenerationTemplate implements M2TGenerator
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   protected String generatePragma() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("// SPDX-License-Identifier: GPL-3.0");
@@ -84,22 +84,22 @@ public abstract class SolidityContractGenerationTemplate implements M2TGenerator
     _builder.append(";");
     return _builder.toString();
   }
-  
+
   protected abstract String generateImports();
-  
+
   protected abstract String generateDeclaration();
-  
+
   protected abstract String generateEnums();
-  
+
   protected abstract String generateStructs();
-  
+
   protected abstract String generateFields();
-  
+
   protected abstract String generateEvents();
-  
+
   protected abstract String generateConstructor();
-  
+
   protected abstract String generateMethods();
-  
+
   protected abstract String generateModifiers();
 }

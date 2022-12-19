@@ -23,7 +23,7 @@ public class AccessControlGeneratorHandler extends AbstractEcoreIFile2TxtHandler
     AccessControlGenerator _accessControlGenerator = new AccessControlGenerator();
     Ecore2TxtUtil.generateFromSelectedFilesInFolder(filteredSelection, _accessControlGeneratorModule, _accessControlGenerator, false, false);
   }
-  
+
   public String getPlugInID() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("edu.kit.kastel.sdq.accesscontrolgenerator");

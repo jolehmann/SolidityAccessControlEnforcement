@@ -45,22 +45,22 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class SolidityContractGenerator extends SolidityContractGenerationTemplate {
   @Accessors(AccessorType.PRIVATE_GETTER)
   private boolean currentTargetNeedsAc;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private AccessControlContract currentTarget;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private AccessControlSystem acSystem;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private AnnotationGenerator annotationGenerator;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private ModifierGenerator modifierGenerator;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private SolidityFunctionGenerator functionGenerator;
-  
+
   /**
    * Constructor creating the necessary sub-generators
    */
@@ -73,7 +73,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     this.functionGenerator = _solidityFunctionGenerator;
     this.acSystem = acSystem;
   }
-  
+
   /**
    * Generating the import statements by iterating over all referenced contracts.
    * Additionally, the import for the AccessControl contract is added if necessary.
@@ -130,7 +130,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generating the declaration of the contract with its name and references to its parents
    */
@@ -155,7 +155,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates all enums defined in the contract model.
    * Implementation taken from SolidityCodeGenerator.
@@ -178,7 +178,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates all structs defined in the contract model.
    * Implementation taken from SolidityCodeGenerator.
@@ -201,7 +201,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates the state variables of the contract by combining the state variables from the model
    * with the ones needed for the access control.
@@ -212,7 +212,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     final List<String> fields = Collections.<String>unmodifiableList(CollectionLiterals.<String>newArrayList(_generateFieldForAccessControl, _generateFieldsForStateVariables));
     return String.join(System.lineSeparator(), fields);
   }
-  
+
   /**
    * Generates all events defined in the contract model.
    * Implementation taken from SolidityCodeGenerator.
@@ -235,7 +235,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates the contracts constructor.
    * Implementation taken from SolidityCodeGenerator.
@@ -279,7 +279,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
       return "";
     }
   }
-  
+
   /**
    * Generating the methods based on the functions from the model by using the FunctionGenerator
    */
@@ -288,7 +288,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     final String methodDefinitions = this.generateMethodDefinitions(functions).toString();
     return methodDefinitions;
   }
-  
+
   /**
    * Generating the modifiers used for access control by using the ModifierGenerator as well as the ones
    * described in the model. Generating the ones from the model is taken from the SolidityCodeGenerator.
@@ -318,7 +318,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder_1.append(modifiers);
     return _builder_1.toString();
   }
-  
+
   /**
    * Sets the current contract to generate a solidity file for to the given one.
    * Also checks if it needs a reference to the AccessControl contract.
@@ -329,7 +329,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     this.annotationGenerator.setCurrentTarget(contract);
     this.modifierGenerator.setCurrentTarget(contract);
   }
-  
+
   /**
    * Executes the generation of a method for the given function using the FunctionGenerator
    */
@@ -337,7 +337,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     this.functionGenerator.setCurrentTarget(function);
     return this.functionGenerator.generate();
   }
-  
+
   /**
    * Generates a state variable referencing the AccessControl contract if necessary
    */
@@ -361,7 +361,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
       return "";
     }
   }
-  
+
   /**
    * Generates the variables based on all state variables defined in the model.
    * For each variable, a comment summarizing the roles that can access it is generated before its declaration.
@@ -400,7 +400,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     String variables = _builder.toString();
     return SolidityNaming.normalizeSpaces(variables);
   }
-  
+
   /**
    * Describes the general structure of methods that need to be generated for the given list of functions.
    * This function is taken from the SolidityCodeGenerator.
@@ -417,7 +417,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Creates a single enum in solidity code from the given enum object.
    * This function is taken from the SolidityCodeGenerator.
@@ -448,7 +448,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder.append("}");
     return _builder.toString();
   }
-  
+
   /**
    * Collects the enums used in the contract before generating a solidity enum for each.
    * This function is taken from the SolidityCodeGenerator.
@@ -458,7 +458,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     final Iterable<edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum> usedGlobalEnums = Iterables.<edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum>filter(this.getAllUsedTypesForCurrentTarget(), edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum.class);
     return IterableExtensions.<edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum>toSet(Iterables.<edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum>concat(localEnums, usedGlobalEnums));
   }
-  
+
   /**
    * Creates the given event from the metamodel.
    * This function is taken from the SolidityCodeGenerator.
@@ -506,7 +506,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder.append(";");
     return _builder.toString();
   }
-  
+
   /**
    * Creates a single struct in solidity code from the given struct object.
    * This function is taken from the SolidityCodeGenerator.
@@ -542,7 +542,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder.newLine();
     return _builder.toString();
   }
-  
+
   /**
    * Collects the structs used in the contract before generating a solidity struct for each.
    * This function is taken from the SolidityCodeGenerator.
@@ -552,7 +552,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     final Iterable<Struct> usedGlobalStructs = Iterables.<Struct>filter(this.getAllUsedTypesForCurrentTarget(), Struct.class);
     return IterableExtensions.<Struct>toSet(Iterables.<Struct>concat(localStructs, usedGlobalStructs));
   }
-  
+
   /**
    * Gets all ata types that are used somewhere in the contract (for variables, parameters and function returns).
    * This function is taken from the SolidityCodeGenerator.
@@ -623,7 +623,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     final Iterable<Type> functionReturnTypes = _elvis_2;
     return Iterables.<Type>concat(Collections.<Iterable<Type>>unmodifiableList(CollectionLiterals.<Iterable<Type>>newArrayList(stateVariableTypes, functionParameterTypes, functionReturnTypes)));
   }
-  
+
   /**
    * Generates the definition for the given modeled modifier.
    * This function is taken from the SolidityCodeGenerator.
@@ -659,7 +659,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder_1.append("}");
     return _builder_1.toString();
   }
-  
+
   /**
    * Creates the parameters for the given modeled modifier.
    * This function is taken from the SolidityCodeGenerator.
@@ -684,7 +684,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates the body for the given modeled modifier.
    * This function is taken from the SolidityCodeGenerator.
@@ -696,32 +696,32 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
       return modifier.getContent();
     }
   }
-  
+
   @Pure
   private boolean isCurrentTargetNeedsAc() {
     return this.currentTargetNeedsAc;
   }
-  
+
   @Pure
   private AccessControlContract getCurrentTarget() {
     return this.currentTarget;
   }
-  
+
   @Pure
   private AccessControlSystem getAcSystem() {
     return this.acSystem;
   }
-  
+
   @Pure
   private AnnotationGenerator getAnnotationGenerator() {
     return this.annotationGenerator;
   }
-  
+
   @Pure
   private ModifierGenerator getModifierGenerator() {
     return this.modifierGenerator;
   }
-  
+
   @Pure
   private SolidityFunctionGenerator getFunctionGenerator() {
     return this.functionGenerator;

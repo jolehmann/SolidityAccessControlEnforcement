@@ -5,3 +5,8 @@
 /.ViolationGenerator.java._trace
 /.RbacViolationGenerator.java._trace
 /.OclViolationGenerator.java._trace
+/AccessControlValidator.java
+/IllegalInfluenceResult.java
+/OclViolationGenerator.java
+/RbacViolationGenerator.java
+/ViolationGenerator.java

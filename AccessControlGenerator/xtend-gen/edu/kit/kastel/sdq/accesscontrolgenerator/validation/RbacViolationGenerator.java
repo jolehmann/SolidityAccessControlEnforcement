@@ -23,11 +23,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class RbacViolationGenerator implements ViolationGenerator {
   private AccessControlSystem system;
-  
+
   private Collection<StateVariable> allVariables = new ArrayList<StateVariable>();
-  
+
   private Collection<Function> allFunctions = new ArrayList<Function>();
-  
+
   /**
    * Implementation of the interface describing the concrete Strategy for generating violations.
    * This includes the collection of violations to the four different systemwide RBAC equations.
@@ -40,7 +40,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     violations.addAll(this.checkIfRoleCanInfluenceVariablesThroughFunctions());
     return violations;
   }
-  
+
   /**
    * Add the state variables and functions from the given contract to the corresponding lists
    */
@@ -48,14 +48,14 @@ public class RbacViolationGenerator implements ViolationGenerator {
     this.allVariables.addAll(contract.getVariables());
     this.allFunctions.addAll(contract.getFunctions());
   }
-  
+
   /**
    * Changes the current AccessControlSystem to the given one
    */
   public void changeAccessControlSystem(final AccessControlSystem system) {
     this.system = system;
   }
-  
+
   /**
    * Validates the first RBAC equation which looks like this:
    * Forall role r, function f and function f_c: (r can access f) and (f calls f_c) implies (r can access f_c)
@@ -94,7 +94,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Validates the second RBAC equation which looks like this:
    * Forall role r, variable v: (r can modify s) implies existence of a function f with: (r can access f) and (f can access v)
@@ -132,7 +132,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Validates the last RBAC equation which looks like this:
    * Forall role r, variable v_1 & v_2: (r can modify v_1) and (r cannot influence v_2) implies (v_1 does not influence v_2)
@@ -168,7 +168,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Validates the last RBAC equation which looks like this:
    * Forall function f, role r, variable v: (r can access f) and (r cannot influence v) implies (f does not influence v)
@@ -215,7 +215,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * This function checks the influence relation between the given function f and variable v.
    * To do so, it follows the following predicate equation:
@@ -254,7 +254,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return IllegalInfluenceResult.NO_ILLEGAL_ACCESS;
   }
-  
+
   /**
    * Checks for direct influence through the given function to the state variable.
    * This can come either through direct access or by directly accessing a variable that influences the
@@ -276,7 +276,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return IllegalInfluenceResult.NO_ILLEGAL_ACCESS;
   }
-  
+
   /**
    * Checks if the given role is allowed to access the given function
    */
@@ -307,7 +307,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return false;
   }
-  
+
   /**
    * Checks if the given function caller is allowed to call the given function callee
    */
@@ -319,7 +319,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     };
     return IterableExtensions.<FunctionToFunctionRelation>exists(this.system.getFunctionToFunctionTuples(), _function);
   }
-  
+
   /**
    * Checks if the given variable (influencer) can influence the given variable (influenced)
    */
@@ -331,7 +331,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     };
     return IterableExtensions.<VariableToVariableRelation>exists(this.system.getVariableToVariableTuples(), _function);
   }
-  
+
   /**
    * Checks if the given role is allowed either modify or influence the given state variable. This can happen either directly
    * or indirectly through a superior role. Which kind of access should be checked is determined by the modifies parameter.
@@ -347,7 +347,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return false;
   }
-  
+
   /**
    * Checks if the role can either modify or influence the state variable directly
    */
@@ -374,7 +374,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
       }
     }
   }
-  
+
   /**
    * Checks if the role can either modify or influence the state variable indirectly through a superior role.
    * This is checked recursively
@@ -391,7 +391,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     }
     return false;
   }
-  
+
   /**
    * Checks if the given function can access the given variable.
    */
@@ -409,7 +409,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
         }
       }));
   }
-  
+
   /**
    * Returns all functions that can access the given variable.
    */
@@ -421,7 +421,7 @@ public class RbacViolationGenerator implements ViolationGenerator {
     };
     return IterableExtensions.<Function>filter(this.allFunctions, _function);
   }
-  
+
   /**
    * Checks if the given function is publicly available. This is the case if no roles are modeled to access it.
    */

@@ -17,9 +17,9 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 @SuppressWarnings("all")
 public class OclViolationGenerator implements ViolationGenerator {
   private AccessControlSystem system;
-  
+
   private Collection<AccessControlContract> smartContracts = new ArrayList<AccessControlContract>();
-  
+
   /**
    * Implementation of the interface describing the concrete Strategy for generating violations.
    * This contains the control of all OCL constraints in the model
@@ -35,21 +35,21 @@ public class OclViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Set the system to the given one
    */
   public void changeAccessControlSystem(final AccessControlSystem system) {
     this.system = system;
   }
-  
+
   /**
    * Adds the given SmartContract to the contract list
    */
   public void addNewSmartContract(final AccessControlContract smaCo) {
     this.smartContracts.add(smaCo);
   }
-  
+
   /**
    * Validates the OCL constraints only for the given smart contract system container from the resource files by returning all error messages.
    * To do so, only the relevant constraints are handled. To get the name of a constraint, they are extracted from the following error message:
@@ -88,7 +88,7 @@ public class OclViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Validates the OCL constraints for all elements of the given system by returning all error messages.
    * To do so, the names of the constraints are extracted from the following error message to look for more extensive error messages:
@@ -134,7 +134,7 @@ public class OclViolationGenerator implements ViolationGenerator {
     }
     return violations;
   }
-  
+
   /**
    * Returns a more extensive error message for the given OCL constraint from the AccessControlMetamodel.
    */
@@ -230,7 +230,7 @@ public class OclViolationGenerator implements ViolationGenerator {
     }
     return "No Message found.";
   }
-  
+
   /**
    * Checks if a given OCL constraint from the AccessControlMetamodel is linked to a top-level container (f.e. a SmartContract element).
    * If that is the case, true is returned. Currently, there are three constraints defined for the SmartContract element:

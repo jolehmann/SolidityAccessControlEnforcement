@@ -10,8 +10,8 @@ import java.util.Collection;
 @SuppressWarnings("all")
 public interface ViolationGenerator {
   Collection<String> generateViolations();
-  
+
   void changeAccessControlSystem(final AccessControlSystem system);
-  
+
   void addNewSmartContract(final AccessControlContract contract);
 }

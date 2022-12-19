@@ -11,7 +11,7 @@ public class AccessControlGeneratorModule extends AbstractEcore2TxtGeneratorModu
   protected String getLanguageName() {
     return "";
   }
-  
+
   protected String getFileExtensions() {
     return "accesscontrolsystem";
   }

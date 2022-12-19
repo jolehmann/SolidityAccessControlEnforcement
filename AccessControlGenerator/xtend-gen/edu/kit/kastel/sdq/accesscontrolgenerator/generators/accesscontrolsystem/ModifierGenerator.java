@@ -23,17 +23,17 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class ModifierGenerator {
   @Accessors(AccessorType.PRIVATE_SETTER)
   private Set<String> alreadyCoveredModifiers;
-  
+
   @Accessors(AccessorType.PUBLIC_SETTER)
   private AccessControlContract currentTarget;
-  
+
   @Accessors(AccessorType.PRIVATE_SETTER)
   private ModifierRoleAndConditionsHelper conditionsHelper;
-  
+
   private final String ROLE_MOD_SUFFIX = "only";
-  
+
   private final String REQUIRE_MSG_ACCESS_DENIED = "Access denied!";
-  
+
   /**
    * Constructor setting the AccessControlSystem as a basis for the modifiers
    */
@@ -44,7 +44,7 @@ public class ModifierGenerator {
     ModifierRoleAndConditionsHelper _modifierRoleAndConditionsHelper = new ModifierRoleAndConditionsHelper(acSystem);
     this.conditionsHelper = _modifierRoleAndConditionsHelper;
   }
-  
+
   /**
    * Generating and returning the modifier using definition for the given function to add
    * to the functions header
@@ -59,7 +59,7 @@ public class ModifierGenerator {
     }
     return this.generateModifierDefinitionUsingConditions();
   }
-  
+
   /**
    * Generate the modifier using definition by combining the name of all roles that can access
    * as well as all conditions that restrict the access. For the conditions, not the names but
@@ -149,7 +149,7 @@ public class ModifierGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generate all modifiers for the currently targeted contract by iterating over all functions
    */
@@ -173,7 +173,7 @@ public class ModifierGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generate a single modifier for the given function by first checking if it already exists (through its definition).
    * Afterwards, the checks for roles and conditions are generated if necessary.
@@ -223,7 +223,7 @@ public class ModifierGenerator {
     _builder_2.append("}");
     return _builder_2.toString();
   }
-  
+
   /**
    * Generates the checks inside the requires statement in the modifier, combining role-specific checks with the
    * conditions referencing the role as well as the function.
@@ -309,7 +309,7 @@ public class ModifierGenerator {
     }
     return condition;
   }
-  
+
   /**
    * Creates the in-line boolean variable checks from the given list of conditions
    */
@@ -340,7 +340,7 @@ public class ModifierGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Creates the in-line time-based checks from the given list of time conditions
    */
@@ -381,7 +381,7 @@ public class ModifierGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Converting the TimeUnits enum to its resulting Solidity keyword
    */
@@ -406,7 +406,7 @@ public class ModifierGenerator {
     }
     return null;
   }
-  
+
   /**
    * Check if a modifier for the given modifier definition was already created
    * to prevent two identical modifiers from being created.
@@ -424,15 +424,15 @@ public class ModifierGenerator {
     }
     return false;
   }
-  
+
   private void setAlreadyCoveredModifiers(final Set<String> alreadyCoveredModifiers) {
     this.alreadyCoveredModifiers = alreadyCoveredModifiers;
   }
-  
+
   public void setCurrentTarget(final AccessControlContract currentTarget) {
     this.currentTarget = currentTarget;
   }
-  
+
   private void setConditionsHelper(final ModifierRoleAndConditionsHelper conditionsHelper) {
     this.conditionsHelper = conditionsHelper;
   }

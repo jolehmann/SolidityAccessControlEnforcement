@@ -29,21 +29,21 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class AnnotationGenerator {
   @Accessors(AccessorType.PUBLIC_SETTER)
   private AccessControlContract currentTarget;
-  
+
   @Accessors(AccessorType.PUBLIC_SETTER)
   private AccessControlSystem acSystem;
-  
+
   private final String SOLC_VERIFY_POSTCONDITION = "/// @notice postcondition";
-  
+
   private final String SOLC_VERIFY_OLD = "__verifier_old_uint";
-  
+
   /**
    * Constructor setting the AccessControlSystem as a basis for the annotations
    */
   public AnnotationGenerator(final AccessControlSystem acSystem) {
     this.acSystem = acSystem;
   }
-  
+
   /**
    * Generates the modification annotations for the given function by looking at the variables
    * that are allowed to be changed by the function. It also looks at the balance modifications
@@ -92,7 +92,7 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Generates comments explaining which roles are allowed to access the given state variable.
    * There are two comments generated: One for roles that are allowed to modify the variable and
@@ -138,7 +138,7 @@ public class AnnotationGenerator {
     _builder.append(_generateAccessCommentContentForRoles_1);
     return _builder.toString();
   }
-  
+
   /**
    * Generates the content of a single comment visualizing role access to variables.
    * This function iterates over the list of roles and adds the enum value name to the comment.
@@ -165,7 +165,7 @@ public class AnnotationGenerator {
       return _builder.toString();
     }
   }
-  
+
   /**
    * Iterate over all relations accessing state variables, generating one annotation per relation.
    */
@@ -193,7 +193,7 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Iterate over all relations accessing csm variables, generating one annotation per relation.
    */
@@ -231,7 +231,7 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Add a boolean condition to a modification specifier, if the given relation contains any
    */
@@ -268,7 +268,7 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * Returns the annotations based on the balance modifications for the given function.
    */
@@ -299,7 +299,7 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   /**
    * This function checks the given BalanceModificationType and creates the fitting annotations.
    * Differentiating between the two possible keywords is done through the boolean parameter.
@@ -355,11 +355,11 @@ public class AnnotationGenerator {
     }
     return _builder.toString();
   }
-  
+
   public void setCurrentTarget(final AccessControlContract currentTarget) {
     this.currentTarget = currentTarget;
   }
-  
+
   public void setAcSystem(final AccessControlSystem acSystem) {
     this.acSystem = acSystem;
   }

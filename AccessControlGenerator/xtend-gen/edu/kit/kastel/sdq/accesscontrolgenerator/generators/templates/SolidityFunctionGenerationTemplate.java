@@ -25,10 +25,10 @@ public abstract class SolidityFunctionGenerationTemplate implements M2TGenerator
     _builder.newLine();
     return _builder.toString();
   }
-  
+
   protected abstract String generateComments();
-  
+
   protected abstract String generateHeader();
-  
+
   protected abstract String generateBody();
 }

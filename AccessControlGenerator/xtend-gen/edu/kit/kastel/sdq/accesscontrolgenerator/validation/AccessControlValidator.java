@@ -16,22 +16,22 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class AccessControlValidator {
   private int errorCounter;
-  
+
   private AccessControlSystem system;
-  
+
   private TransitiveClosureCalculator closureCalc = new TransitiveClosureCalculator();
-  
+
   private Collection<ViolationGenerator> violationGens = new ArrayList<ViolationGenerator>();
-  
+
   private Collection<AccessControlContract> smartContracts = new ArrayList<AccessControlContract>();
-  
+
   public AccessControlValidator() {
     RbacViolationGenerator _rbacViolationGenerator = new RbacViolationGenerator();
     this.violationGens.add(_rbacViolationGenerator);
     OclViolationGenerator _oclViolationGenerator = new OclViolationGenerator();
     this.violationGens.add(_oclViolationGenerator);
   }
-  
+
   /**
    * Registers the given resource at the validator either as the current AccessControlSystem or by
    * adding it to the list of SmartContracts
@@ -56,7 +56,7 @@ public class AccessControlValidator {
       }
     }
   }
-  
+
   /**
    * Checks the soundness of the system by validating the OCL constraints as well as the systemwide RBAC
    * equations using the available violation generator. Throughout all of it, the violation messages are collected

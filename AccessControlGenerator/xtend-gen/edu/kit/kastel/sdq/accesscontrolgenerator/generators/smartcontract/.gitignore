@@ -2,3 +2,7 @@
 /.SolidityContractGenerator.java._trace
 /.SolidityFunctionGenerator.java._trace
 /.SolidityNaming.java._trace
+/SolidityConstants.java
+/SolidityContractGenerator.java
+/SolidityFunctionGenerator.java
+/SolidityNaming.java

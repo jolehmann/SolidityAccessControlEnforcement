@@ -31,27 +31,27 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
   private final int FILE_URI_SEGMENT_STARTER = 2;
-  
+
   private final String VALIDATION_SUCCESSFUL_MSG = "Validation of the OCL constraints was successful. The generation begins now.";
-  
+
   private final String VALIDATION_SUCCESSFUL_HEADER = "Validation successful";
-  
+
   private final String VALIDATION_FAILED_HEADER = "Error while validating the models";
-  
+
   private final String VIOLATION_FILE_NAME = "Violations.log";
-  
+
   private AccessControlSystem acSystem;
-  
+
   private AccessControlContractGenerator acGenerator;
-  
+
   private AccessControlValidator acValidator;
-  
+
   private SolidityContractGenerator contractGenerator;
-  
+
   private String targetUri;
-  
+
   private String violations;
-  
+
   /**
    * Generates a Solidity contract from the given resource. If violations have been found during the pre processing,
    * a violation log will be generated instead of the smart contracts. Otherwise, the smart contract content is
@@ -77,7 +77,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     this.generateAndAddContents(inputResource, contents);
     return contents;
   }
-  
+
   /**
    * Returns the folder name for the given resource where the generated files will be put.
    * Since the resources URI always begins with "resources/<PROJECTNAME>/...", we skip the first two segments.
@@ -106,7 +106,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     _builder.append(_targetFolderPrefix);
     return s = _builder.toString();
   }
-  
+
   /**
    * Returns the file name for the given resource (if the resource is a file)
    */
@@ -118,7 +118,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
       return "";
     }
   }
-  
+
   /**
    * Pre processing the list of input files by validating the OCL constraints and RBAC equations on the models.
    * For this, the resources are generated from the files and registered at the validator. At the end,
@@ -151,7 +151,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     }
     return inputFiles;
   }
-  
+
   /**
    * Post processing the generated contents.
    * Since we need no post processing, no modifications are made.
@@ -159,7 +159,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
   public String postProcessGeneratedContents(final String contents) {
     return contents;
   }
-  
+
   /**
    * Generating the contents for the different smart contract files based on the given resources.
    * For this, the method first checks for the AccessControlSystem, generating the contracts content and
@@ -185,7 +185,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
       }
     }
   }
-  
+
   /**
    * Generate content for the given EObject, differentiating between "normal" and access control smart contracts.
    */
@@ -204,7 +204,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     }
     return _switchResult;
   }
-  
+
   /**
    * Generate the content for a contract file based on the given SmartContract
    * using the general contract generator.
@@ -213,7 +213,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     this.contractGenerator.setCurrentTarget(contract);
     return this.contractGenerator.generate();
   }
-  
+
   /**
    * Generate the content for the access control contract based on the given AccessControlSystem
    * using the access control contract generator.
@@ -222,7 +222,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     this.acGenerator.setTarget(acSys);
     return this.acGenerator.generate();
   }
-  
+
   /**
    * Generate a comment when an unexpected EObject is found.
    * This function is taken from the SolidityCodeGenerator.
@@ -235,7 +235,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     _builder.append("\'!");
     return _builder.toString();
   }
-  
+
   /**
    * Removes all empty lines from the given string.
    * This function is taken from the SolidityCodeGenerator.
@@ -243,7 +243,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
   private String removeEmptyLines(final String input) {
     return input.replaceAll("(\t?\r?\n){2,}", "\n\n");
   }
-  
+
   /**
    * Generates a content triple based on the given contract content and its fileName for later file creation.
    * Additionally, it can be specified if the general file extentension (.sol) should be added.
@@ -264,7 +264,7 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
     final Triplet<String, String, String> contentAndFileName = new Triplet<String, String, String>(content, folderName, fileNameWithExtension);
     return contentAndFileName;
   }
-  
+
   /**
    * Sets the found AccessControlSystem for the static singletons needing it.
    */

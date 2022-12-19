@@ -23,13 +23,13 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplate {
   @Accessors(AccessorType.PRIVATE_GETTER)
   private Function currentFunction;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private AnnotationGenerator annotationGenerator;
-  
+
   @Accessors(AccessorType.PRIVATE_GETTER)
   private ModifierGenerator modifierGenerator;
-  
+
   /**
    * Constructor setting the necessary sub-generators
    */
@@ -37,14 +37,14 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     this.annotationGenerator = annotationGenerator;
     this.modifierGenerator = modifierGenerator;
   }
-  
+
   /**
    * Generating the annotations for this function using the AnnotationGenerator
    */
   protected String generateComments() {
     return this.annotationGenerator.generateModificationAnnotations(this.currentFunction);
   }
-  
+
   /**
    * Generating and returning the function header containing:
    * - method name
@@ -103,7 +103,7 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     final String result = _builder_1.toString();
     return SolidityNaming.normalizeSpaces(result);
   }
-  
+
   /**
    * Generating the function body as empty or with the content defined in the model.
    * This function is taken from the SolidityCodeGenerator.
@@ -120,14 +120,14 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
       return this.currentFunction.getContent();
     }
   }
-  
+
   /**
    * Sets the current function to generate a solidity function for to the given one
    */
   protected void setCurrentTarget(final Function function) {
     this.currentFunction = function;
   }
-  
+
   /**
    * Generates the return statement for the given function.
    * This function is taken from the SolidityCodeGenerator.
@@ -144,7 +144,7 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     _builder.append(") ");
     return _builder.toString();
   }
-  
+
   /**
    * Handles the different possible return variables for the current function.
    * This function is taken from the SolidityCodeGenerator.
@@ -168,7 +168,7 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     }
     return _builder.toString();
   }
-  
+
   /**
    * Returns the name for the return variable or an emtpy string if no name is set.
    * This function is taken from the SolidityCodeGenerator.
@@ -181,7 +181,7 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     }
     return StringExtensions.toFirstLower(variable.getName().replaceAll(" ", ""));
   }
-  
+
   /**
    * Generates the functions visibility, differentiating between the possibilites for local and global functions.
    * This function is taken from the SolidityCodeGenerator.
@@ -196,17 +196,17 @@ public class SolidityFunctionGenerator extends SolidityFunctionGenerationTemplat
     }
     return "";
   }
-  
+
   @Pure
   private Function getCurrentFunction() {
     return this.currentFunction;
   }
-  
+
   @Pure
   private AnnotationGenerator getAnnotationGenerator() {
     return this.annotationGenerator;
   }
-  
+
   @Pure
   private ModifierGenerator getModifierGenerator() {
     return this.modifierGenerator;

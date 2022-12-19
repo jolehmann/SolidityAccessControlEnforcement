@@ -148,7 +148,7 @@ contract Market {
 	/// @notice modifies designatedReportAllowed 
 	/// @notice modifies openReportAllowed 
 	/// @notice modifies disputesAllowed 
-	function report(string memory outcome) private onlyOpenReporterDesignatedReporter {
+	function report(string memory outcome) private onlyDesignatedReporterOpenReporter {
 		// TODO: implement and verify auto-generated method stub
 		revert("TODO: auto-generated method stub");
 	}
@@ -209,9 +209,9 @@ contract Market {
 		_;
 	}
 
-	modifier onlyOpenReporterDesignatedReporter {
-		require(accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.OPEN_REPORTER) ||
-				accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.DESIGNATED_REPORTER), "Access denied due to missing role!");
+	modifier onlyDesignatedReporterOpenReporter {
+		require(accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.DESIGNATED_REPORTER) ||
+				accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.OPEN_REPORTER), "Access denied due to missing role!");
 		_;
 	}
 

@@ -4,3 +4,9 @@
 /.AnnotationGenerator.java._trace
 /.ModifierGenerator.java._trace
 /.ModifierRoleAndConditionsHelper.java._trace
+/AccessControlConstants.java
+/AccessControlContractGenerator.java
+/AccessControlUtility.java
+/AnnotationGenerator.java
+/ModifierGenerator.java
+/ModifierRoleAndConditionsHelper.java

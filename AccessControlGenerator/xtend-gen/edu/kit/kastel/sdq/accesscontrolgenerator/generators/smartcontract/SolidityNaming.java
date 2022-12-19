@@ -33,23 +33,23 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 public class SolidityNaming {
   private SolidityNaming() {
   }
-  
+
   public static String getTargetFileNameForContract(final Contract contract) {
     return StringExtensions.toFirstUpper(contract.getEntityName());
   }
-  
+
   public static String getFunctionName(final Function function) {
     return StringExtensions.toFirstLower(function.getEntityName().replaceAll(" ", ""));
   }
-  
+
   public static String getModifierName(final Modifier modifier) {
     return StringExtensions.toFirstLower(modifier.getEntityName());
   }
-  
+
   public static String normalizeSpaces(final String string) {
     return string.replaceAll(" +", " ");
   }
-  
+
   public static String getTargetNameForDataLocation(final DataLocation location) {
     String _switchResult = null;
     if (location != null) {
@@ -72,7 +72,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForVariableMutability(final VariableMutability mutability) {
     String _switchResult = null;
     if (mutability != null) {
@@ -95,7 +95,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForVariableVisibility(final VariableVisibility visibility) {
     String _switchResult = null;
     if (visibility != null) {
@@ -118,7 +118,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   protected static String _getTargetNameForFunctionVisibility(final GlobalFunctionVisibility visibility) {
     String _switchResult = null;
     if (visibility != null) {
@@ -138,7 +138,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   protected static String _getTargetNameForFunctionVisibility(final LocalFunctionVisibility visibility) {
     String _switchResult = null;
     if (visibility != null) {
@@ -158,7 +158,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForFunctionMutability(final FunctionMutability mutability) {
     String _switchResult = null;
     if (mutability != null) {
@@ -184,7 +184,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForFunctionTypeVisibility(final FunctionTypeVisibility visibility) {
     String _switchResult = null;
     if (visibility != null) {
@@ -204,7 +204,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForPrimitiveTypeEnum(final PrimitiveTypeEnum pt) {
     String _switchResult = null;
     if (pt != null) {
@@ -521,7 +521,7 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   public static String getTargetNameForDefaultArrayEnum(final DefaultArrayEnum array) {
     String _switchResult = null;
     if (array != null) {
@@ -541,19 +541,19 @@ public class SolidityNaming {
     }
     return _switchResult;
   }
-  
+
   protected static String _getTargetNameForType(final PrimitiveType pt, final boolean includeDataLocation) {
     return SolidityNaming.getTargetNameForPrimitiveTypeEnum(pt.getType());
   }
-  
+
   protected static String _getTargetNameForType(final edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Enum en, final boolean includeDataLocation) {
     return en.getEntityName().replaceAll(" ", "");
   }
-  
+
   protected static String _getTargetNameForType(final ContractType ct, final boolean includeDataLocation) {
     return ct.getContract().getEntityName().replaceAll(" ", "");
   }
-  
+
   protected static String _getTargetNameForType(final DefaultArray array, final boolean includeDataLocation) {
     StringConcatenation _builder = new StringConcatenation();
     String _targetNameForDefaultArrayEnum = SolidityNaming.getTargetNameForDefaultArrayEnum(array.getType());
@@ -567,7 +567,7 @@ public class SolidityNaming {
     }
     return _builder.toString();
   }
-  
+
   protected static String _getTargetNameForType(final CustomArray array, final boolean includeDataLocation) {
     StringConcatenation _builder = new StringConcatenation();
     String _targetNameForType = SolidityNaming.getTargetNameForType(array.getType(), false);
@@ -591,7 +591,7 @@ public class SolidityNaming {
     }
     return _builder.toString();
   }
-  
+
   protected static String _getTargetNameForType(final Mapping map, final boolean includeDataLocation) {
     String _xifexpression = null;
     if (includeDataLocation) {
@@ -611,7 +611,7 @@ public class SolidityNaming {
     _builder.append(dataLocation);
     return _builder.toString();
   }
-  
+
   protected static String _getTargetNameForType(final Struct struct, final boolean includeDataLocation) {
     StringConcatenation _builder = new StringConcatenation();
     String _replaceAll = struct.getEntityName().replaceAll(" ", "");
@@ -625,7 +625,7 @@ public class SolidityNaming {
     }
     return _builder.toString();
   }
-  
+
   protected static String _getTargetNameForType(final FunctionType ft, final boolean includeDataLocation) {
     String _xifexpression = null;
     int _size = ft.getReturnTypes().size();
@@ -678,7 +678,7 @@ public class SolidityNaming {
     final String type_2 = _builder_1.toString();
     return SolidityNaming.normalizeSpaces(type_2);
   }
-  
+
   public static String getTargetNameForFunctionVisibility(final Enum<?> visibility) {
     if (visibility instanceof GlobalFunctionVisibility) {
       return _getTargetNameForFunctionVisibility((GlobalFunctionVisibility)visibility);
@@ -689,7 +689,7 @@ public class SolidityNaming {
         Arrays.<Object>asList(visibility).toString());
     }
   }
-  
+
   public static String getTargetNameForType(final Type ct, final boolean includeDataLocation) {
     if (ct instanceof ContractType) {
       return _getTargetNameForType((ContractType)ct, includeDataLocation);

@@ -24,24 +24,24 @@ import org.eclipse.xtext.xbase.lib.Pure;
 public class ModifierRoleAndConditionsHelper {
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private Set<Role> roles;
-  
+
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private Set<BooleanVariableContext> boolConditions;
-  
+
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private Set<TimeContext> timeConditions;
-  
+
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private Dictionary<Role, Iterable<BooleanVariableContext>> boolCondsForRole;
-  
+
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private Dictionary<Role, Iterable<TimeContext>> timeCondsForRole;
-  
+
   @Accessors({ AccessorType.PRIVATE_SETTER, AccessorType.PUBLIC_GETTER })
   private boolean hasConditions;
-  
+
   private AccessControlSystem acSystem;
-  
+
   /**
    * Constructor to create the instance and fill the lists with the fitting elements.
    */
@@ -51,7 +51,7 @@ public class ModifierRoleAndConditionsHelper {
     }
     this.acSystem = acSystem;
   }
-  
+
   /**
    * Fills the different lists containing conditions and roles for the given Function
    * using the internal AccessControlSystem
@@ -104,57 +104,57 @@ public class ModifierRoleAndConditionsHelper {
     }
     this.hasConditions = ((!this.boolConditions.isEmpty()) || (!this.timeConditions.isEmpty()));
   }
-  
+
   @Pure
   public Set<Role> getRoles() {
     return this.roles;
   }
-  
+
   private void setRoles(final Set<Role> roles) {
     this.roles = roles;
   }
-  
+
   @Pure
   public Set<BooleanVariableContext> getBoolConditions() {
     return this.boolConditions;
   }
-  
+
   private void setBoolConditions(final Set<BooleanVariableContext> boolConditions) {
     this.boolConditions = boolConditions;
   }
-  
+
   @Pure
   public Set<TimeContext> getTimeConditions() {
     return this.timeConditions;
   }
-  
+
   private void setTimeConditions(final Set<TimeContext> timeConditions) {
     this.timeConditions = timeConditions;
   }
-  
+
   @Pure
   public Dictionary<Role, Iterable<BooleanVariableContext>> getBoolCondsForRole() {
     return this.boolCondsForRole;
   }
-  
+
   private void setBoolCondsForRole(final Dictionary<Role, Iterable<BooleanVariableContext>> boolCondsForRole) {
     this.boolCondsForRole = boolCondsForRole;
   }
-  
+
   @Pure
   public Dictionary<Role, Iterable<TimeContext>> getTimeCondsForRole() {
     return this.timeCondsForRole;
   }
-  
+
   private void setTimeCondsForRole(final Dictionary<Role, Iterable<TimeContext>> timeCondsForRole) {
     this.timeCondsForRole = timeCondsForRole;
   }
-  
+
   @Pure
   public boolean isHasConditions() {
     return this.hasConditions;
   }
-  
+
   private void setHasConditions(final boolean hasConditions) {
     this.hasConditions = hasConditions;
   }
