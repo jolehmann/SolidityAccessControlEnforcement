@@ -337,8 +337,7 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
    * Executes the generation of a method for the given function using the FunctionGenerator
    */
   protected String executeMethodGeneration(final Function function) {
-    final String roles = this.annotationGenerator.generateRoleComments(function);
-    this.functionGenerator.setCurrentTarget(function);
+    final String roles = this.annotationGenerator.generateRoleBrackets(function);
     StringConcatenation _builder = new StringConcatenation();
     String _replaceAll = StringExtensions.toFirstLower(function.getEntityName()).replaceAll(" ", "");
     _builder.append(_replaceAll);
@@ -348,8 +347,10 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
     _builder.append(_lineSeparator);
     String _plus = (this.roleAnnotations + _builder);
     this.roleAnnotations = _plus;
+    final String roleComments = this.annotationGenerator.generateRoleComments(function);
+    this.functionGenerator.setCurrentTarget(function);
     String _lineSeparator_1 = System.lineSeparator();
-    String _plus_1 = (roles + _lineSeparator_1);
+    String _plus_1 = (roleComments + _lineSeparator_1);
     String _generate = this.functionGenerator.generate();
     return (_plus_1 + _generate);
   }
@@ -395,26 +396,51 @@ public class SolidityContractGenerator extends SolidityContractGenerationTemplat
           String _lineSeparator = System.lineSeparator();
           _builder.appendImmediate(_lineSeparator, "");
         }
-        _builder.newLineIfNotEmpty();
-        String _generateRoleComments = this.annotationGenerator.generateRoleComments(variable);
-        _builder.append(_generateRoleComments);
-        _builder.newLineIfNotEmpty();
-        String _targetNameForType = SolidityNaming.getTargetNameForType(variable.getType(), false);
-        _builder.append(_targetNameForType);
-        _builder.append(" ");
-        String _targetNameForVariableVisibility = SolidityNaming.getTargetNameForVariableVisibility(variable.getVisibility());
-        _builder.append(_targetNameForVariableVisibility);
-        _builder.append(" ");
-        String _targetNameForVariableMutability = SolidityNaming.getTargetNameForVariableMutability(variable.getMutability());
-        _builder.append(_targetNameForVariableMutability);
-        _builder.append(" ");
         String _replaceAll = StringExtensions.toFirstLower(variable.getEntityName()).replaceAll(" ", "");
         _builder.append(_replaceAll);
-        _builder.append("; // Auto-generated Field");
-        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        String _generateRoleBrackets = this.annotationGenerator.generateRoleBrackets(variable);
+        _builder.append(_generateRoleBrackets);
       }
     }
-    String variables = _builder.toString();
+    String variablesWithRoles = _builder.toString();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append(variablesWithRoles);
+    String _lineSeparator_1 = System.lineSeparator();
+    _builder_1.append(_lineSeparator_1);
+    String _plus = (this.roleAnnotations + _builder_1);
+    this.roleAnnotations = _plus;
+    StringConcatenation _builder_2 = new StringConcatenation();
+    {
+      EList<StateVariable> _variables_1 = this.currentTarget.getVariables();
+      boolean _hasElements_1 = false;
+      for(final StateVariable variable_1 : _variables_1) {
+        if (!_hasElements_1) {
+          _hasElements_1 = true;
+        } else {
+          String _lineSeparator_2 = System.lineSeparator();
+          _builder_2.appendImmediate(_lineSeparator_2, "");
+        }
+        _builder_2.newLineIfNotEmpty();
+        String _generateRoleComments = this.annotationGenerator.generateRoleComments(variable_1);
+        _builder_2.append(_generateRoleComments);
+        _builder_2.newLineIfNotEmpty();
+        String _targetNameForType = SolidityNaming.getTargetNameForType(variable_1.getType(), false);
+        _builder_2.append(_targetNameForType);
+        _builder_2.append(" ");
+        String _targetNameForVariableVisibility = SolidityNaming.getTargetNameForVariableVisibility(variable_1.getVisibility());
+        _builder_2.append(_targetNameForVariableVisibility);
+        _builder_2.append(" ");
+        String _targetNameForVariableMutability = SolidityNaming.getTargetNameForVariableMutability(variable_1.getMutability());
+        _builder_2.append(_targetNameForVariableMutability);
+        _builder_2.append(" ");
+        String _replaceAll_1 = StringExtensions.toFirstLower(variable_1.getEntityName()).replaceAll(" ", "");
+        _builder_2.append(_replaceAll_1);
+        _builder_2.append("; // Auto-generated Field");
+        _builder_2.newLineIfNotEmpty();
+      }
+    }
+    String variables = _builder_2.toString();
     return SolidityNaming.normalizeSpaces(variables);
   }
 

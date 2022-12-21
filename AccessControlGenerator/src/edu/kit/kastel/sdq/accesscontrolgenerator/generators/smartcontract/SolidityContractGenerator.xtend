@@ -146,11 +146,14 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 	 * Executes the generation of a method for the given function using the FunctionGenerator
 	 */
 	protected def String executeMethodGeneration(Function function) {
-		val roles = annotationGenerator.generateRoleComments(function)
-		functionGenerator.currentTarget = function
+		// for txt output
+		val roles = annotationGenerator.generateRoleBrackets(function)
 		this.roleAnnotations = this.roleAnnotations + '''«function.entityName.toFirstLower.replaceAll(" ", "")» «roles»«System.lineSeparator»'''
-		//System.out.println('''«function.entityName.toFirstLower.replaceAll(" ", "")» «roles»«System.lineSeparator»''')
-		return roles + System.lineSeparator + functionGenerator.generate
+		
+		// for code annotations
+		val roleComments = annotationGenerator.generateRoleComments(function)
+		functionGenerator.currentTarget = function
+		return roleComments + System.lineSeparator + functionGenerator.generate
 	}
 	
 	/**
@@ -170,6 +173,11 @@ class SolidityContractGenerator extends SolidityContractGenerationTemplate {
 	 * For each variable, a comment summarizing the roles that can access it is generated before its declaration.
 	 */
 	private def String generateFieldsForStateVariables() {
+		// for txt output
+		var variablesWithRoles = '''«FOR variable : currentTarget.variables SEPARATOR System.lineSeparator»«variable.entityName.toFirstLower.replaceAll(" ", "")» «annotationGenerator.generateRoleBrackets(variable)»«ENDFOR»'''
+		this.roleAnnotations = this.roleAnnotations + '''«variablesWithRoles»«System.lineSeparator»'''
+		
+		// for code annotations
 		var variables = '''«FOR variable : currentTarget.variables SEPARATOR System.lineSeparator»
 «annotationGenerator.generateRoleComments(variable)»
 «getTargetNameForType(variable.type, false)» «getTargetNameForVariableVisibility(variable.visibility)» «getTargetNameForVariableMutability(variable.mutability)» «variable.entityName.toFirstLower.replaceAll(" ", "")»; // Auto-generated Field

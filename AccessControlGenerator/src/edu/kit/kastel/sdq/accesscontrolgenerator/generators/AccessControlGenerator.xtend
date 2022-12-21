@@ -160,11 +160,14 @@ class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 			}
 		}
 		
-		// TODO changes
-		val newContent = this.contractGenerator.roleAnnotationsAfterGeneration
-		if(newContent != "null" && newContent != "") {
-			this.roleAnnotations = this.roleAnnotations + roleAnnotationFilenamePrefix + "::" + System.lineSeparator + newContent
-			contents.add(generateContentTriplet(this.roleAnnotations, ROLE_ANNOTATIONS_FILE_NAME, false))
+		// TODO code changes from jolehmann below
+		
+		var newContent = this.contractGenerator.roleAnnotationsAfterGeneration
+		if(newContent != "null" && newContent != "" && newContent != System.lineSeparator) {
+			val prefix = roleAnnotationFilenamePrefix + "::"
+			newContent = newContent.split(System.lineSeparator).map[l | prefix + l].join(System.lineSeparator)
+			this.roleAnnotations = this.roleAnnotations + System.lineSeparator + newContent
+			contents.add(generateContentTriplet(this.roleAnnotations.removeEmptyLines, ROLE_ANNOTATIONS_FILE_NAME, false))
 		}
 	}
 	
@@ -209,7 +212,8 @@ class AccessControlGenerator extends AbstractEcore2TxtGenerator {
 	 * This function is taken from the SolidityCodeGenerator.
 	 */
 	private def String removeEmptyLines(String input)  {
-		return input.replaceAll("(\t?\r?\n){2,}","\n\n")
+		val firstLineRemovedIfEmpty = input.replaceAll("^(\t?\r?\n)+","") // TODO allowed?
+		return firstLineRemovedIfEmpty.replaceAll("(\t?\r?\n){2,}","\n\n")
 	}
 	
 	/**

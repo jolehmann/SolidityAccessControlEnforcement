@@ -8,58 +8,58 @@ contract Market {
 
 	AccessControlContract private accCtrl = new AccessControlContract(address(this)); // Auto-generated Field
 
-	// Roles: Modification by {MARKET_CREATOR}, Influence by {None}
+	// Roles: Modification by {MARKET_CREATOR}, Influence by {}
 	address private designatedReporter; // Auto-generated Field
 
-	// Roles: Modification by {SHAREHOLDER}, Influence by {None}
+	// Roles: Modification by {SHAREHOLDER}, Influence by {}
 	address private openReporter; // Auto-generated Field
 
-	// Roles: Modification by {MARKET_CREATOR}, Influence by {None}
+	// Roles: Modification by {MARKET_CREATOR}, Influence by {}
 	uint public validityBond; // Auto-generated Field
 
-	// Roles: Modification by {MARKET_CREATOR}, Influence by {None}
+	// Roles: Modification by {MARKET_CREATOR}, Influence by {}
 	uint public creationBond; // Auto-generated Field
 
-	// Roles: Modification by {MANAGER}, Influence by {None}
+	// Roles: Modification by {MANAGER}, Influence by {}
 	bool private creationBondPaidOut; // Auto-generated Field
 
 	// Roles: Modification by {SHAREHOLDER}, Influence by {MARKET_CREATOR}
 	mapping(address => uint) private shares; // Auto-generated Field
 
-	// Roles: Modification by {SHAREHOLDER}, Influence by {None}
+	// Roles: Modification by {SHAREHOLDER}, Influence by {}
 	uint public disagreeCounter; // Auto-generated Field
 
-	// Roles: Modification by {SHAREHOLDER}, Influence by {None}
+	// Roles: Modification by {SHAREHOLDER}, Influence by {}
 	uint public agreeCounter; // Auto-generated Field
 
-	// Roles: Modification by {SHAREHOLDER}, Influence by {None}
+	// Roles: Modification by {SHAREHOLDER}, Influence by {}
 	mapping(address => OutcomeAcceptance) private disputes; // Auto-generated Field
 
-	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER}, Influence by {None}
+	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER}, Influence by {}
 	string public reportedOutcome; // Auto-generated Field
 
-	// Roles: Modification by {MARKET_CREATOR}, Influence by {None}
+	// Roles: Modification by {MARKET_CREATOR}, Influence by {}
 	bool private createdBonds; // Auto-generated Field
 
-	// Roles: Modification by {MARKET_CREATOR}, Influence by {None}
+	// Roles: Modification by {MARKET_CREATOR}, Influence by {}
 	bool private reporterSet; // Auto-generated Field
 
 	// Roles: Modification by {MANAGER}, Influence by {MARKET_CREATOR}
 	bool private tradingActive; // Auto-generated Field
 
-	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {None}
+	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {}
 	bool private designatedReportAllowed; // Auto-generated Field
 
-	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {None}
+	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {}
 	bool private openReportAllowed; // Auto-generated Field
 
-	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {None}
+	// Roles: Modification by {DESIGNATED_REPORTER, OPEN_REPORTER, MANAGER}, Influence by {}
 	bool private disputesAllowed; // Auto-generated Field
 
-	// Roles: Modification by {MANAGER}, Influence by {None}
+	// Roles: Modification by {MANAGER}, Influence by {}
 	bool private settlementPhaseActive; // Auto-generated Field
 
-	// Roles: Modification by {DESIGNATED_REPORTER}, Influence by {None}
+	// Roles: Modification by {DESIGNATED_REPORTER}, Influence by {}
 	bool private designatedReporterReported; // Auto-generated Field
 
 	constructor(address creator) {
@@ -139,7 +139,7 @@ contract Market {
 	/// @notice modifies designatedReportAllowed 
 	/// @notice modifies openReportAllowed 
 	/// @notice modifies disputesAllowed 
-	function report(string memory outcome) private onlyOpenReporterDesignatedReporter {
+	function report(string memory outcome) private onlyDesignatedReporterOpenReporter {
 		// TODO: implement and verify auto-generated method stub
 		revert("TODO: auto-generated method stub");
 	}
@@ -205,9 +205,9 @@ contract Market {
 		_;
 	}
 
-	modifier onlyOpenReporterDesignatedReporter {
-		require(accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.OPEN_REPORTER) ||
-				accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.DESIGNATED_REPORTER), "Access denied due to missing role!");
+	modifier onlyDesignatedReporterOpenReporter {
+		require(accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.DESIGNATED_REPORTER) ||
+				accCtrl.checkAccess(msg.sender, AccessControlContract.Roles.OPEN_REPORTER), "Access denied due to missing role!");
 		_;
 	}
 

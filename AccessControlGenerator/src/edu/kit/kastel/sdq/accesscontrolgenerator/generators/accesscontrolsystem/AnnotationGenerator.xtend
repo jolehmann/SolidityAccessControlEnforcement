@@ -56,10 +56,8 @@ class AnnotationGenerator {
 	}
 	
 	/**
-	 * Generates comments explaining which roles are allowed to access the given state variable.
-	 * There are two comments generated: One for roles that are allowed to modify the variable and
-	 * one for roles that are only allowed to influence it. If no role is allowed to access,
-	 * a fitting comment is generated & returned.
+	 * Generates comments explaining which roles are allowed to access the given function.
+	 * If no role is allowed to access, a fitting comment is generated & returned.
 	 */
 	def String generateRoleComments(Function function) {
 		if(acSystem === null) {
@@ -71,6 +69,19 @@ class AnnotationGenerator {
 			return "// Roles: No Role can directly access"
 		}
 		return '''// Roles: Direct Access by {«generateAccessCommentContentForRoles(roleWithDirectAccess.toSet)»}'''
+	}
+	
+	/**
+	 * Generates comments explaining which roles are allowed to access the given function.
+	 * If no role is allowed to access, a fitting comment is generated & returned.
+	 */
+	def String generateRoleBrackets(Function function) {
+		if(acSystem === null) {
+			return ""
+		}
+		val roleWithDirectAccess = acSystem.roleToFunctionTuples.filter[rf | rf.function.equals(function)].map[rf | rf.role]
+		
+		return '''{«generateAccessCommentContentForRoles(roleWithDirectAccess.toSet)»}'''
 	}
 	
 	/**
@@ -92,20 +103,33 @@ class AnnotationGenerator {
 		if(rolesWithModAccess.isEmpty && rolesWithInfAccess.isEmpty) {
 			return "// Roles: No Role can modify or influence"
 		}
-		
-//		return '''// Modification by: «generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»
-//// Influence by: «generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»'''
 		return '''// Roles: Modification by {«generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»}, Influence by {«generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»}'''
 	}
 	
 	/**
-	 * Generates the content of a single comment visualizing role access to variables.
+	 * Generates comments explaining which roles are allowed to access the given function.
+	 * If no role is allowed to access, a fitting comment is generated & returned.
+	 */
+	def String generateRoleBrackets(StateVariable variable) {
+		if(acSystem === null) {
+			return ""
+		}
+		val rolesWithModAccess = acSystem.roleToVariableTuples.filter[rv | rv.variable.equals(variable) 
+			&& rv.modifies].map[rv | rv.role]
+		val rolesWithInfAccess = acSystem.roleToVariableTuples.filter[rv | rv.variable.equals(variable) 
+			&& !rv.modifies].map[rv | rv.role]
+		
+		return '''{«generateAccessCommentContentForRoles(rolesWithModAccess.toSet)»}, {«generateAccessCommentContentForRoles(rolesWithInfAccess.toSet)»}'''
+	}
+	
+	/**
+	 * Generates the content of a single comment visualizing role access to variables or functions.
 	 * This function iterates over the list of roles and adds the enum value name to the comment.
 	 * If the list is empty, "None" is returned.
 	 */
 	private def String generateAccessCommentContentForRoles(Set<Role> roles) {		
 		if(roles.isEmpty) {
-			return "None"
+			return ""
 		} else {
 			return '''«FOR role : roles SEPARATOR ", "»«getRoleEnumValueForRole(role)»«ENDFOR»'''
 		}

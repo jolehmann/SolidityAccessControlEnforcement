@@ -24,6 +24,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.internal.xtend.util.Triplet;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generator class using the Ecore2Txt project:
@@ -191,13 +195,20 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
         }
       }
     }
-    final String newContent = this.contractGenerator.getRoleAnnotationsAfterGeneration();
-    if (((!Objects.equal(newContent, "null")) && (!Objects.equal(newContent, "")))) {
+    String newContent = this.contractGenerator.getRoleAnnotationsAfterGeneration();
+    if ((((!Objects.equal(newContent, "null")) && (!Objects.equal(newContent, ""))) && (!Objects.equal(newContent, System.lineSeparator())))) {
+      final String prefix = (roleAnnotationFilenamePrefix + "::");
+      final Function1<String, String> _function = new Function1<String, String>() {
+        public String apply(final String l) {
+          return (prefix + l);
+        }
+      };
+      newContent = IterableExtensions.join(ListExtensions.<String, String>map(((List<String>)Conversions.doWrapArray(newContent.split(System.lineSeparator()))), _function), System.lineSeparator());
       String _lineSeparator = System.lineSeparator();
-      String _plus = (((this.roleAnnotations + roleAnnotationFilenamePrefix) + "::") + _lineSeparator);
+      String _plus = (this.roleAnnotations + _lineSeparator);
       String _plus_1 = (_plus + newContent);
       this.roleAnnotations = _plus_1;
-      contents.add(this.generateContentTriplet(this.roleAnnotations, this.ROLE_ANNOTATIONS_FILE_NAME, false));
+      contents.add(this.generateContentTriplet(this.removeEmptyLines(this.roleAnnotations), this.ROLE_ANNOTATIONS_FILE_NAME, false));
     }
   }
 
@@ -256,7 +267,8 @@ public class AccessControlGenerator extends AbstractEcore2TxtGenerator {
    * This function is taken from the SolidityCodeGenerator.
    */
   private String removeEmptyLines(final String input) {
-    return input.replaceAll("(\t?\r?\n){2,}", "\n\n");
+    final String firstLineRemovedIfEmpty = input.replaceAll("^(\t?\r?\n)+", "");
+    return firstLineRemovedIfEmpty.replaceAll("(\t?\r?\n){2,}", "\n\n");
   }
 
   /**

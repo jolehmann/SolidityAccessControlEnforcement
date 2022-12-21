@@ -95,10 +95,8 @@ public class AnnotationGenerator {
   }
 
   /**
-   * Generates comments explaining which roles are allowed to access the given state variable.
-   * There are two comments generated: One for roles that are allowed to modify the variable and
-   * one for roles that are only allowed to influence it. If no role is allowed to access,
-   * a fitting comment is generated & returned.
+   * Generates comments explaining which roles are allowed to access the given function.
+   * If no role is allowed to access, a fitting comment is generated & returned.
    */
   public String generateRoleComments(final Function function) {
     if ((this.acSystem == null)) {
@@ -121,6 +119,33 @@ public class AnnotationGenerator {
     }
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("// Roles: Direct Access by {");
+    String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
+    _builder.append(_generateAccessCommentContentForRoles);
+    _builder.append("}");
+    return _builder.toString();
+  }
+
+  /**
+   * Generates comments explaining which roles are allowed to access the given function.
+   * If no role is allowed to access, a fitting comment is generated & returned.
+   */
+  public String generateRoleBrackets(final Function function) {
+    if ((this.acSystem == null)) {
+      return "";
+    }
+    final Function1<RoleToFunctionRelation, Boolean> _function = new Function1<RoleToFunctionRelation, Boolean>() {
+      public Boolean apply(final RoleToFunctionRelation rf) {
+        return Boolean.valueOf(rf.getFunction().equals(function));
+      }
+    };
+    final Function1<RoleToFunctionRelation, Role> _function_1 = new Function1<RoleToFunctionRelation, Role>() {
+      public Role apply(final RoleToFunctionRelation rf) {
+        return rf.getRole();
+      }
+    };
+    final Iterable<Role> roleWithDirectAccess = IterableExtensions.<RoleToFunctionRelation, Role>map(IterableExtensions.<RoleToFunctionRelation>filter(this.acSystem.getRoleToFunctionTuples(), _function), _function_1);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
     String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
     _builder.append(_generateAccessCommentContentForRoles);
     _builder.append("}");
@@ -174,14 +199,55 @@ public class AnnotationGenerator {
   }
 
   /**
-   * Generates the content of a single comment visualizing role access to variables.
+   * Generates comments explaining which roles are allowed to access the given function.
+   * If no role is allowed to access, a fitting comment is generated & returned.
+   */
+  public String generateRoleBrackets(final StateVariable variable) {
+    if ((this.acSystem == null)) {
+      return "";
+    }
+    final Function1<RoleToVariableRelation, Boolean> _function = new Function1<RoleToVariableRelation, Boolean>() {
+      public Boolean apply(final RoleToVariableRelation rv) {
+        return Boolean.valueOf((rv.getVariable().equals(variable) && rv.isModifies()));
+      }
+    };
+    final Function1<RoleToVariableRelation, Role> _function_1 = new Function1<RoleToVariableRelation, Role>() {
+      public Role apply(final RoleToVariableRelation rv) {
+        return rv.getRole();
+      }
+    };
+    final Iterable<Role> rolesWithModAccess = IterableExtensions.<RoleToVariableRelation, Role>map(IterableExtensions.<RoleToVariableRelation>filter(this.acSystem.getRoleToVariableTuples(), _function), _function_1);
+    final Function1<RoleToVariableRelation, Boolean> _function_2 = new Function1<RoleToVariableRelation, Boolean>() {
+      public Boolean apply(final RoleToVariableRelation rv) {
+        return Boolean.valueOf((rv.getVariable().equals(variable) && (!rv.isModifies())));
+      }
+    };
+    final Function1<RoleToVariableRelation, Role> _function_3 = new Function1<RoleToVariableRelation, Role>() {
+      public Role apply(final RoleToVariableRelation rv) {
+        return rv.getRole();
+      }
+    };
+    final Iterable<Role> rolesWithInfAccess = IterableExtensions.<RoleToVariableRelation, Role>map(IterableExtensions.<RoleToVariableRelation>filter(this.acSystem.getRoleToVariableTuples(), _function_2), _function_3);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(rolesWithModAccess));
+    _builder.append(_generateAccessCommentContentForRoles);
+    _builder.append("}, {");
+    String _generateAccessCommentContentForRoles_1 = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(rolesWithInfAccess));
+    _builder.append(_generateAccessCommentContentForRoles_1);
+    _builder.append("}");
+    return _builder.toString();
+  }
+
+  /**
+   * Generates the content of a single comment visualizing role access to variables or functions.
    * This function iterates over the list of roles and adds the enum value name to the comment.
    * If the list is empty, "None" is returned.
    */
   private String generateAccessCommentContentForRoles(final Set<Role> roles) {
     boolean _isEmpty = roles.isEmpty();
     if (_isEmpty) {
-      return "None";
+      return "";
     } else {
       StringConcatenation _builder = new StringConcatenation();
       {
