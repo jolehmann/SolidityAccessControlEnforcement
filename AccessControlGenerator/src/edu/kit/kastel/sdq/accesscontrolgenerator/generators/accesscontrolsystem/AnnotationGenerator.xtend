@@ -66,7 +66,9 @@ class AnnotationGenerator {
 		val roleWithDirectAccess = acSystem.roleToFunctionTuples.filter[rf | rf.function.equals(function)].map[rf | rf.role]
 		
 		if(roleWithDirectAccess.isEmpty) {
-			return "// Roles: No Role can directly access"
+			// All Roles can directly access
+			val allRoles = acSystem.roles
+			return '''// Roles: All Roles can directly access {«generateAccessCommentContentForRoles(allRoles.toSet)»}'''
 		}
 		return '''// Roles: Direct Access by {«generateAccessCommentContentForRoles(roleWithDirectAccess.toSet)»}'''
 	}
@@ -80,7 +82,11 @@ class AnnotationGenerator {
 			return ""
 		}
 		val roleWithDirectAccess = acSystem.roleToFunctionTuples.filter[rf | rf.function.equals(function)].map[rf | rf.role]
-		
+		if(roleWithDirectAccess.isEmpty) {
+			// All Roles can directly access
+			val allRoles = acSystem.roles
+			return '''{«generateAccessCommentContentForRoles(allRoles.toSet)»}'''
+		}
 		return '''{«generateAccessCommentContentForRoles(roleWithDirectAccess.toSet)»}'''
 	}
 	

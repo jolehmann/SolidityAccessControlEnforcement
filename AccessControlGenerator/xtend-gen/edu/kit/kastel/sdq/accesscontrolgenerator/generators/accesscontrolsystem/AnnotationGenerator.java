@@ -16,6 +16,7 @@ import edu.kit.kastel.sdq.AccessControlMetamodel.SmartContractModel.FunctionBala
 import edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.Function;
 import edu.kit.kastel.sdq.soliditymetamodel.soliditycontracts.StateVariable;
 import java.util.Set;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend.lib.annotations.AccessorType;
 import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -115,14 +116,20 @@ public class AnnotationGenerator {
     final Iterable<Role> roleWithDirectAccess = IterableExtensions.<RoleToFunctionRelation, Role>map(IterableExtensions.<RoleToFunctionRelation>filter(this.acSystem.getRoleToFunctionTuples(), _function), _function_1);
     boolean _isEmpty = IterableExtensions.isEmpty(roleWithDirectAccess);
     if (_isEmpty) {
-      return "// Roles: No Role can directly access";
+      final EList<Role> allRoles = this.acSystem.getRoles();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("// Roles: All Roles can directly access {");
+      String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(allRoles));
+      _builder.append(_generateAccessCommentContentForRoles);
+      _builder.append("}");
+      return _builder.toString();
     }
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("// Roles: Direct Access by {");
-    String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
-    _builder.append(_generateAccessCommentContentForRoles);
-    _builder.append("}");
-    return _builder.toString();
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("// Roles: Direct Access by {");
+    String _generateAccessCommentContentForRoles_1 = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
+    _builder_1.append(_generateAccessCommentContentForRoles_1);
+    _builder_1.append("}");
+    return _builder_1.toString();
   }
 
   /**
@@ -144,12 +151,22 @@ public class AnnotationGenerator {
       }
     };
     final Iterable<Role> roleWithDirectAccess = IterableExtensions.<RoleToFunctionRelation, Role>map(IterableExtensions.<RoleToFunctionRelation>filter(this.acSystem.getRoleToFunctionTuples(), _function), _function_1);
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
-    _builder.append(_generateAccessCommentContentForRoles);
-    _builder.append("}");
-    return _builder.toString();
+    boolean _isEmpty = IterableExtensions.isEmpty(roleWithDirectAccess);
+    if (_isEmpty) {
+      final EList<Role> allRoles = this.acSystem.getRoles();
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("{");
+      String _generateAccessCommentContentForRoles = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(allRoles));
+      _builder.append(_generateAccessCommentContentForRoles);
+      _builder.append("}");
+      return _builder.toString();
+    }
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("{");
+    String _generateAccessCommentContentForRoles_1 = this.generateAccessCommentContentForRoles(IterableExtensions.<Role>toSet(roleWithDirectAccess));
+    _builder_1.append(_generateAccessCommentContentForRoles_1);
+    _builder_1.append("}");
+    return _builder_1.toString();
   }
 
   /**

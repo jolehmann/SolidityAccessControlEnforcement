@@ -85,7 +85,7 @@ contract Market {
 		revert("TODO: auto-generated method stub");
 	}
 
-	// Roles: No Role can directly access
+	// Roles: All Roles can directly access {MARKET_CREATOR, DESIGNATED_REPORTER, OPEN_REPORTER, SHAREHOLDER, MANAGER}
 	/// @notice modifies shares[msg.sender] if tradingActive
 	/// @notice modifies msg.sender.balance
 	/// @notice modifies address(this).balance

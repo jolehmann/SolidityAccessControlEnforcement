@@ -11,7 +11,7 @@ contract MarketManagement {
 	// Roles: No Role can modify or influence
 	Market[] private markets; // Auto-generated Field
 
-	// Roles: No Role can directly access
+	// Roles: All Roles can directly access {MARKET_CREATOR, DESIGNATED_REPORTER, OPEN_REPORTER, SHAREHOLDER, MANAGER}
 	/// @notice modifies marketCounter 
 	/// @notice modifies markets 
 	function createNewMarket() public {
