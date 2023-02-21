@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/legua/Documents/HIWI/Eclipse/jackson-databind-2.13.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/legua/Documents/HIWI/Eclipse/jackson-core-2.13.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/legua/Documents/HIWI/Eclipse/jackson-annotations-2.13.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.13.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.13.5.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.13.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
