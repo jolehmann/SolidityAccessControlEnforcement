@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/legua/.p2/pool/plugins/org.eclipse.emf.ecore_2.29.0.v20221121-1400.jar" sourcepath="C:/Users/legua/.p2/pool/plugins/org.eclipse.emf.ecore.source_2.29.0.v20221121-1400.jar">
 		<accessrules>
 			<accessrule kind="accessible" pattern="org/eclipse/emf/ecore/*"/>
@@ -43,6 +43,12 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="lib" path="data/tools.mdsd.modelingfoundations.identifier_0.1.0.202302130958.jar"/>
+	<classpathentry kind="lib" path="/SolidityRoleAdapter/lib/jackson-annotations-2.13.5.jar"/>
+	<classpathentry kind="lib" path="/SolidityRoleAdapter/lib/jackson-core-2.13.5.jar"/>
+	<classpathentry kind="lib" path="/SolidityRoleAdapter/lib/jackson-databind-2.13.5.jar"/>
+	<classpathentry kind="src" path="/SolidityRoleAdapter"/>
 	<classpathentry kind="src" path="/AccessControlMetamodel"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/edu.kit.kastel.sdq.soliditymetamodel"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

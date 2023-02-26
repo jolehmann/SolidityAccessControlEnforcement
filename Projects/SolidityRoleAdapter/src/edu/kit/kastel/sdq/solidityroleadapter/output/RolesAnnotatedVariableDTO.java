@@ -7,11 +7,23 @@ public class RolesAnnotatedVariableDTO extends RolesAnnotatedDTO {
 
 	List<String> missingModRoles;
 	List<String> missingInflRoles;
+	
+	public RolesAnnotatedVariableDTO() {
+		super();
+		this.missingModRoles = new ArrayList<String>();
+		this.missingInflRoles = new ArrayList<String>();
+	}
 
 	public RolesAnnotatedVariableDTO(String context, String name) {
 		super(context, name);
 		this.missingModRoles = new ArrayList<String>();
 		this.missingInflRoles = new ArrayList<String>();
+	}
+	
+	public RolesAnnotatedVariableDTO(String context, String name, List<String> missingModRoles, List<String> missingInflRoles) {
+		super(context, name);
+		this.missingModRoles = missingModRoles;
+		this.missingInflRoles = missingInflRoles;
 	}
 	
 	public void setMissingModRoles(List<String> missingModRoles) {

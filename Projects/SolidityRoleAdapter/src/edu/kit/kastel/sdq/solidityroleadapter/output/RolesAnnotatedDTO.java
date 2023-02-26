@@ -7,6 +7,11 @@ public abstract class RolesAnnotatedDTO {
 	String context;
 	String name;
 	
+	public RolesAnnotatedDTO() {
+		this.context = "default_context";
+		this.name = "default_name";
+	}
+	
 	public RolesAnnotatedDTO(String context, String name) {
 		this.context = context;
 		this.name = name;

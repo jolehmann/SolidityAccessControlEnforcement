@@ -13,6 +13,11 @@ public class AffectedObjectSetDTO {
 		this.variables = new ArrayList<RolesAnnotatedVariableDTO>();
 	}
 	
+	public AffectedObjectSetDTO(List<RolesAnnotatedFunctionDTO> functions, List<RolesAnnotatedVariableDTO> variables) {
+		this.functions = functions;
+		this.variables = variables;
+	}
+	
 	public List<RolesAnnotatedFunctionDTO> getFunctions() {
 		return functions;
 	}
