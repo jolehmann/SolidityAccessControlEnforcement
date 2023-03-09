@@ -8,18 +8,28 @@ Due to the public nature of the blockchain, every address on the chain can acces
 However, changes to the state variables of a contract should, in many cases, be restricted to certain addresses instead of every possible blockchain user. 
 In a banking application for example, the functions to deposit or withdraw money are publicly available while the access to a certain account should be limited to the registered account holder.
 
-To check this property as soon as possible during the development process, we develop the [AccessControlMetamodel](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/Metamodel) for modelling the role-based access control requirements on an architectural level as well as deriving formal specifications from these requirements with the [AccessControlGenerator](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/AccessControlGenerator). 
+To check this property as soon as possible during the development process, we develop the [AccessControlMetamodel](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/Metamodel) for modelling the role-based access control requirements on an architectural level as well as deriving formal specifications from these requirements with the [AccessControlGenerator](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/AccessControlGenerator). 
 For this, we combine model-driven software development (*MDSD*) using the Eclipse Modeling Framework (*EMF*) with formal methods and verification.
 To do so, we focus on defining the information needed to model access control policies on an architectural level as well as how the resulting elements can be connected.
 Additionally, we define how these policies can be translated into formal specifications that enforce the access control policies using verification tools like [solc-verify](https://github.com/SRI-CSL/solidity) & [Slither](https://github.com/crytic/slither).
 This allows the developer to see violations and possible security risks very early in the development process.
 
+In a further step, the results of Slither and solc-verify should be transferred back to the modeled system. For this purpose, the obtained analysis data of the tools Slither and solc-verify are combined with the [SolidityRoleAdapter](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/SolidityRoleAdapter). A worklist algorithm is used to resolve the dependencies. Role annotations, which are also included in this data, are used to calculate whether accesses from roles to variables occur that were not previously intended and modeled in the system.
+In the following the found role-relations can be returned with the [MissingRoleRelationAdder](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/MissingRoleRelationAdder) into a copy of the original system. In this way, the result of the analysis can be illustrated by directly comparing the old and the modified system.
+It becomes clear which additional access rights have been introduced by the code.
+
 ## Project Structure
 
-- [AccessControlGenerator](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/AccessControlGenerator): the generator based on the Metamodel
-- [Examples](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/Examples): contains the concrete instances of the example use cases and scenarios
+- [Examples](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Examples): contains the concrete instances of the example use cases and scenarios
 - [Metamodel](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/Metamodel): Ecore / EMF Project containing the created metamodel as well as the generated .edit & .editor
-- [influence_and_calls_plugin](https://github.com/KASTEL-CSSDA/SolidityAccessControlEnforcement/tree/main/influence_and_calls_plugin): printer extension for the Slither framework to reason about indirect influences
+- [Projects](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects): the folder with all applications and plugins
+
+The Projects include:
+
+- [AccessControlGenerator](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/AccessControlGenerator): the generator based on the Metamodel
+- [influence_and_calls_plugin](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/influence_and_calls_plugin): printer extension for the Slither framework to reason about indirect influences
+- [SolidityRoleAdapter](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/SolidityRoleAdapter): adapter to parse slither and solc-verify results and calculate missing role relations
+- [MissingRoleRelationAdder](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Projects/MissingRoleRelationAdder): Creates a modified copy of the modelled system with all generated missing role relations
 
 ## Installation
 
@@ -40,11 +50,65 @@ To employ the metamodel and the generator, you can use the included Eclipse proj
 	3. Xtend & Xtend IDE
     4. SDQ Commons
 	
-	If a security warning is shown, just click "Install anyway". For completeness, you can view a list of all installed software packages as well as their version for a running eclipse configuration here: ![Needed projects](/NeededInstalls.png)
+	If a security warning is shown, just click "Install anyway". For completeness, you can view a list of all installed software packages as well as their version for a running eclipse configuration here: [Needed projects](/NeededInstalls.png)
 5. Restart Eclipse (you will be prompted to do so)
 6. If you close the welcoming screen, the "Model Explorer" View should be open. If not, you can open it under "Window" > "Show View" > "Model Explorer".
 7. Import the Projects from the "AccessControlGenerator" and "Metamodel" folder as follows: 
 8. In the "Model Explorer", navigate to "AccessControlMetamodel" > "model" > "AccessControlMetamodel.ecore" > "AccessControlMetamodel" and either "AccessControlSystem or "SmartContractModel".
+
+If there are over 200 errors in the edu.kit.kastel.sdq.soliditycodegenerator folder that state that a certain sequence cannot be resolved to a type (e.g. "Â cannot be resolved to a type."), you need to right-click on the folder > "Properties" > "Resource" (should already be selected) and change the "Text file encoding" from "Inherited from container" to "Other:" > "UTF-8". Now apply and close the properties window and after a re-build there should be no errors left.
+
+### Installing Solc (Solidity Compiler)
+
+To use slither and our implemented printer on a Solidity smart contract we must use Solc, so we employ Linux. To setup all necessary tools and packages, you need to follow these steps:
+1. Install Python 3.6+ with pip (no further instructions are given since it is often pre-installed or the installation depends on the linux system you are using)
+2. Install CMake
+3. Install Boost
+4. Install z3
+    ```Bash
+	$ curl --silent "https://api.github.com/repos/Z3Prover/z3/releases/latest" | grep browser_download_url | grep -E 'ubuntu' | cut -d '"' -f 4 | wget -qi - -O z3.zip
+	$ sudo sh -c ' unzip -p z3.zip "*bin/z3" > /usr/local/bin/z3'
+	$ sudo chmod a+x /usr/local/bin/z3
+5. Clone the solidity project using:
+    ```Bash
+	$ git clone --recursive https://github.com/ethereum/solidity.git
+  	$ cd solidity
+   ```
+6. Run the following:
+    ```Bash
+	$ mkdir build
+	$ cd build
+  	$ cmake .. && make
+   ```
+
+All can be found in the official [instructions](https://docs.soliditylang.org/en/latest/installing-solidity.html\#building-from-source)
+
+
+### Installing the Slither printer
+
+1. Install Slither using the following command:
+    ```Bash
+	$ git clone https://github.com/crytic/slither.git
+	$ cd slither
+	$ python3 setup.py install
+    ```
+    If for some reason that does not work, you can see some alternatives in [Slithers documentation](https://github.com/crytic/slither\#how-to-install)
+2. Copy the "influence_and_calls_plugin" folder to the same folder where slither was installed
+3. Navigate inside the "influence_and_calls_plugin" folder and open a new terminal
+4. Enter the following command to install the custom printer:
+    ```Bash
+	$ python3 setup.py develop
+    ```
+5. If no errors occured during the installation, the printer is now successfully installed. To test it, you can enter the following command in any folder that contains the Solidity file *Filename* that you want to analyze:
+    ```Bash
+	$ slither <Filename>.sol --print influence-and-calls
+    ```
+
+### Installing Solc-Verify
+
+To install and to use the tool solc-verify use the official instruction to [build and install](https://github.com/SRI-CSL/solidity/blob/0.7/SOLC-VERIFY-README.md#build-and-install) it.
+
+## Using the Generator and Analysis Tools
 
 ### Looking at the Examples & Using the Generator
 
@@ -59,30 +123,31 @@ To look at the created examples or create your own examples, as well as run the 
 7. Now the newly created file is opened and new elements can be added with a right-click. Their properties can be looked at and changed in the "Properties" view.
 8. If you want to generate Solidity code based on the models, you need to select at least one ".smartcontractmodel" and one ".accesscontrolsystem" file and right-click. Now the generator can be started by selecting "Access Control Generator" > "Generate Smart Contract with Access Control". Now a soundness check is started before the generation. If that check finds any problems, it communicates them back to the developer. In any case, a new folder called "gen" is created. The generator puts the created smart contracts there or a .log file if the soundness check fails.
 
-### Installing the Slither printer
+### Using the SolidityRoleAdapter
 
-To use slither and our implemented printer on a Solidity smart contract, we employ Linux. To setup all necessary tools and packages, you need to follow these steps:
-1. Install Python 3.6+ with pip (no further instructions are given since it is often pre-installed or the installation depends on the linux system you are using)
-2. Install solc, the Solidity compiler by following [these instructions](https://docs.soliditylang.org/en/latest/installing-solidity.html\#building-from-source)
-3. Install Slither using the following command:
-    ```Bash
-	$ git clone https://github.com/crytic/slither.git
-	$ cd slither
-	$ python3 setup.py install
-    ```
-    If for some reason that does not work, you can see some alternatives in [Slithers documentation](https://github.com/crytic/slither\#how-to-install)
-4. Copy the "influence_and_calls_plugin" folder to the same folder where slither was installed
-5. Navigate inside the "influence_and_calls_plugin" folder and open a new terminal
-6. Enter the following command to install the custom printer:
-    ```Bash
-	$ python3 setup.py develop
-    ```
-7. If no errors occured during the installation, the printer is now successfully installed. To test it, you can enter the following command in any folder that contains the Solidity file *Filename* that you want to analyze:
-    ```Bash
-	$ slither <Filename>.sol --print influence-and-calls
-    ```
+The following instruction is taken from its README:
 
-### Troubleshooting
+Combines the results of slither and solcverify in a new output file.
+Input files must be located in the data folder to be found by the adapter.
 
-If there are over 200 errors in the edu.kit.kastel.sdq.soliditycodegenerator folder that state that a certain sequence cannot be resolved to a type (e.g. "Â cannot be resolved to a type."), you need to right-click on the folder > "Properties" > "Resource" (should already be selected) and change the "Text file encoding" from "Inherited from container" to "Other:" > "UTF-8". Now apply and close the properties window and after a re-build there should be no errors left.
+A 'RoleAnnotation.txt',
+a 'SolcVerifyResults.txt',
+and all available 'SlitherResults<< - classname>>.txt' files must be provided.
+They are found for example in the Example Augur in its [gen](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Examples/Augur/gen) and [results](https://github.com/jolehmann/SolidityAccessControlEnforcement/tree/role-annotations/Examples/Augur/results) folder.
 
+To execute the Parsers, simply run the SolidityRoleAdapter ('as Java Aplication').
+Parsed Values are written to the console for an overview, which can be disabled by setting PRINT_CONSOLE_INFO to false.
+
+The result is written to the 'SolidityRoleAdapter - Results.txt' file.
+Furthermore a JSON file is generated ('SolidityRoleAdapter - Results.json') which should be transferred to the next step: Using it to add the missing role relations to the model.
+
+### Using the MissingRoleRelationAdder
+
+For this you have to put all of the AccessControlSystem and SmartContractModel files of the used model into the main folder of the project.
+For Example: Augur.accesscontrolsystem, Market.smartcontractmodel, MarketManagement.smartcontractmodel
+
+After referencing the main file in the field 'FILE_URI_ACS' and the smartcontractmodel in the field 'FILE_URI_SCM' you have to provide the file 'SolidityRoleAdapter - Results.json' in the data folder of the project as well.
+
+After running the MissingRoleRelationadder ('as Java Aplication') a new file is created in the main directory of the project called like specified in the field 'FILE_URI_UPDATED_ACS', for example: Augur_modified.accesscontrolsystem.
+
+In the nested running eclipse instance, where the plugin to show AccessControlSystems is loaded, you can now analyse this model and the differences to its original.
