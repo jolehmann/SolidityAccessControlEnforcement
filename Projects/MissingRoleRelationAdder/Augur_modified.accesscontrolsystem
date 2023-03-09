@@ -81,83 +81,83 @@
   <roleToVariableTuples id="_s7Y1cExqEeyjw6u_kicIaw" entityName="Creator can influence shares by influencing when the trading starts" role="_OkgL0UxEEeyamoFIdSeJxw" modifies="false">
     <variable href="Market.smartcontractmodel#_m8LMM0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXswLYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Settlement Phase Active" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
+  <roleToVariableTuples id="_HVQMYLdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Settlement Phase Active" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXswbYbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Settlement Phase Active" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
+  <roleToVariableTuples id="_HVQMYbdEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Settlement Phase Active" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXswrYbEe2toKwfuYDMaw" entityName="Generated Relation: Shareholder is able to modify Settlement Phase Active" role="_k00MMUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
+  <roleToVariableTuples id="_HVQzcLdEEe2hCvnJhOot2w" entityName="Generated Relation: Shareholder is able to modify Settlement Phase Active" role="_k00MMUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_dyWx40xLEeynGZOoHpf2pA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXsw7YbEe2toKwfuYDMaw" entityName="Generated Relation: Market Creator is able to modify Creation Bond Paid Out" role="_OkgL0UxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzcbdEEe2hCvnJhOot2w" entityName="Generated Relation: Market Creator is able to modify Creation Bond Paid Out" role="_OkgL0UxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXsxLYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Creation Bond Paid Out" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzcrdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Creation Bond Paid Out" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQXsxbYbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Creation Bond Paid Out" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzc7dEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Creation Bond Paid Out" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT0LYbEe2toKwfuYDMaw" entityName="Generated Relation: Shareholder is able to modify Creation Bond Paid Out" role="_k00MMUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzdLdEEe2hCvnJhOot2w" entityName="Generated Relation: Shareholder is able to modify Creation Bond Paid Out" role="_k00MMUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_sLHiA0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT0bYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Designated Reporter Reported" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_5vklg0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzdbdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Designated Reporter Reported" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_5vklg0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT0rYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Designated Reporter Reported" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_5vklg0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVQzdrdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Designated Reporter Reported" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_5vklg0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT07YbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Disagree Counter" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVQzd7dEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Disagree Counter" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT1LYbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Disagree Counter" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVRagLdEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Disagree Counter" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT1bYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Disagree Counter" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVRagbdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Disagree Counter" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_r6Gcw0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT1rYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Disputes" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
+  <roleToVariableTuples id="_HVRagrdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Disputes" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQYT17YbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Disputes" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
+  <roleToVariableTuples id="_HVRag7dEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Disputes" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY64LYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Disputes" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
+  <roleToVariableTuples id="_HVRahLdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Disputes" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_sn71I0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY64bYbEe2toKwfuYDMaw" entityName="Generated Relation: Market Creator is able to modify Shares" role="_OkgL0UxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_m8LMM0xCEeyamoFIdSeJxw"/>
+  <roleToVariableTuples id="_HVRahbdEEe2hCvnJhOot2w" entityName="Generated Relation: Market Creator is able to modify Shares" role="_OkgL0UxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_m8LMM0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY64rYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Shares" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_m8LMM0xCEeyamoFIdSeJxw"/>
+  <roleToVariableTuples id="_HVRahrdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Shares" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_m8LMM0xCEeyamoFIdSeJxw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY647YbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Reported Outcome" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_ROx7k0xWEeyj2PuK7DREcw"/>
+  <roleToVariableTuples id="_HVRah7dEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Reported Outcome" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_ROx7k0xWEeyj2PuK7DREcw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY65LYbEe2toKwfuYDMaw" entityName="Generated Relation: Shareholder is able to modify Reported Outcome" role="_k00MMUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_ROx7k0xWEeyj2PuK7DREcw"/>
+  <roleToVariableTuples id="_HVRaiLdEEe2hCvnJhOot2w" entityName="Generated Relation: Shareholder is able to modify Reported Outcome" role="_k00MMUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_ROx7k0xWEeyj2PuK7DREcw"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY65bYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Open Reporter" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVSBkLdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Open Reporter" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY65rYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Open Reporter" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVSBkbdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Open Reporter" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY657YbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Open Reporter" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
+  <roleToVariableTuples id="_HVSBkrdEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Open Reporter" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_GY89U0xdEey-QZr4N-F2BA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY66LYbEe2toKwfuYDMaw" entityName="Generated Relation: Market Creator is able to modify Trading Active" role="_OkgL0UxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_TA1JA0xLEeynGZOoHpf2pA"/>
+  <roleToVariableTuples id="_HVSBk7dEEe2hCvnJhOot2w" entityName="Generated Relation: Market Creator is able to modify Trading Active" role="_OkgL0UxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_TA1JA0xLEeynGZOoHpf2pA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY66bYbEe2toKwfuYDMaw" entityName="Generated Relation: Open Reporter is able to modify Agree Counter" role="_XVL08UxdEey-QZr4N-F2BA">
-    <variable href="data/Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVSBlLdEEe2hCvnJhOot2w" entityName="Generated Relation: Open Reporter is able to modify Agree Counter" role="_XVL08UxdEey-QZr4N-F2BA">
+    <variable href="Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQY66rYbEe2toKwfuYDMaw" entityName="Generated Relation: Designated Reporter is able to modify Agree Counter" role="_WjqawUxEEeyamoFIdSeJxw">
-    <variable href="data/Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVSBlbdEEe2hCvnJhOot2w" entityName="Generated Relation: Designated Reporter is able to modify Agree Counter" role="_WjqawUxEEeyamoFIdSeJxw">
+    <variable href="Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
-  <roleToVariableTuples id="_BQZh8LYbEe2toKwfuYDMaw" entityName="Generated Relation: Manager is able to modify Agree Counter" role="_LVMwsUxkEeyjw6u_kicIaw">
-    <variable href="data/Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
+  <roleToVariableTuples id="_HVSBlrdEEe2hCvnJhOot2w" entityName="Generated Relation: Manager is able to modify Agree Counter" role="_LVMwsUxkEeyjw6u_kicIaw">
+    <variable href="Market.smartcontractmodel#_pV-TI0xYEeyTx7SMCNNJcA"/>
   </roleToVariableTuples>
   <roles id="_OkgL0UxEEeyamoFIdSeJxw" entityName="Market Creator" description="The entity that created the market. Reponsible for selecting a reporter and changing the bonds" cardinality="1"/>
   <roles id="_WjqawUxEEeyamoFIdSeJxw" entityName="Designated Reporter" description="Reporter to report the outcome within the first 24 hours after the event occurred" cardinality="1"/>

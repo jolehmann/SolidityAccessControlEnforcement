@@ -32,11 +32,11 @@ import edu.kit.kastel.sdq.solidityroleadapter.output.RolesAnnotatedVariableDTO;
  */
 public class MissingRoleRelationAdder {
 
-	private static final String FILE_URI_ACS = "data/Augur.accesscontrolsystem";
-	private static final String FILE_URI_UPDATED_ACS = "data/Augur_new.accesscontrolsystem";
+	private static final String FILE_URI_ACS = "Augur.accesscontrolsystem";
+	private static final String FILE_URI_UPDATED_ACS = "Augur_modified.accesscontrolsystem";
 	private static final String FILE_EXTENSION_ACS = "accesscontrolsystem";
 
-	private static final String FILE_URI_SCM = "data/Market.smartcontractmodel";
+	private static final String FILE_URI_SCM = "Market.smartcontractmodel";
 	private static final String FILE_EXTENSION_SCM = "smartcontractmodel";
 
 	private static final String JSON_FILE_URI = "data/SolidityRoleAdapter - Results.json";
@@ -149,7 +149,8 @@ public class MissingRoleRelationAdder {
 	private static Resource loadModel(String fileExtension, String fileURI) {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(fileExtension,
 				new XMIResourceFactoryImpl());
-		return resourceSet.getResource(URI.createFileURI(fileURI), true);
+		Resource resource = resourceSet.getResource(URI.createFileURI(fileURI), true);
+		return resource;
 	}
 
 	/**
