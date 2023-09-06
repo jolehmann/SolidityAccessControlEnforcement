@@ -32,19 +32,27 @@ import edu.kit.kastel.sdq.solidityroleadapter.output.RolesAnnotatedVariableDTO;
  */
 public class MissingRoleRelationAdder {
 
-	private static final String FILE_URI_ACS = "Augur.accesscontrolsystem";
-	private static final String FILE_URI_UPDATED_ACS = "Augur_modified.accesscontrolsystem";
+	private static String FILE_URI_ACS = "Augur.accesscontrolsystem";
 	private static final String FILE_EXTENSION_ACS = "accesscontrolsystem";
 
-	private static final String FILE_URI_SCM = "Market.smartcontractmodel";
+	private static String FILE_URI_SCM = "Market.smartcontractmodel";
 	private static final String FILE_EXTENSION_SCM = "smartcontractmodel";
 
-	private static final String JSON_FILE_URI = "data/SolidityRoleAdapter - Results.json";
+	private static String JSON_FILE_URI = "data/SolidityRoleAdapter - Results.json";
+	
+	private static String FILE_URI_UPDATED_ACS = "Augur_modified.accesscontrolsystem";
 
 	private static ResourceSet resourceSet = new ResourceSetImpl();
 	private static AccessControlSystemFactory relationFactory = new AccessControlSystemFactoryImpl();
 
 	public static void main(String[] args) {
+		
+		if (args.length == 4) {
+			FILE_URI_ACS = args[0];
+			FILE_URI_SCM = args[1];
+			JSON_FILE_URI = args[2];
+			FILE_URI_UPDATED_ACS = args[3];
+		}
 
 		// Load AccessControlSystem and AccessControlContract
 		EPackage.Registry.INSTANCE.put(AccessControlSystemPackage.eNS_URI, AccessControlSystemPackage.eINSTANCE);

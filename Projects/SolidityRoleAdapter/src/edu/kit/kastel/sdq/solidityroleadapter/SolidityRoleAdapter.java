@@ -18,23 +18,31 @@ import edu.kit.kastel.sdq.solidityroleadapter.parser.SlitherResultParser;
 import edu.kit.kastel.sdq.solidityroleadapter.parser.SolcVerifyResultParser;
 
 public class SolidityRoleAdapter {
-	public static final String URI_SOLC_VERIFY = "data/SolcVerifyResults.txt";
-	public static final String URI_SLITHER = "data/SlitherResults - Market.txt";
-	public static final String URI_ROLE_ANNOTATIONS = "data/RoleAnnotations.txt";
+	public static String URI_SOLC_VERIFY = "data/SolcVerifyResults.txt";
+	public static String URI_SLITHER = "data/SlitherResults - Market.txt";
+	public static String URI_ROLE_ANNOTATIONS = "data/RoleAnnotations.txt";
 
-	public static final String URI_OF_RESULT_TXT_FILE = "data/SolidityRoleAdapter - Results.txt";
-	public static final String URI_OF_RESULT_JSON_FILE = "data/SolidityRoleAdapter - Results.json";
+	public static String URI_OF_RESULT_TXT_FILE = "data/SolidityRoleAdapter - Results.txt";
+	public static String URI_OF_RESULT_JSON_FILE = "data/SolidityRoleAdapter - Results.json";
 
 	private static final ConsoleInfoPrinter consoleInfoPrinter = new ConsoleInfoPrinter();
-	private static final boolean PRINT_CONSOLE_INFO = true;
+	private static final boolean PRINT_CONSOLE_INFO = false;
 
 	static RoleAnnotationParser roleAP = new RoleAnnotationParser();
 	static SolcVerifyResultParser solcVRP = new SolcVerifyResultParser();
 	static SlitherResultParser slitherRP = new SlitherResultParser();
-	
+
 	static ResultWriter resultWriter = new ResultWriter();
-	
+
 	public static void main(String[] args) {
+
+		if (args.length == 5) {
+			URI_SOLC_VERIFY = args[0];
+			URI_SLITHER = args[1];
+			URI_ROLE_ANNOTATIONS = args[2];
+			URI_OF_RESULT_TXT_FILE = args[3];
+			URI_OF_RESULT_JSON_FILE = args[4];
+		}
 
 		// Setup
 
