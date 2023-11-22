@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: AccessControlGenerator
 Bundle-SymbolicName: edu.kit.kastel.sdq.accesscontrolgenerator;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Export-Package: edu.kit.kastel.sdq.accesscontrolgenerator.handlers
 Require-Bundle: org.eclipse.ui,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,

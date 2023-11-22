@@ -39,14 +39,14 @@ public class MissingRoleRelationAdder {
 	private static final String FILE_EXTENSION_SCM = "smartcontractmodel";
 
 	private static String JSON_FILE_URI = "data/SolidityRoleAdapter - Results.json";
-	
+
 	private static String FILE_URI_UPDATED_ACS = "Augur_modified.accesscontrolsystem";
 
 	private static ResourceSet resourceSet = new ResourceSetImpl();
 	private static AccessControlSystemFactory relationFactory = new AccessControlSystemFactoryImpl();
 
 	public static void main(String[] args) {
-		
+
 		if (args.length == 4) {
 			FILE_URI_ACS = args[0];
 			FILE_URI_SCM = args[1];
@@ -57,8 +57,8 @@ public class MissingRoleRelationAdder {
 		// Load AccessControlSystem and AccessControlContract
 		EPackage.Registry.INSTANCE.put(AccessControlSystemPackage.eNS_URI, AccessControlSystemPackage.eINSTANCE);
 
-		AccessControlSystem acSystem = (AccessControlSystem) loadModel(FILE_EXTENSION_ACS, FILE_URI_ACS).getContents()
-				.get(0);
+		Resource res1 = loadModel(FILE_EXTENSION_ACS, FILE_URI_ACS); // explicit alloc to unload the res1 at the end.
+		AccessControlSystem acSystem = (AccessControlSystem) res1.getContents().get(0);
 		AccessControlContract acContract = (AccessControlContract) loadModel(FILE_EXTENSION_SCM, FILE_URI_SCM)
 				.getContents().get(0);
 
@@ -87,6 +87,7 @@ public class MissingRoleRelationAdder {
 		newAccessControlSystemRes.getContents().add(acSystem);
 
 		saveModel(newAccessControlSystemRes);
+		res1.unload();
 	}
 
 	/**
@@ -150,10 +151,10 @@ public class MissingRoleRelationAdder {
 	 * Returns the Resource located at the specified URI.
 	 * 
 	 * @param fileExtension the models file extension
-	 * @param fileURI the path to the file of the model
+	 * @param fileURI       the path to the file of the model
 	 * @return the Resource
 	 */
-	
+
 	private static Resource loadModel(String fileExtension, String fileURI) {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(fileExtension,
 				new XMIResourceFactoryImpl());
@@ -163,13 +164,14 @@ public class MissingRoleRelationAdder {
 
 	/**
 	 * Returns a new Resource located at the specified URI. <br>
-	 * It can be saved to the specified path with {@link #saveModel(Resource resource)}
+	 * It can be saved to the specified path with
+	 * {@link #saveModel(Resource resource)}
 	 * 
 	 * @param fileExtension the models file extension
-	 * @param fileURI the path to the file of the model
+	 * @param fileURI       the path to the file of the model
 	 * @return the created Resource
 	 */
-	
+
 	private static Resource createResource(String fileExtension, String fileURI) {
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(fileExtension,
 				new XMIResourceFactoryImpl());
@@ -181,7 +183,7 @@ public class MissingRoleRelationAdder {
 	 * 
 	 * @param resource the Resource which should be saved
 	 */
-	
+
 	private static void saveModel(Resource resource) {
 		try {
 			resource.save(null);
@@ -197,7 +199,7 @@ public class MissingRoleRelationAdder {
 	 * @param input the input String
 	 * @return the new String
 	 */
-	
+
 	private static String firstToLower(String input) {
 		char[] sequence = input.toCharArray();
 		sequence[0] = Character.toLowerCase(sequence[0]);
@@ -205,12 +207,13 @@ public class MissingRoleRelationAdder {
 	}
 
 	/**
-	 * Creates an AffectedObjectSetDTO from a JSON File located at the specified URI.
+	 * Creates an AffectedObjectSetDTO from a JSON File located at the specified
+	 * URI.
 	 * 
 	 * @param uri its file path
 	 * @return the parsed Object
 	 */
-	
+
 	private static AffectedObjectSetDTO loadFromJSON(String uri) {
 		AffectedObjectSetDTO affectedObjectSetDTO = new AffectedObjectSetDTO();
 
